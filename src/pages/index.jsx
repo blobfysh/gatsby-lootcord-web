@@ -1,56 +1,61 @@
-import React, { useEffect, useState } from 'react'
-import { Helmet } from 'react-helmet'
-import '../styles/index.css'
+import React from 'react'
 
-function Index() {
-	const [date, setDate] = useState(null)
-	useEffect(() => {
-		async function getDate() {
-			const res = await fetch('/api/date')
-			const newDate = await res.text()
-			setDate(newDate)
-		}
-		getDate()
-	}, [])
+import { graphql } from 'gatsby'
+import Layout from '../components/layout/layout'
+import SEO from '../components/seo'
+import Post from '../components/post/post'
+
+function Home({ data }) {
 	return (
-		<main>
-			<Helmet>
-				<title>Gatsby + Node.js (TypeScript) API</title>
-			</Helmet>
-			<h1>Gatsby + Node.js (TypeScript) API</h1>
-			<h2>
-				Deployed with{' '}
-				<a
-					href='https://vercel.com/docs'
-					target='_blank'
-					rel='noreferrer noopener'
-				>
-					Vercel
-				</a>
-				!
-			</h2>
-			<p>
-				<a
-					href='https://github.com/vercel/vercel/tree/master/examples/gatsby'
-					target='_blank'
-					rel='noreferrer noopener'
-				>
-					This project
-				</a>{' '}
-				is a <a href='https://www.gatsbyjs.org/'>Gatsby</a> app with two
-				directories, <code>/src</code> for static content and <code>/api</code>{' '}
-				which contains a serverless{' '}
-				<a href='https://nodejs.org/en/'>Node.js (TypeScript)</a> function. See{' '}
-				<a href='/api/date'>
-					<code>api/date</code> for the Date API with Node.js (TypeScript)
-				</a>
-				.
-			</p>
-			<br />
-			<h2>The date according to Node.js (TypeScript) is:</h2>
-			<p>{date ? date : 'Loading date...'}</p>
-		</main>
+		<Layout>
+			<SEO />
+			<div>
+				<h1 className='title'>Welcome to My Blog</h1>
+				<h2>{data.allMarkdownRemark.totalCount} Posts</h2>
+				{data.allMarkdownRemark.edges.map(({ node }) => (
+					<Post
+						title={node.frontmatter.title}
+						slug={`/blog${node.fields.slug}`}
+						image={node.frontmatter.image.childImageSharp.fixed}
+						date={node.frontmatter.date}
+						excerpt={node.excerpt}
+						key={node.id}
+					/>
+				))}
+			</div>
+		</Layout>
 	)
 }
 
-export default Index
+export const query = graphql`
+	query {
+		allMarkdownRemark(
+			filter: { fileAbsolutePath: { regex: "/blog/" } }
+			sort: { fields: frontmatter___date, order: DESC }
+		) {
+			totalCount
+			edges {
+				node {
+					id
+					frontmatter {
+						title
+						date(formatString: "DD MMMM, YYYY")
+						image {
+							childImageSharp {
+								fixed(height: 100) {
+									...GatsbyImageSharpFixed
+								}
+							}
+						}
+					}
+					fields {
+						slug
+					}
+					excerpt
+				}
+			}
+		}
+	}
+`
+
+export default Home

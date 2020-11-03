@@ -1,21 +1,18 @@
-![Gatsby Logo](https://github.com/vercel/vercel/blob/master/packages/frameworks/logos/gatsby.svg)
+# WORK IN PROGRESS
 
-# Gatsby Example
+This will soon be the home of the new Lootcord website remade with [React](https://reactjs.org/) using [GatsbyJS](https://www.gatsbyjs.com/)
 
-This directory is a brief example of a [Gatsby](https://www.gatsbyjs.org/) app with [Serverless Functions](https://vercel.com/docs/v2/serverless-functions/introduction) that can be deployed with Vercel and zero configuration.
-
-## Deploy Your Own
-
-Deploy your own Gatsby project, along with Serverless Functions, with Vercel.
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/vercel/vercel/tree/master/examples/gatsby)
-
-_Live Example: https://gatsby.now-examples.now.sh_
-
-### How We Created This Example
-
-To get started with Gatsby on Vercel, you can use the [Gatsby CLI](https://www.gatsbyjs.org/docs/gatsby-cli/) to initialize the project:
-
-```shell
-$ gatsby new gatsby-site
-```
+- [x] SEO component
+- [x] Image optimization
+- [ ] Design layout with header and footer
+- [ ] Add theme toggle switch in the footer
+- [ ] Communicate with Lootcord api for leaderboard and command data on site build
+- [ ] Home page
+- [ ] Commands page
+- [ ] Faq page
+- [ ] Black market page that requests data from lootcord api using serverless function
+- [ ] Rules page
+- [ ] About page
+- [ ] Appeal page
+- [ ] Terms of Service page
+- [ ] Privacy Policy page
