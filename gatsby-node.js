@@ -14,6 +14,7 @@ exports.onCreateNode = async ({
 	createNodeId
 }) => {
 	const { createNodeField, createNode } = actions
+
 	if (node.internal.type === 'MarkdownRemark') {
 		const slug = createFilePath({ node, getNode })
 		createNodeField({
@@ -41,6 +42,7 @@ exports.onCreateNode = async ({
 
 exports.createPages = async ({ graphql, actions }) => {
 	const { createPage } = actions
+
 	const result = await graphql(`
 		query {
 			allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/blog/" } }) {
@@ -74,7 +76,6 @@ exports.sourceNodes = async ({
 	createContentDigest
 }) => {
 	const { createNode } = actions
-
 	let data
 
 	if (process.env.LOOTCORD_API) {
