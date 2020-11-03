@@ -1,6 +1,10 @@
+require('dotenv').config({
+	path: `.env.${process.env.NODE_ENV}`
+})
+
 module.exports = {
 	siteMetadata: {
-		siteUrl: 'https://www.example.com',
+		siteUrl: 'https://www.lootcord.com',
 		title: 'Lootcord',
 		description: 'A Rust themed fighting and looting bot for Discord.',
 		author: 'blobfysh'

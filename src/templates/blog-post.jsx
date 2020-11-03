@@ -13,9 +13,9 @@ export default function BlogPost({ data }) {
 				<h1 className='title is-2 has-text-centered'>
 					{post.frontmatter.title}
 				</h1>
-				<h5 className='subtitle is-4 has-text-centered'>
+				<h2 className='subtitle is-4 has-text-centered'>
 					{post.frontmatter.date}
-				</h5>
+				</h2>
 				<div
 					className='content'
 					dangerouslySetInnerHTML={{ __html: post.html }}
