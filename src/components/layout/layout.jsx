@@ -1,3 +1,9 @@
+/* import fonts
+import 'fontsource-open-sans'
+import 'fontsource-open-sans/800.css'
+import 'fontsource-arimo'
+*/
+
 // import global css
 import '../../styles/main.scss'
 

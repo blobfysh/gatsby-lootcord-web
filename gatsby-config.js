@@ -47,6 +47,15 @@ module.exports = {
 				display: 'minimal-ui',
 				icon: 'src/images/icon.png'
 			}
+		},
+		{
+			resolve: 'gatsby-plugin-google-fonts',
+			options: {
+				fonts: [
+					'arimo',
+					'open sans:400,800'
+				]
+			}
 		}
 	]
 }
