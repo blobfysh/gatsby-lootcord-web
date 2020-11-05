@@ -1,22 +1,16 @@
-/* import fonts
-import 'fontsource-open-sans'
-import 'fontsource-open-sans/800.css'
-import 'fontsource-arimo'
-*/
-
 // import global css
 import '../../styles/main.scss'
 
 // prismjs code styling
 import 'prismjs/themes/prism.css'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useLayoutEffect } from 'react'
 
 import Header from '../header/header'
 import styles from './layout.module.scss'
 
 function Layout({ children }) {
-	const [theme, setTheme] = useState(typeof window !== 'undefined' ? localStorage.getItem('theme') || 'light' : 'light')
+	const [theme, setTheme] = useState('light')
 
 	const toggleTheme = () => {
 		if (theme === 'light') {
@@ -27,13 +21,17 @@ function Layout({ children }) {
 		}
 	}
 
-	useEffect(() => {
-		document.body.className = `theme-${theme}`
+	// sets theme on component mount
+	// useLayoutEffect updates before browser paints whereas useEffect runs after component is rendered
+	useLayoutEffect(() => {
+		setTheme(localStorage.getItem('theme') || 'light')
+	}, [])
 
-		if (typeof window !== 'undefined') {
-			localStorage.setItem('theme', theme)
-		}
-	})
+	// listen for theme changes
+	useLayoutEffect(() => {
+		document.body.className = `theme-${theme}`
+		localStorage.setItem('theme', theme)
+	}, [theme])
 
 	return (
 		<div className={`${styles.layout} container`}>
