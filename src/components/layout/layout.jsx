@@ -16,7 +16,7 @@ import Header from '../header/header'
 import styles from './layout.module.scss'
 
 function Layout({ children }) {
-	const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light')
+	const [theme, setTheme] = useState(typeof window !== 'undefined' ? localStorage.getItem('theme') || 'light' : 'light')
 
 	const toggleTheme = () => {
 		if (theme === 'light') {
@@ -29,7 +29,10 @@ function Layout({ children }) {
 
 	useEffect(() => {
 		document.body.className = `theme-${theme}`
-		localStorage.setItem('theme', theme)
+
+		if (typeof window !== 'undefined') {
+			localStorage.setItem('theme', theme)
+		}
 	})
 
 	return (
