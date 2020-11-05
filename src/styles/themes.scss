@@ -1,0 +1,18 @@
+$themes: (
+    light: (
+        'bg-color': #ffffff
+    ),
+    dark: (
+        'bg-color': #2f3136
+    )
+);
+
+@each $name, $map in $themes {
+    .theme-#{$name} {
+        @each $key, $value in $map {
+            --#{$key}: #{$value};
+        }
+    }
+}
+
+// $hello: var(--bg-color);

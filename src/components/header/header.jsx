@@ -3,7 +3,7 @@ import React from 'react'
 import { useStaticQuery, Link, graphql } from 'gatsby'
 import styles from './header.module.scss'
 
-function Header() {
+function Header({ toggleTheme }) {
 	const data = useStaticQuery(
 		graphql`
 			query {
@@ -23,6 +23,9 @@ function Header() {
 						{data.site.siteMetadata.title.toUpperCase()}
 					</h3>
 				</Link>
+			</div>
+			<div>
+				<button className="button is-white" onClick={() => toggleTheme()}>Toggle theme</button>
 			</div>
 		</div>
 	)

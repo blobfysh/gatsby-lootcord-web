@@ -10,15 +10,31 @@ import '../../styles/main.scss'
 // prismjs code styling
 import 'prismjs/themes/prism.css'
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import Header from '../header/header'
 import styles from './layout.module.scss'
 
 function Layout({ children }) {
+	const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light')
+
+	const toggleTheme = () => {
+		if (theme === 'light') {
+			setTheme('dark')
+		}
+		else {
+			setTheme('light')
+		}
+	}
+
+	useEffect(() => {
+		document.body.className = `theme-${theme}`
+		localStorage.setItem('theme', theme)
+	})
+
 	return (
 		<div className={`${styles.layout} container`}>
-			<Header />
+			<Header toggleTheme={toggleTheme} />
 			{children}
 		</div>
 	)
