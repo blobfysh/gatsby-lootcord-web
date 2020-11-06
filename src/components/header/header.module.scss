@@ -1,6 +1,33 @@
-.nav {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    margin-bottom: 2.88rem;
+.patronButton {
+    max-height: none !important;
+    border-radius: 4px;
+}
+
+.controlButton {
+    font-size: 0.875rem;
+}
+
+.navBurger {
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    &:hover {
+        color: var(--nav-burger-color);
+    }
+}
+
+.navMenu {
+    box-shadow: none;
+}
+
+.navStyles {
+    transition: background-color ease .5s;
+}
+
+:global(.noTransitions) .navStyles {
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
 }

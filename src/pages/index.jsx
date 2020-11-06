@@ -11,7 +11,7 @@ function Home({ data }) {
 			<SEO />
 			<div>
 				<h1 className='title'>Welcome to My Blog</h1>
-				<h2>{data.allMarkdownRemark.totalCount} Posts</h2>
+				<h2 className='subtitle'>{data.allMarkdownRemark.totalCount} Posts</h2>
 				{data.allMarkdownRemark.edges.map(({ node }) => (
 					<Post
 						title={node.frontmatter.title}

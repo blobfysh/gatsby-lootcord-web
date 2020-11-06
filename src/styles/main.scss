@@ -29,5 +29,17 @@
 }
 
 body {
-    background-color: var(--bg-color);
+    background-color: var(--nav-bg-color);
+}
+
+span {
+    color: var(--p-txt-color);
+}
+
+p {
+    color: var(--p-txt-color);
+}
+
+a.link:hover {
+    text-decoration: underline;
 }

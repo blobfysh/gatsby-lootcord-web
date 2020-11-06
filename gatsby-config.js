@@ -52,8 +52,7 @@ module.exports = {
 			resolve: 'gatsby-plugin-google-fonts',
 			options: {
 				fonts: [
-					'arimo',
-					'open sans:400,800'
+					'open sans:400,600,800'
 				]
 			}
 		}

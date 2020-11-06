@@ -113,6 +113,7 @@ module.exports = {
 		'prefer-spread': 'error',
 		'rest-spread-spacing': 'error',
 		'import/no-anonymous-default-export': ['error', { allowArrowFunction: true }],
-		'object-curly-newline': ['error', { ImportDeclaration: 'never' }]
+		'object-curly-newline': ['error', { ImportDeclaration: 'never' }],
+		'jsx-quotes': ['error', 'prefer-single']
 	}
 }

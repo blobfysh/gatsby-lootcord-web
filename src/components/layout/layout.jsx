@@ -7,10 +7,12 @@ import 'prismjs/themes/prism.css'
 import React, { useState, useLayoutEffect } from 'react'
 
 import Header from '../header/header'
+import Footer from '../footer/footer'
 import styles from './layout.module.scss'
 
 function Layout({ children }) {
 	const [theme, setTheme] = useState('light')
+	const [transitionsEnabled, setTransitions] = useState(false)
 
 	const toggleTheme = () => {
 		if (theme === 'light') {
@@ -33,10 +35,19 @@ function Layout({ children }) {
 		localStorage.setItem('theme', theme)
 	}, [theme])
 
+	setTimeout(() => {
+		setTransitions(true)
+	}, 500)
+
 	return (
-		<div className={`${styles.layout} container`}>
-			<Header toggleTheme={toggleTheme} />
-			{children}
+		<div className={`${styles.contentFull} ${transitionsEnabled ? '' : 'noTransitions'}`}>
+			<Header theme={theme} toggleTheme={toggleTheme} />
+			<section className={`section ${styles.contentBody}`}>
+				<div className='container'>
+					{children}
+				</div>
+			</section>
+			<Footer />
 		</div>
 	)
 }
