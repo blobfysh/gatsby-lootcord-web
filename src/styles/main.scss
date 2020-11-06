@@ -32,11 +32,11 @@ body {
     background-color: var(--nav-bg-color);
 }
 
-span {
+span:not(.token) {
     color: var(--p-txt-color);
 }
 
-p {
+p:not(.token) {
     color: var(--p-txt-color);
 }
 
