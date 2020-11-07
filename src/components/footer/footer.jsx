@@ -26,27 +26,27 @@ function Footer() {
 						<ul className={styles.footerList}>
 							<li>
 								<Link className='link' to={'/'}>
-                                    Rules
+									Rules
 								</Link>
 							</li>
 							<li>
 								<Link className='link' to={'/'}>
-                                    About
+									About
 								</Link>
 							</li>
 							<li>
 								<Link className='link' to={'/'}>
-                                    Guides
+									Guides
 								</Link>
 							</li>
 							<li>
 								<Link className='link' to={'/'}>
-                                    Terms
+									Terms
 								</Link>
 							</li>
 							<li>
 								<Link className='link' to={'/'}>
-                                    Privacy
+									Privacy
 								</Link>
 							</li>
 						</ul>
