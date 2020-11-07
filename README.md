@@ -4,8 +4,8 @@ This will soon be the home of the new Lootcord website remade with [React](https
 
 - [x] SEO component
 - [x] Image optimization
-- [ ] Design layout with header and footer
-- [ ] Add theme toggle switch in the footer
+- [x] Design layout with header and footer
+- [x] Add theme toggle switch in the footer
 - [ ] Communicate with Lootcord api for leaderboard and command data on site build
 - [ ] Home page
 - [ ] Commands page
