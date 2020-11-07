@@ -1,5 +1,7 @@
 @charset 'utf-8';
 
+@import './themes.scss';
+
 // Import variables
 @import './variables.scss';
 
@@ -24,4 +26,20 @@
     h1, h2, h3, h4, h5 {
         font-family: $title-family
     }
+}
+
+body {
+    background-color: var(--nav-bg-color);
+}
+
+span:not(.token) {
+    color: var(--p-txt-color);
+}
+
+p:not(.token) {
+    color: var(--p-txt-color);
+}
+
+a.link:hover {
+    text-decoration: underline;
 }

@@ -6,16 +6,12 @@
     align-items: center;
     margin-top: 10px;
     padding: 10px;
-    background-color: #d6d6d6;
+    background-color: var(--card-bg-color);
     border-radius: 5px;
     min-height: 100px;
 
-    p {
-        color: #393939;
-    }
-
     &:hover {
-        background-color: #c3c3c3;
+        background-color: var(--card-hover-bg-color);
     }
 }
 

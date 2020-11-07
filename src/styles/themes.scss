@@ -1,0 +1,38 @@
+$themes: (
+    light: (
+        'bg-color': #ffffff,
+        'nav-bg-color': #f2f2f2,
+        'nav-txt-color': #414c5a,
+        'nav-txt-hover': #1a1e24,
+        'nav-burger-color': #414c5a,
+        'links-color': #7289DA,
+        'title-color': rgba(30,30,30,.9),
+        'subtitle-color': #414c5a,
+        'card-bg-color': #d6d6d6,
+        'card-hover-bg-color': #c0c0c0,
+        'p-txt-color': #23272A
+    ),
+    dark: (
+        'bg-color': #2f3136,
+        'nav-bg-color': #202225,
+        'nav-txt-color': rgba(255,255,255,.6),
+        'nav-txt-hover': rgba(255,255,255,.75),
+        'nav-burger-color': rgba(255,255,255,.5),
+        'links-color': #7289DA,
+        'title-color': #ffffff,
+        'subtitle-color': #e5e5e5,
+        'card-bg-color': #292b2f,
+        'card-hover-bg-color': #24262a,
+        'p-txt-color': #e5e5e5
+    )
+);
+
+@each $name, $map in $themes {
+    .theme-#{$name} {
+        @each $key, $value in $map {
+            --#{$key}: #{$value};
+        }
+    }
+}
+
+// $hello: var(--bg-color);

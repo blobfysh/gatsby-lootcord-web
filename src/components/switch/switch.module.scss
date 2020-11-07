@@ -1,0 +1,77 @@
+.switchWrap {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+	-moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    display: flex;
+    cursor: pointer;
+}
+
+.switch {
+    display: inline-block;
+    height: 20px;
+    position: relative;
+    width: 40px;
+    margin-top: 1px;
+    margin-bottom: 0;
+}
+
+.switchText {
+    margin-right: 10px;
+}
+
+.switchHandle {
+    background-color: #ccc;
+	bottom: 0;
+	cursor: pointer;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+    transition: .4s;
+    border-radius: 34px;
+
+    &.isChecked {
+        background-color: #66bb6a;
+    }
+    &.isChecked:before {
+        transform: translateX(19px);
+    }
+}
+
+.switchHandle:before {
+    background-color: #fff;
+	bottom: 3px;
+	content: "";
+	height: 14px;
+	left: 4px;
+	position: absolute;
+	transition: transform .4s;
+    width: 14px;
+    border-radius: 50%;
+}
+
+.inputOutline:before {
+    box-shadow: #ffffff 0px 0px 2px 3px;
+}
+
+.switchInput {
+    outline: none;
+}
+
+:global(.noTransitions) .switchHandle {
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+
+:global(.noTransitions) .switchHandle:before {
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
