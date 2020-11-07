@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 
 import { Link } from 'gatsby'
+import ThemeContext from '../../context/ThemeContext'
 import lightThemeLogo from '../../images/lootcordlogodark.png'
 import darkThemeLogo from '../../images/lootcordlogowhite.png'
 import patronButton from '../../images/patron_button.png'
 import styles from './header.module.scss'
 
-function Header({ theme, toggleTheme }) {
+function Header() {
+	const theme = useContext(ThemeContext)[0]
 	const [menuActive, setMenuActive] = useState(false)
 
 	const toggleMenu = () => {
@@ -60,11 +62,6 @@ function Header({ theme, toggleTheme }) {
 					<div className='navbar-end'>
 						<div className='navbar-item'>
 							<div className='field is-grouped is-grouped-multiline'>
-								<p className='control'>
-									<button className={`button is-primary ${styles.controlButton}`} onClick={toggleTheme}>
-										<strong>Toggle theme</strong>
-									</button>
-								</p>
 								<p className='control'>
 									<a
 										href='https://www.patreon.com/bePatron?u=14199989'

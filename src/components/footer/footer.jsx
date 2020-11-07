@@ -1,9 +1,22 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { Link } from 'gatsby'
+import ThemeContext from '../../context/ThemeContext'
+import Switch from '../switch/switch'
 import styles from './footer.module.scss'
 
 function Footer() {
+	const [theme, setTheme] = useContext(ThemeContext)
+
+	const toggleTheme = () => {
+		if (theme === 'light') {
+			setTheme('dark')
+		}
+		else {
+			setTheme('light')
+		}
+	}
+
 	return (
 		<footer className={styles.footerStyles}>
 			<div className={`container ${styles.listContainer}`}>
@@ -42,9 +55,11 @@ function Footer() {
 						<span>Extras</span>
 						<ul className={styles.footerList}>
 							<li>
-								<Link className='link' to={'/'}>
-									Rules
-								</Link>
+								<Switch
+									checked={theme !== 'dark'}
+									onChange={toggleTheme}
+									text='Light Theme'
+								/>
 							</li>
 						</ul>
 					</div>
