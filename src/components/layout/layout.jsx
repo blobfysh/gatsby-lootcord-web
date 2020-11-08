@@ -13,11 +13,11 @@ import Footer from '../footer/footer'
 import styles from './layout.module.scss'
 
 function Layout({ children }) {
-	const [theme, setTheme, transitionsEnabled] = useTheme()
+	const theme = useTheme()
 
 	return (
-		<div className={`${styles.contentFull} ${transitionsEnabled ? '' : 'noTransitions'}`}>
-			<ThemeContext.Provider value={[theme, setTheme, transitionsEnabled]}>
+		<div className={styles.contentFull}>
+			<ThemeContext.Provider value={theme}>
 				<Header />
 				<section className={`section ${styles.contentBody}`}>
 					<div className='container'>

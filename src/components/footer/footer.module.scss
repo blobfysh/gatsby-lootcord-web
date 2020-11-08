@@ -8,13 +8,6 @@
     transition: background-color ease .5s;
 }
 
-:global(.noTransitions) .footerStyles {
-    -o-transition: none;
-    -moz-transition: none;
-    -webkit-transition: none;
-    transition: none;
-}
-
 .listContainer {
     display: flex;
     justify-content: space-around;

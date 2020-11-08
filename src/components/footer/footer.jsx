@@ -6,16 +6,7 @@ import Switch from '../switch/switch'
 import styles from './footer.module.scss'
 
 function Footer() {
-	const [theme, setTheme] = useContext(ThemeContext)
-
-	const toggleTheme = () => {
-		if (theme === 'light') {
-			setTheme('dark')
-		}
-		else {
-			setTheme('light')
-		}
-	}
+	const theme = useContext(ThemeContext)
 
 	return (
 		<footer className={styles.footerStyles}>
@@ -55,11 +46,15 @@ function Footer() {
 						<span>Extras</span>
 						<ul className={styles.footerList}>
 							<li>
-								<Switch
-									checked={theme !== 'dark'}
-									onChange={toggleTheme}
-									text='Light Theme'
-								/>
+								{theme !== null ? (
+									<Switch
+										checked={theme !== 'dark'}
+										onChange={() => { window.toggleTheme() }}
+										text='Light Theme'
+									/>
+								) : (
+									<div style={{ height: '24px' }} />
+								)}
 							</li>
 						</ul>
 					</div>

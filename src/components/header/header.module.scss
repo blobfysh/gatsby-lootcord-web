@@ -24,10 +24,3 @@
 .navStyles {
     transition: background-color ease .5s;
 }
-
-:global(.noTransitions) .navStyles {
-    -o-transition: none;
-    -moz-transition: none;
-    -webkit-transition: none;
-    transition: none;
-}

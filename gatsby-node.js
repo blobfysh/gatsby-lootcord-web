@@ -79,21 +79,26 @@ exports.sourceNodes = async ({
 	let data
 
 	if (process.env.LOOTCORD_API) {
-		const res = await axios(
-			{
-				method: 'POST',
-				headers: {
-					'Authorization': process.env.LOOTCORD_API_AUTH,
-					'Content-Type': 'application/json'
+		try {
+			const res = await axios(
+				{
+					method: 'POST',
+					headers: {
+						'Authorization': process.env.LOOTCORD_API_AUTH,
+						'Content-Type': 'application/json'
+					},
+					url: `${process.env.LOOTCORD_API}/api/leaderboard`
 				},
-				url: `${process.env.LOOTCORD_API}/api/leaderboard`
-			},
-			{
-				timeout: 5000
-			}
-		)
+				{
+					timeout: 5000
+				}
+			)
 
-		data = res.data
+			data = res.data
+		}
+		catch (err) {
+			// continue
+		}
 	}
 
 	if (data) {

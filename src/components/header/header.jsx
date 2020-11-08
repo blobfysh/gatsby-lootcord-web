@@ -8,7 +8,7 @@ import patronButton from '../../images/patron_button.png'
 import styles from './header.module.scss'
 
 function Header() {
-	const theme = useContext(ThemeContext)[0]
+	const theme = useContext(ThemeContext)
 	const [menuActive, setMenuActive] = useState(false)
 
 	const toggleMenu = () => {
@@ -29,11 +29,15 @@ function Header() {
 			<div className='container'>
 				<div className='navbar-brand'>
 					<Link to={'/'} className='navbar-item'>
-						<img
-							src={theme === 'dark' ? darkThemeLogo : lightThemeLogo}
-							alt='Lootcord Icon'
-							draggable='false'
-						/>
+						{theme !== null ? (
+							<img
+								src={theme === 'dark' ? darkThemeLogo : lightThemeLogo}
+								alt='Lootcord Icon'
+								draggable='false'
+							/>
+						) : (
+							<div style={{ height: '28px', width: '200px' }} />
+						)}
 					</Link>
 					<button
 						className={`navbar-burger burger ${menuActive ? 'is-active' : ''} ${styles.navBurger}`}

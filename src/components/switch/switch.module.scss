@@ -34,6 +34,18 @@
     transition: .4s;
     border-radius: 34px;
 
+    &:before {
+        background-color: #fff;
+        bottom: 3px;
+        content: "";
+        height: 14px;
+        left: 4px;
+        position: absolute;
+        transition: transform .4s;
+        width: 14px;
+        border-radius: 50%;
+        transform: translateX(0)
+    }
     &.isChecked {
         background-color: #66bb6a;
     }
@@ -42,36 +54,10 @@
     }
 }
 
-.switchHandle:before {
-    background-color: #fff;
-	bottom: 3px;
-	content: "";
-	height: 14px;
-	left: 4px;
-	position: absolute;
-	transition: transform .4s;
-    width: 14px;
-    border-radius: 50%;
-}
-
 .inputOutline:before {
     box-shadow: #ffffff 0px 0px 2px 3px;
 }
 
 .switchInput {
     outline: none;
-}
-
-:global(.noTransitions) .switchHandle {
-    -o-transition: none;
-    -moz-transition: none;
-    -webkit-transition: none;
-    transition: none;
-}
-
-:global(.noTransitions) .switchHandle:before {
-    -o-transition: none;
-    -moz-transition: none;
-    -webkit-transition: none;
-    transition: none;
 }
