@@ -13,8 +13,22 @@ function HeroText() {
 function HeroButtons() {
 	return [
 		<React.Fragment>
-			<button className='button is-primary is-large'>Invite</button>
-			<button className='button is-dark is-large'>Discord Server</button>
+			<a
+				href='https://discordapp.com/oauth2/authorize?client_id=493316754689359874&amp;permissions=388160&amp;scope=bot'
+				target='_blank'
+				rel='noopener noreferrer'
+				className='button is-primary is-large'
+			>
+				Invite
+			</a>
+			<a
+				href='https://discord.gg/apKSxuE'
+				target='_blank'
+				rel='noopener noreferrer'
+				className='button is-dark is-large'
+			>
+				Discord Server
+			</a>
 		</React.Fragment>
 	]
 }

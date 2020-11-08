@@ -34,7 +34,7 @@
     justify-content: center;
 }
 
-.buttons button {
+.buttons button, .buttons a {
     font-weight: 800;
     text-transform: uppercase;
     margin: 1rem;
@@ -56,7 +56,7 @@
     .heroText {
         font-size: 2rem;
     }
-    .buttons button {
+    .buttons button, .buttons a {
         width: 150px;
     }
 }
