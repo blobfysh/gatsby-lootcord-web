@@ -24,3 +24,9 @@
 .navStyles {
     transition: background-color ease .5s;
 }
+
+.logoStyle {
+    width: 200px;
+    height: 28px;
+    background-image: var(--logoURL);
+}

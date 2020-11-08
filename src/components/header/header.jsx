@@ -1,14 +1,10 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 
 import { Link } from 'gatsby'
-import ThemeContext from '../../context/ThemeContext'
-import lightThemeLogo from '../../images/lootcordlogodark.png'
-import darkThemeLogo from '../../images/lootcordlogowhite.png'
 import patronButton from '../../images/patron_button.png'
 import styles from './header.module.scss'
 
 function Header() {
-	const theme = useContext(ThemeContext)
 	const [menuActive, setMenuActive] = useState(false)
 
 	const toggleMenu = () => {
@@ -29,15 +25,9 @@ function Header() {
 			<div className='container'>
 				<div className='navbar-brand'>
 					<Link to={'/'} className='navbar-item'>
-						{theme !== null ? (
-							<img
-								src={theme === 'dark' ? darkThemeLogo : lightThemeLogo}
-								alt='Lootcord Icon'
-								draggable='false'
-							/>
-						) : (
-							<div style={{ height: '28px', width: '200px' }} />
-						)}
+						<div
+							className={styles.logoStyle}
+						/>
 					</Link>
 					<button
 						className={`navbar-burger burger ${menuActive ? 'is-active' : ''} ${styles.navBurger}`}

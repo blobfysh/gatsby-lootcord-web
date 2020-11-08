@@ -10,7 +10,8 @@ $themes: (
         'subtitle-color': #414c5a,
         'card-bg-color': #d6d6d6,
         'card-hover-bg-color': #c0c0c0,
-        'p-txt-color': #23272A
+        'p-txt-color': #23272A,
+        'logoURL': url(../images/lootcordlogodark.png)
     ),
     dark: (
         'bg-color': #2f3136,
@@ -23,7 +24,8 @@ $themes: (
         'subtitle-color': #e5e5e5,
         'card-bg-color': #292b2f,
         'card-hover-bg-color': #24262a,
-        'p-txt-color': #e5e5e5
+        'p-txt-color': #e5e5e5,
+        'logoURL': url(../images/lootcordlogowhite.png)
     )
 );
 
