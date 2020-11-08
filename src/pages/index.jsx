@@ -4,12 +4,31 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
 import Post from '../components/post/post'
+import Hero from '../components/hero/hero'
+
+function HeroText() {
+	return <div>A <span className='rustyred'>Rust</span> themed fighting and looting bot for <span className='blurple'>Discord</span></div>
+}
+
+function HeroButtons() {
+	return [
+		<React.Fragment>
+			<button className='button is-primary is-large'>Invite</button>
+			<button className='button is-dark is-large'>Discord Server</button>
+		</React.Fragment>
+	]
+}
 
 function Home({ data }) {
 	return (
 		<Layout>
 			<SEO />
-			<div>
+			<Hero
+				text={HeroText()}
+				image={data.file.childImageSharp.fixed}
+				buttons={HeroButtons()}
+			/>
+			<section className='section container'>
 				<h1 className='title'>Welcome to My Blog</h1>
 				<h2 className='subtitle'>{data.allMarkdownRemark.totalCount} Posts</h2>
 				{data.allMarkdownRemark.edges.map(({ node }) => (
@@ -22,7 +41,7 @@ function Home({ data }) {
 						key={node.id}
 					/>
 				))}
-			</div>
+			</section>
 		</Layout>
 	)
 }
@@ -52,6 +71,13 @@ export const query = graphql`
 						slug
 					}
 					excerpt
+				}
+			}
+		}
+		file(relativePath: { eq: "lootcord_icon_small.png" }) {
+			childImageSharp {
+				fixed(height: 300, width: 300) {
+					...GatsbyImageSharpFixed
 				}
 			}
 		}

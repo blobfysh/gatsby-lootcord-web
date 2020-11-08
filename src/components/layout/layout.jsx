@@ -19,11 +19,9 @@ function Layout({ children }) {
 		<div className={styles.contentFull}>
 			<ThemeContext.Provider value={theme}>
 				<Header />
-				<section className={`section ${styles.contentBody}`}>
-					<div className='container'>
-						{children}
-					</div>
-				</section>
+				<div className={styles.contentBody}>
+					{children}
+				</div>
 				<Footer />
 			</ThemeContext.Provider>
 		</div>

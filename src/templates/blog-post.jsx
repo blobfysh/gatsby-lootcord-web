@@ -9,7 +9,7 @@ export default function BlogPost({ data }) {
 	return (
 		<Layout>
 			<SEO title={post.frontmatter.title} description={post.excerpt} />
-			<div>
+			<section className='section container'>
 				<h1 className='title is-2 has-text-centered'>
 					{post.frontmatter.title}
 				</h1>
@@ -20,7 +20,7 @@ export default function BlogPost({ data }) {
 					className='content'
 					dangerouslySetInnerHTML={{ __html: post.html }}
 				/>
-			</div>
+			</section>
 		</Layout>
 	)
 }

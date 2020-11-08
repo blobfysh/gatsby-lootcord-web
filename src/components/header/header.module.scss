@@ -1,6 +1,12 @@
 .patronButton {
     max-height: none !important;
     border-radius: 4px;
+    width: 148px;
+    height: 36px;
+
+    &:hover {
+        filter: brightness(90%);
+    }
 }
 
 .controlButton {

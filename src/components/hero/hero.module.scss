@@ -1,0 +1,62 @@
+@import '~bulma/sass/utilities/_all.sass';
+
+.heroStyle {
+    background-color: var(--hero-bg-color);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 2rem;
+    transition: padding .5s
+}
+
+.heroText {
+    color: var(--hero-txt-color);
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+    max-width: 900px;
+    transition: font-size .5s;
+}
+
+.image {
+    border-radius: 50%;
+    margin-bottom: 2rem;
+    transition: width .5s, height .5s;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.buttons button {
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: 1rem;
+    white-space: normal;
+    padding: 10px;
+    height: auto;
+    width: 250px;
+    transition: width .5s;
+}
+
+@include mobile {
+    .heroStyle {
+        padding: 2rem 1rem;
+    }
+    .image {
+        width: 220px !important;
+        height: 220px !important;
+    }
+    .heroText {
+        font-size: 2rem;
+    }
+    .buttons button {
+        width: 150px;
+    }
+}

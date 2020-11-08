@@ -1,11 +1,12 @@
 @charset 'utf-8';
 
-@import './themes.scss';
+// Light and dark theme variables
+@import './_themes.scss';
 
-// Import variables
-@import './variables.scss';
+// Set variables
+@import './_variables.scss';
 
-// Import bulma
+// Import Bulma
 @import '~bulma/bulma.sass';
 
 .content {
@@ -34,6 +35,14 @@ body {
 
 span:not(.token) {
     color: var(--p-txt-color);
+}
+
+span:not(.token).rustyred {
+    color: var(--rustyred);
+}
+
+span:not(.token).blurple {
+    color: var(--blurple);
 }
 
 p:not(.token) {

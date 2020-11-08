@@ -67,8 +67,6 @@ function Header() {
 											src={patronButton}
 											alt='Become a Patron'
 											draggable='false'
-											width='148'
-											height='36'
 											className={styles.patronButton}
 										/>
 									</a>
