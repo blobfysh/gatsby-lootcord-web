@@ -18,7 +18,7 @@ function Header() {
 
 	return (
 		<nav
-			className={`navbar is-transparent ${styles.navStyles}`}
+			className={`navbar ${styles.navStyles}`}
 			role='navigation'
 			aria-label='main navigation'
 		>

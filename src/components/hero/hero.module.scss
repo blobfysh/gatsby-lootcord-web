@@ -1,13 +1,16 @@
 @import '~bulma/sass/utilities/_all.sass';
 
 .heroStyle {
-    background-color: var(--hero-bg-color);
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
     padding: 4rem 2rem;
     transition: padding .5s
+}
+
+.heroBg {
+    background-color: var(--hero-bg-color);
 }
 
 .heroText {
