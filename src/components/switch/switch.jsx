@@ -27,6 +27,7 @@ function Switch({ checked, onChange, text }) {
 				/>
 				<input
 					role='switch'
+					aria-checked={isChecked}
 					type='checkbox'
 					defaultChecked={isChecked}
 					onChange={handleChange}

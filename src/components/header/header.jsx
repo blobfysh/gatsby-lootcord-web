@@ -24,7 +24,7 @@ function Header() {
 		>
 			<div className='container'>
 				<div className='navbar-brand'>
-					<Link to={'/'} className='navbar-item'>
+					<Link to={'/'} className='navbar-item' aria-label='Home Page'>
 						<div
 							className={styles.logoStyle}
 						/>

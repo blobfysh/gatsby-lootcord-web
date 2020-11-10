@@ -59,13 +59,13 @@ function Footer() {
 						</ul>
 					</div>
 				</div>
-				<ul className={styles.copyList}>
+				<div className={styles.copyList}>
 					<span>
 						© Copyright 2020 Blobfysh
 						<br />
 						Lootcord is not affiliated with Facepunch
 					</span>
-				</ul>
+				</div>
 			</div>
 		</footer>
 	)
