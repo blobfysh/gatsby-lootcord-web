@@ -25,17 +25,22 @@ exports.onCreateNode = async ({
 	}
 	else if (node.internal.type === 'LeaderboardUser') {
 		// Create image file nodes using avatar urls, optimizes images
-		const fileNode = await createRemoteFileNode({
-			url: node.user.avatarURL,
-			parentNodeId: node.id,
-			createNode,
-			createNodeId,
-			cache,
-			store
-		})
+		try {
+			const fileNode = await createRemoteFileNode({
+				url: `${node.user.avatarURL}`,
+				parentNodeId: node.id,
+				createNode,
+				createNodeId,
+				cache,
+				store
+			})
 
-		if (fileNode) {
-			node.user.avatar___NODE = fileNode.id
+			if (fileNode) {
+				node.user.avatar___NODE = fileNode.id
+			}
+		}
+		catch (err) {
+			console.error(err)
 		}
 	}
 }
@@ -103,12 +108,27 @@ exports.sourceNodes = async ({
 
 	if (data) {
 		// Create LeaderboardUser nodes using leaderboard data
-		Object.keys(data).forEach(type => {
-			Object.keys(data[type]).forEach(user => {
+		let type
+		let user
+		for (type in data) {
+			for (user in data[type]) {
 				const lbData = {
 					user,
 					value: data[type][user].data.toString(),
+
+					// TODO fix the lootcord api to NOT return formatted data so I dont have to do this...
+					rawValue: parseInt(data[type][user].data.toString().replace(/,/g, '')),
 					avatar: data[type][user].avatar
+				}
+
+				try {
+					await axios.get(lbData.avatar)
+				}
+				catch (err) {
+					// avatar must have been changed recently and needs to be cached again...
+
+					// use default avatar as placeholder
+					lbData.avatar = 'https://cdn.discordapp.com/embed/avatars/0.png'
 				}
 
 				const nodeContent = JSON.stringify(lbData)
@@ -126,12 +146,13 @@ exports.sourceNodes = async ({
 						tag: user,
 						avatarURL: lbData.avatar
 					},
-					value: lbData.value
+					value: lbData.value,
+					rawValue: lbData.rawValue
 				}
 
 				createNode(userNode)
-			})
-		})
+			}
+		}
 	}
 }
 
@@ -148,6 +169,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 			lbType: String!
 			user: User
 			value: String!
+			rawValue: Int
 		}
 	`
 

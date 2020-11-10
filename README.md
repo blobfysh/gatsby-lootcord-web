@@ -6,8 +6,9 @@ This will soon be the home of the new Lootcord website remade with [React](https
 - [x] Image optimization
 - [x] Design layout with header and footer
 - [x] Add theme toggle switch in the footer
-- [ ] Communicate with Lootcord api for leaderboard and command data on site build
-- [ ] Home page
+- [x] Communicate with Lootcord api for leaderboard on site build
+- [ ] Communicate with Lootcord api for command data on site build
+- [x] Home page
 - [ ] Commands page
 - [ ] Faq page
 - [ ] Black market page that requests data from lootcord api using serverless function

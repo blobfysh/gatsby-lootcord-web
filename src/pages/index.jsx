@@ -6,6 +6,7 @@ import SEO from '../components/seo'
 import HomePost from '../components/home-post/home-post'
 import SlideIn from '../components/slide-in/slide-in'
 import Hero from '../components/hero/hero'
+import Leaderboard from '../components/leaderboard/leaderboard'
 
 function HeroText() {
 	return <div>A <span className='rustyred'>Rust</span> themed fighting and looting bot for <span className='blurple'>Discord</span></div>
@@ -45,16 +46,16 @@ function Home({ data }) {
 			/>
 			<section className='section container'>
 				{data.allMarkdownRemark.nodes.map((node, i) => (
-					<SlideIn slideInRight={i % 2}>
+					<SlideIn slideInRight={!!(i % 2)} key={node.id}>
 						<HomePost
 							title={node.frontmatter.title}
 							image={node.frontmatter.image.childImageSharp.fluid}
 							text={node.html}
 							index={i}
-							key={node.id}
 						/>
 					</SlideIn>
 				))}
+				<Leaderboard title='Top Looters'/>
 			</section>
 		</Layout>
 	)

@@ -1,0 +1,118 @@
+@import '~bulma/sass/utilities/_all.sass';
+
+.lbSection {
+    margin-top: 2rem;
+}
+
+.lbPlayer {
+    height: 100px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    width: 90%;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: var(--card-bg-color);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+.values {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem;
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+.lbFirst {
+    min-height: 128px;
+    width: 100%;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.35);
+    margin-bottom: 25px;
+}
+
+.lbFirst .values {
+    font-size: 1.7rem;
+}
+
+.value {
+    text-align: right;
+}
+
+.name {
+    width: 70%;
+    overflow: hidden;
+}
+
+.title {
+    text-align: left;
+}
+
+.playerIcon {
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: var(--nav-bg-color);
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+
+    // 2nd and 3rd place avatar size/style
+    & div, & img {
+        border-radius: 50%;
+        width: 80px;
+    }
+}
+
+.lbFirst .playerIcon div {
+    // First place avatar size and style
+    width: 108px;
+}
+
+@include touch {
+    .title {
+        text-align: center;
+    }
+}
+
+@include mobile {
+    .lbPlayer {
+        flex-flow: column nowrap;
+        height: fit-content;
+        align-items: center;
+        max-width: 300px;
+    }
+
+    .name {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .value {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .lbFirst {
+        max-width: 400px;
+    }
+
+    .playerIcon {
+        margin: 0;
+        width: 100%;
+    }
+
+    .lbFirst .playerIcon div {
+        width: 150px;
+    }
+    .values {
+        flex-flow: column nowrap;
+        margin: 0;
+    }
+}
