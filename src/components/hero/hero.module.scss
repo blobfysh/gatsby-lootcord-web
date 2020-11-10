@@ -11,6 +11,7 @@
 
 .heroBg {
     background-color: var(--hero-bg-color);
+    transition: background-color ease .5s;
 }
 
 .heroText {

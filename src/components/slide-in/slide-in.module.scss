@@ -1,0 +1,18 @@
+.slideDiv {
+    position: relative;
+    opacity: 0;
+    transition: opacity ease-in 0.5s, left ease 0.5s;
+
+    &.slideDivRight {
+        left: 250px;
+    }
+
+    &.slideDivLeft {
+        left: -250px;
+    }
+
+    &.slideIn {
+        left: 0;
+        opacity: 1;
+    }
+}

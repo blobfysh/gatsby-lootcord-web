@@ -1,0 +1,63 @@
+@import '~bulma/sass/utilities/_all.sass';
+
+.post {
+    display: flex;
+    align-items: center;
+    margin-top: 8rem;
+    margin-bottom: 12rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wrap {
+    flex-flow: row nowrap;
+}
+
+.reverseWrap {
+    flex-flow: row-reverse nowrap;
+}
+
+.content {
+    width: 55%;
+}
+
+.wrap .content {
+    padding-right: 100px;
+}
+.reverseWrap .content {
+    padding-left: 100px;
+}
+
+.image {
+    width: 45%;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.image div {
+    border-radius: 8px;
+}
+
+@include touch {
+    .post {
+        flex-flow: column-reverse nowrap;
+        max-width: 600px;
+    }
+    .title {
+        text-align: center;
+    }
+    .image {
+        width: 100%;
+    }
+    .content {
+        padding: 0 !important;
+        width: 100%;
+    }
+}
+
+@include mobile {
+    .post {
+        max-width: 470px;
+    }
+}

@@ -3,7 +3,8 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
-import Post from '../components/post/post'
+import HomePost from '../components/home-post/home-post'
+import SlideIn from '../components/slide-in/slide-in'
 import Hero from '../components/hero/hero'
 
 function HeroText() {
@@ -43,17 +44,16 @@ function Home({ data }) {
 				buttons={HeroButtons()}
 			/>
 			<section className='section container'>
-				<h1 className='title'>Welcome to My Blog</h1>
-				<h2 className='subtitle'>{data.allMarkdownRemark.totalCount} Posts</h2>
-				{data.allMarkdownRemark.edges.map(({ node }) => (
-					<Post
-						title={node.frontmatter.title}
-						slug={`/blog${node.fields.slug}`}
-						image={node.frontmatter.image.childImageSharp.fixed}
-						date={node.frontmatter.date}
-						excerpt={node.excerpt}
-						key={node.id}
-					/>
+				{data.allMarkdownRemark.nodes.map((node, i) => (
+					<SlideIn slideInRight={i % 2}>
+						<HomePost
+							title={node.frontmatter.title}
+							image={node.frontmatter.image.childImageSharp.fluid}
+							text={node.html}
+							index={i}
+							key={node.id}
+						/>
+					</SlideIn>
 				))}
 			</section>
 		</Layout>
@@ -63,28 +63,21 @@ function Home({ data }) {
 export const query = graphql`
 	query {
 		allMarkdownRemark(
-			filter: { fileAbsolutePath: { regex: "/blog/" } }
-			sort: { fields: frontmatter___date, order: DESC }
+			filter: { fileAbsolutePath: { regex: "/home-posts/" } }
+			sort: { fields: frontmatter___order, order: ASC }
 		) {
-			totalCount
-			edges {
-				node {
-					id
-					frontmatter {
-						title
-						date(formatString: "DD MMMM, YYYY")
-						image {
-							childImageSharp {
-								fixed(height: 100) {
-									...GatsbyImageSharpFixed
-								}
+			nodes {
+				id
+				html
+				frontmatter {
+					title
+					image {
+						childImageSharp {
+							fluid(maxWidth: 500) {
+								...GatsbyImageSharpFluid
 							}
 						}
 					}
-					fields {
-						slug
-					}
-					excerpt
 				}
 			}
 		}
