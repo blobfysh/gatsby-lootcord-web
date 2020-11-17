@@ -76,32 +76,6 @@ export const query = graphql`
                 description
             }
         }
-		allMarkdownRemark(
-			filter: { fileAbsolutePath: { regex: "/home-posts/" } }
-			sort: { fields: frontmatter___order, order: ASC }
-		) {
-			nodes {
-				id
-				html
-				frontmatter {
-					title
-					image {
-						childImageSharp {
-							fluid(maxWidth: 500) {
-								...GatsbyImageSharpFluid
-							}
-						}
-					}
-				}
-			}
-		}
-		file(relativePath: { eq: "lootcord_icon_small.png" }) {
-			childImageSharp {
-				fixed(height: 300, width: 300) {
-					...GatsbyImageSharpFixed
-				}
-			}
-		}
 	}
 `
 
