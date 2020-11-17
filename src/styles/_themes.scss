@@ -9,7 +9,7 @@ $themes: (
         'title-color': rgba(30,30,30,.9),
         'subtitle-color': #414c5a,
         'card-bg-color': #d6d6d6,
-        'card-hover-bg-color': #c0c0c0,
+        'card-hover-bg-color': #CCCCCC,
         'p-txt-color': #23272A,
         'logoURL': url(../images/lootcordlogodark.png),
         'hero-bg-color': #f2f2f2,
@@ -18,7 +18,8 @@ $themes: (
         'rustyred': #cd412b,
         'dark-color': #363636,
         'dark-invert': #ffffff,
-        'bold-txt': #363636
+        'bold-txt': #363636,
+        'input-bg-color': #E3E5E8
     ),
     dark: (
         'bg-color': #2f3136,
@@ -30,7 +31,7 @@ $themes: (
         'title-color': #ffffff,
         'subtitle-color': #e5e5e5,
         'card-bg-color': #292b2f,
-        'card-hover-bg-color': #24262a,
+        'card-hover-bg-color': #26282B,
         'p-txt-color': #e5e5e5,
         'logoURL': url(../images/lootcordlogowhite.png),
         'hero-bg-color': #202225,
@@ -39,7 +40,8 @@ $themes: (
         'rustyred': #cd412b,
         'dark-color': #ffffff,
         'dark-invert': #000000,
-        'bold-txt': #ffffff
+        'bold-txt': #ffffff,
+        'input-bg-color': #23272A
     )
 );
 

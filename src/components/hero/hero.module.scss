@@ -25,6 +25,10 @@
     text-transform: uppercase;
     max-width: 900px;
     transition: font-size .5s;
+
+    & img {
+        max-width: 100px;
+    }
 }
 
 .image {

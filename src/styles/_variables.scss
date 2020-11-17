@@ -27,6 +27,10 @@ $subtitle-color: var(--subtitle-color);
 $content-heading-color: var(--title-color);
 $text-strong: var(--bold-txt);
 
+// Input styles
+// ============
+$input-background-color: var(--input-bg-color);
+
 // Set colors
 // ==========
 // Bulma doesn't support css variables for colors :(
@@ -34,3 +38,4 @@ $primary: #7289DA;
 $primary-invert: #ffffff;
 $primary-light: #8094dd;
 $primary-dark: #667bc4;
+$dark: #38393C;

@@ -43,7 +43,7 @@ function Header() {
 				</div>
 				<div id='navbar-menu' className={`navbar-menu ${menuActive ? 'is-active' : ''} ${styles.navMenu}`}>
 					<div className='navbar-start has-text-weight-semibold'>
-						<Link to={'/'} className='navbar-item'>
+						<Link to={'/commands'} className='navbar-item'>
 							Commands
 						</Link>
 						<Link to={'/'} className='navbar-item'>

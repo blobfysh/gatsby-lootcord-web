@@ -4,6 +4,16 @@ import { Link } from 'gatsby'
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
 import Hero from '../components/hero/hero'
+import Twemoji from '../components/twemoji'
+
+function HeroText() {
+	return (
+		<div>
+			<Twemoji emoji='😢' />
+			<span>That page doesn't exist</span>
+		</div>
+	)
+}
 
 function HeroButtons() {
 	return [
@@ -15,13 +25,12 @@ function HeroButtons() {
 	]
 }
 
-
 function NotFoundPage() {
 	return (
 		<Layout>
 			<SEO />
 			<Hero
-				text="That page doesn't exist :("
+				text={HeroText()}
 				buttons={HeroButtons()}
 				hasBackground={false}
 			/>

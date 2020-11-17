@@ -16,10 +16,10 @@ function FirstPlacePlayer({ avatar, name, value, type }) {
 		<div className={`${styles.lbPlayer} ${styles.lbFirst}`}>
 			<div className={styles.playerIcon}>
 				{
-					avatar.extension !== 'gif' ?
+					avatar && avatar.extension !== 'gif' ?
 						<Img fluid={avatar.childImageSharp.fluid} alt='' /> :
 						<div style={{ height: '128px' }}>
-							<img src={avatar.publicURL} alt='' />
+							<img src={avatar?.publicURL} alt='' />
 						</div>
 				}
 			</div>
@@ -40,10 +40,10 @@ function Player({ avatar, name, value, type }) {
 		<div className={styles.lbPlayer}>
 			<div className={styles.playerIcon}>
 				{
-					avatar.extension !== 'gif' ?
+					avatar && avatar.extension !== 'gif' ?
 						<Img fluid={avatar.childImageSharp.fluid} alt='' /> :
 						<div style={{ height: '80px' }}>
-							<img src={avatar.publicURL} alt='' />
+							<img src={avatar?.publicURL} alt='' />
 						</div>
 				}
 			</div>
