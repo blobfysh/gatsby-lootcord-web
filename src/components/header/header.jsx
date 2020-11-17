@@ -46,7 +46,7 @@ function Header() {
 						<Link to={'/commands'} className='navbar-item'>
 							Commands
 						</Link>
-						<Link to={'/'} className='navbar-item'>
+						<Link to={'/faq'} className='navbar-item'>
 							FAQ
 						</Link>
 						<Link to={'/'} className='navbar-item'>
