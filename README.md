@@ -10,7 +10,7 @@ This will soon be the home of the new Lootcord website remade with [React](https
 - [x] Communicate with Lootcord api for command data on site build
 - [x] Home page
 - [x] Commands page
-- [ ] Faq page
+- [x] Faq page
 - [ ] Black market page that requests data from lootcord api using serverless function
 - [ ] Rules page
 - [ ] About page
