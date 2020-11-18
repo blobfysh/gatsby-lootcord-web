@@ -15,7 +15,7 @@ function Footer() {
 					<div>
 						<ul className={styles.footerList}>
 							<li>
-								<Link className='link' to={'/'}>
+								<Link className='link' to={'/rules'}>
 									Rules
 								</Link>
 							</li>
@@ -30,12 +30,12 @@ function Footer() {
 								</Link>
 							</li>
 							<li>
-								<Link className='link' to={'/'}>
+								<Link className='link' to={'/terms'}>
 									Terms
 								</Link>
 							</li>
 							<li>
-								<Link className='link' to={'/'}>
+								<Link className='link' to={'/privacy'}>
 									Privacy
 								</Link>
 							</li>

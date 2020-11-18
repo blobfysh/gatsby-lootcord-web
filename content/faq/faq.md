@@ -1,3 +1,7 @@
+---
+title: Frequently Asked Questions
+---
+
 ## How do I play?
 
 You can view all commands with `t-help`, the most important commands to remember are:

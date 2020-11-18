@@ -4,10 +4,10 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
 
-function Faq({ data }) {
+function Terms({ data }) {
 	return (
 		<Layout>
-			<SEO title='Frequently Asked Questions' />
+			<SEO title='Terms of Service' />
 			<section className='section container'>
 				<h1 className='title is-uppercase has-text-centered'>{data.markdownRemark.frontmatter.title}</h1>
 				<div
@@ -21,7 +21,7 @@ function Faq({ data }) {
 
 export const query = graphql`
 	query {
-		markdownRemark(fileAbsolutePath: { regex: "/faq/" }) {
+		markdownRemark(fileAbsolutePath: { regex: "/legal/terms/" }) {
 			html
 			frontmatter {
 				title
@@ -30,4 +30,4 @@ export const query = graphql`
 	}
 `
 
-export default Faq
+export default Terms
