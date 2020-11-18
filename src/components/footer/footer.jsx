@@ -13,7 +13,6 @@ function Footer() {
 			<div className={`container ${styles.listContainer}`}>
 				<div>
 					<div>
-						<span>Links</span>
 						<ul className={styles.footerList}>
 							<li>
 								<Link className='link' to={'/'}>
@@ -43,7 +42,6 @@ function Footer() {
 						</ul>
 					</div>
 					<div>
-						<span>Extras</span>
 						<ul className={styles.footerList}>
 							<li>
 								{theme !== null ? (

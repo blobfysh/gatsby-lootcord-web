@@ -19,7 +19,9 @@ $themes: (
         'dark-color': #363636,
         'dark-invert': #ffffff,
         'bold-txt': #363636,
-        'input-bg-color': #E3E5E8
+        'input-bg-color': #E3E5E8,
+        'input-icon-color': #737475,
+        'input-icon-active': #23272A
     ),
     dark: (
         'bg-color': #2f3136,
@@ -41,7 +43,9 @@ $themes: (
         'dark-color': #ffffff,
         'dark-invert': #000000,
         'bold-txt': #ffffff,
-        'input-bg-color': #23272A
+        'input-bg-color': #23272A,
+        'input-icon-color': #B1B3B4,
+        'input-icon-active': #e5e5e5
     )
 );
 
