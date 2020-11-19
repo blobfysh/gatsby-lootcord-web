@@ -110,6 +110,7 @@ module.exports = {
 			options: {
 				fonts: ['open sans:400,600,800']
 			}
-		}
+		},
+		'gatsby-plugin-fontawesome-css'
 	]
 }
