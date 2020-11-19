@@ -34,15 +34,19 @@ function About({ data }) {
 				<CardList title='Developer' users={devs} />
 				<CardList title='Artists' users={artists} />
 				<CardList title='Moderators' users={mods} />
-				<CardList
-					title={(
-						<React.Fragment>
-							<Twemoji emoji='💖' />
-							Lovely Supporters
-						</React.Fragment>
-					)}
-					users={data.allPatron.nodes}
-				/>
+
+				{
+					!!data.allPatron.nodes.length &&
+					<CardList
+						title={(
+							<React.Fragment>
+								<Twemoji emoji='💖' />
+								Lovely Supporters
+							</React.Fragment>
+						)}
+						users={data.allPatron.nodes}
+					/>
+				}
 			</section>
 		</Layout>
 	)
