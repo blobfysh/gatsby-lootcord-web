@@ -1,0 +1,42 @@
+.userCard {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    background-color: var(--card-bg-color);
+    min-width: 14rem;
+    border-radius: 4px;
+    margin: 1rem;
+}
+
+.socialsWrap {
+    font-size: 1.5rem;
+    border-top: solid var(--bg-color) 2px;
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    justify-content: center;
+}
+
+.icon {
+    color: var(--p-txt-color);
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.imageContainer {
+    margin-top: 10px;
+    width: 128px;
+    height: 128px;
+}
+
+.image {
+    border-radius: 50%;
+    width: 128px;
+    border: solid var(--nav-bg-color) 4px;
+}
+
+.name {
+    color: var(--blurple) !important;
+    font-size: 1.4rem;
+    margin: 10px;
+}

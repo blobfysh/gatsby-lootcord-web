@@ -1,0 +1,29 @@
+@import '~bulma/sass/utilities/_all.sass';
+
+.list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.title {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+.title :global(.emoji) {
+    width: 40px;
+    margin-right: 10px;
+}
+
+@include mobile {
+    .title {
+        font-size: 1.7rem !important;
+    }
+    .title :global(.emoji) {
+        width: 30px;
+        margin-right: 8px;
+    }
+}

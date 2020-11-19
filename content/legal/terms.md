@@ -1,5 +1,5 @@
 ---
-title: Terms of Service
+title: 'Terms of Service'
 ---
 
 Updated: September 02, 2020

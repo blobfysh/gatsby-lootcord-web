@@ -1,5 +1,5 @@
 ---
-title: Frequently Asked Questions
+title: 'Frequently Asked Questions'
 ---
 
 ## How do I play?

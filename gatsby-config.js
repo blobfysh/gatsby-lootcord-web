@@ -50,6 +50,13 @@ module.exports = {
 		{
 			resolve: 'gatsby-source-filesystem',
 			options: {
+				name: 'about',
+				path: `${__dirname}/content/about`
+			}
+		},
+		{
+			resolve: 'gatsby-source-filesystem',
+			options: {
 				name: 'images',
 				path: `${__dirname}/content/images`
 			}
@@ -80,7 +87,12 @@ module.exports = {
 		},
 		'gatsby-plugin-catch-links',
 		'gatsby-plugin-sharp',
-		'gatsby-transformer-sharp',
+		{
+			resolve: 'gatsby-transformer-sharp',
+			options: {
+				checkSupportedExtensions: false
+			}
+		},
 		{
 			resolve: 'gatsby-plugin-manifest',
 			options: {
