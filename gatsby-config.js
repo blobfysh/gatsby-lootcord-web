@@ -70,6 +70,7 @@ module.exports = {
 						options: {
 							linkImagesToOriginal: false,
 							maxWidth: 600,
+							backgroundColor: 'transparent',
 							wrapperStyle: 'margin-top: 30px;margin-bottom: 100px;border-radius: 4px;overflow: hidden;box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);'
 						}
 					},
