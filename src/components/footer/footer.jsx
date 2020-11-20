@@ -15,6 +15,11 @@ function Footer() {
 					<div>
 						<ul className={styles.footerList}>
 							<li>
+								<Link className='link' to={'/appeal'}>
+									Appeal
+								</Link>
+							</li>
+							<li>
 								<Link className='link' to={'/rules'}>
 									Rules
 								</Link>

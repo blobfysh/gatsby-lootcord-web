@@ -32,6 +32,10 @@ $text-strong: var(--bold-txt);
 $input-background-color: var(--input-bg-color);
 $input-icon-color: var(--input-icon-color);
 $input-icon-active-color: var(--input-icon-active);
+$input-border-color: var(--input-bg-color);
+$input-hover-border-color: var(--input-bg-color);
+$input-disabled-background-color: var(--input-disabled-bg-color);
+$input-disabled-border-color: var(--input-disabled-bg-color);
 
 // Set colors
 // ==========

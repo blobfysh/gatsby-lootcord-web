@@ -14,7 +14,7 @@ This will soon be the home of the new Lootcord website remade with [React](https
 - [ ] Black market page that requests data from lootcord api using serverless function
 - [x] Rules page
 - [x] About page
-- [ ] Appeal page
+- [x] Appeal page
 - [x] Terms of Service page
 - [x] Privacy Policy page
 - [x] Guides

@@ -7,6 +7,7 @@ import Command from '../components/commands/command'
 import CommandFilters from '../components/commands/command-filters'
 import Input from '../components/input/input'
 import Twemoji from '../components/twemoji'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 function Commands({ data }) {
 	const [category, setCategory] = useState('items')
@@ -35,6 +36,8 @@ function Commands({ data }) {
 						<Input
 							placeHolder='Search commands...'
 							onChange={handleInput}
+							icon={faSearch}
+							className='mb-2'
 						/>
 						{
 							filteredCommands.map(node => (
