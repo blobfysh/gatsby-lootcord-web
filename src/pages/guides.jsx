@@ -17,6 +17,7 @@ function Guides({ data }) {
 						date={node.frontmatter.date}
 						preview={node.frontmatter.preview}
 						slug={`/guides${node.fields.slug}`}
+						key={node.fields.slug}
 					/>
 				))}
 			</section>

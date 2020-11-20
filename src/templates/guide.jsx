@@ -22,7 +22,7 @@ function Guide({ data }) {
 				/>
 				<p className='pt-6 has-text-centered'>
 					Notice something wrong? <a
-						href={`https://github.com/blobfysh/gatsby-lootcord-web/blob/master/content/guides${post.fields.slug}index.md`}
+						href={`https://github.com/blobfysh/gatsby-lootcord-web/blob/dev/content/guides${post.fields.slug}index.md`}
 						target='_blank'
 						rel='noopener noreferrer'
 					>
