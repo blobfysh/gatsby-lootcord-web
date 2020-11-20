@@ -13,7 +13,7 @@ function Guide({ data }) {
 				<h1 className='title is-2 is-uppercase has-text-centered'>
 					{post.frontmatter.title}
 				</h1>
-				<h2 className='subtitle is-5 has-text-centered'>
+				<h2 className='subtitle is-6 has-text-centered'>
 					Last updated: {post.frontmatter.date}
 				</h2>
 				<div

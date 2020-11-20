@@ -49,8 +49,11 @@ function Header() {
 						<Link to={'/faq'} className='navbar-item'>
 							FAQ
 						</Link>
-						<Link to={'/'} className='navbar-item'>
-							Black Market
+						<Link to={'/guides'} className='navbar-item'>
+							Guides
+						</Link>
+						<Link to={'/about'} className='navbar-item'>
+							About
 						</Link>
 					</div>
 					<div className='navbar-end'>

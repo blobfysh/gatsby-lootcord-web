@@ -20,16 +20,6 @@ function Footer() {
 								</Link>
 							</li>
 							<li>
-								<Link className='link' to={'/about'}>
-									About
-								</Link>
-							</li>
-							<li>
-								<Link className='link' to={'/guides'}>
-									Guides
-								</Link>
-							</li>
-							<li>
 								<Link className='link' to={'/terms'}>
 									Terms
 								</Link>

@@ -8,7 +8,7 @@ function Post({ title, date, preview, slug }) {
 		<Link to={slug}>
 			<div className={styles.guideWrap}>
 				<h2 className={`title is-3 ${styles.title}`}>{title}</h2>
-				<h3 className='subtitle is-7'>{date}</h3>
+				<h3 className='subtitle is-7'>Updated {date}</h3>
 				<p>{preview}</p>
 			</div>
 		</Link>

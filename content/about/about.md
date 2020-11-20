@@ -1,5 +1,5 @@
 ---
-title: 'About Us'
+title: 'About Lootcord'
 developers:
   - name: 'blobfysh#4679'
     image: './blobfysh.png'
