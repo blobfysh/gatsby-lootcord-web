@@ -43,6 +43,25 @@ exports.onCreateNode = async ({
 			console.error(err)
 		}
 	}
+	else if (node.internal.type === 'Item' && node.imageURL) {
+		try {
+			const fileNode = await createRemoteFileNode({
+				url: `${node.imageURL}`,
+				parentNodeId: node.id,
+				createNode,
+				createNodeId,
+				cache,
+				store
+			})
+
+			if (fileNode) {
+				node.image___NODE = fileNode.id
+			}
+		}
+		catch (err) {
+			console.error(err)
+		}
+	}
 }
 
 exports.createPages = async ({ graphql, actions }) => {
@@ -82,6 +101,7 @@ exports.sourceNodes = async ({
 	let leaderboard
 	let commands
 	let patrons
+	let items
 
 	if (process.env.LOOTCORD_API) {
 		try {
@@ -142,6 +162,27 @@ exports.sourceNodes = async ({
 			)
 
 			patrons = patronsRes.data
+		}
+		catch (err) {
+			// continue
+		}
+
+		try {
+			const itemsRes = await axios(
+				{
+					method: 'POST',
+					headers: {
+						'Authorization': process.env.LOOTCORD_API_AUTH,
+						'Content-Type': 'application/json'
+					},
+					url: `${process.env.LOOTCORD_API}/api/items`
+				},
+				{
+					timeout: 5000
+				}
+			)
+
+			items = itemsRes.data
 		}
 		catch (err) {
 			// continue
@@ -260,9 +301,68 @@ exports.sourceNodes = async ({
 			createNode(patronNode)
 		}
 	}
+
+	if (items) {
+		let item
+		for (item in items) {
+			const itemInfo = items[item]
+
+			const itemData = {
+				name: item,
+				description: itemInfo.desc,
+				category: itemInfo.category,
+				tier: itemInfo.tier,
+				buy: itemInfo.buy !== '' ? itemInfo.buy.amount.toString() : '',
+				sell: itemInfo.sell.toString(),
+				minDamage: itemInfo.minDmg.toString(),
+				maxDamage: itemInfo.maxDmg.toString(),
+				ammo: !itemInfo.ammo.length ? [] : itemInfo.ammo.map(ammo => ({
+					item___NODE: createNodeId(`${ammo}-${items[ammo].category}`),
+					damage: items[ammo].damage
+				})),
+				craftedWith: itemInfo.craftedWith === '' ? null : {
+					level: itemInfo.craftedWith.level,
+					materials: itemInfo.craftedWith.materials.map(mat => {
+						const material = mat.split('|')
+
+						return {
+							item___NODE: createNodeId(`${material[0]}-${items[material[0]].category}`),
+							amount: material[1]
+						}
+					})
+				},
+				recyclesTo: !itemInfo.recyclesTo.materials.length ? null : {
+					materials: itemInfo.recyclesTo.materials.map(mat => {
+						const material = mat.split('|')
+
+						return {
+							item___NODE: createNodeId(`${material[0]}-${items[material[0]].category}`),
+							amount: material[1]
+						}
+					})
+				},
+				imageURL: itemInfo.image
+			}
+
+			const nodeContent = JSON.stringify(itemData)
+
+			const itemNode = {
+				id: createNodeId(`${item}-${itemData.category}`),
+				parent: null,
+				children: [],
+				internal: {
+					type: 'Item',
+					contentDigest: createContentDigest(nodeContent)
+				},
+				...itemData
+			}
+
+			createNode(itemNode)
+		}
+	}
 }
 
-// graphql schema definitions to prevent errors when no LeaderboardUser nodes are created (this can happen if there's no response from the lootcord api)
+// graphql schema definitions to prevent errors when nodes are not created (this can happen if there's no response from the lootcord api)
 exports.createSchemaCustomization = ({ actions }) => {
 	const { createTypes } = actions
 	const typeDefs = `
@@ -277,6 +377,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 			value: String!
 			rawValue: Int
 		}
+
 		type Command implements Node {
 			name: String!
 			patronOnly: Boolean
@@ -284,9 +385,41 @@ exports.createSchemaCustomization = ({ actions }) => {
 			category: String!
 			usage: String!
 		}
+
 		type Patron implements Node {
 			user: User
 			tier: Int
+		}
+
+		type Item implements Node {
+			name: String!
+			description: String!
+			category: String!
+			tier: Int!
+			buy: String!
+			sell: String!
+			minDamage: String!
+			maxDamage: String!
+			ammo: [Ammo!]!
+			imageURL: String!
+			image: File @link(from: "image___NODE")
+			craftedWith: CraftingMaterials
+			recyclesTo: RecycleMaterials
+		}
+		type CraftingMaterials {
+			level: Int!
+			materials: [Material!]!
+		}
+		type RecycleMaterials {
+			materials: [Material!]!
+		}
+		type Ammo {
+			item: Item! @link(from: "item___NODE")
+			damage: Int!
+		}
+		type Material {
+			item: Item! @link(from: "item___NODE")
+			amount: Int!
 		}
 	`
 
