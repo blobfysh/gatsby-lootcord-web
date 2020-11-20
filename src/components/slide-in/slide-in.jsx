@@ -12,7 +12,7 @@ function SlideIn({ children, slideInRight }) {
 		function onScroll() {
 			const scrollPos = window.scrollY + window.innerHeight
 
-			if (topOfElement < scrollPos - 500) {
+			if (topOfElement < scrollPos - 300) {
 				setVisible(true)
 			}
 		}
