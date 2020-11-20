@@ -25,7 +25,7 @@ function Footer() {
 								</Link>
 							</li>
 							<li>
-								<Link className='link' to={'/'}>
+								<Link className='link' to={'/guides'}>
 									Guides
 								</Link>
 							</li>

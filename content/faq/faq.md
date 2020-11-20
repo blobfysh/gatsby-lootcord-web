@@ -16,8 +16,6 @@ You can view all commands with `t-help`, the most important commands to remember
 1. `mysettings` - View your current settings such as notifications, and how to change them.
 1. `cd` - Check your current command cooldowns.
 
-<br/>
-
 You can also use `t-help <command>` to see detailed information about how to use a command.
 
 ## How do I open a crate?
@@ -32,23 +30,17 @@ If you're killed by another player, you will lose 75% of your Lootcoin, 50% of y
 
 The black market allows you to list items for sale to other players.
 
-<br/>
-
 You can search black market listings on the bot using the `blackmarket` command or you can search black market listings on the website [here](/blackmarket).
 
 ## How do I gain experience/level up?
 
 You can gain experience from opening boxes and killing other players.
 
-<br/>
-
 You can check your progress towards the next level with the `xp` command. Leveling up will reward you with a crate based on your level and unlock new crafting recipes.
 
 ## What's an inactive player?
 
 A player that has not played for more than 2 weeks is considered inactive.
-
-<br/>
 
 Inactive players are automatically deactivated from all servers to keep the attack pool consisting of active players.
 
@@ -59,8 +51,6 @@ You can force all attacks to be random with the `serversettings` command. Keep i
 ## Can I choose who to attack?
 
 Yes, you can use a weapon to attack a specific player if the server is in selectable attack mode. The attack mode changes on a server by server basis; you can check the current attack mode with the `serversettings` command.
-
-<br/>
 
 Once enabled, attacking a specific player is as easy as `t-use rock @blobfysh`
 
@@ -75,7 +65,5 @@ A passive shield is a 24 hour attack shield given to you when you are killed. Th
 ## What is Scrap and how do I get it?
 
 Scrap is the dedicated currency for all the gambling commands. You can get it by buying it: `t-buy scrap <amount>`
-
-<br/>
 
 Scrap is also used to purchase unique items from Outpost, you can check what you can purchase on the homepage of the `shop`.

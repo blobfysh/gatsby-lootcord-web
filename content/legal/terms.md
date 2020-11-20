@@ -4,23 +4,13 @@ title: 'Terms of Service'
 
 Updated: September 02, 2020
 
-<br>
-
 blobfysh ("Us" or "We") provides the website https://lootcord.com (the "Website") and its various related services (collectively, such services, including any new features and applications, and the Website, the "Service(s)") to you, the User, subject to your compliance with all the terms, conditions, and notices contained or referenced herein (the "Terms of Service"), as well as any other written agreement between us and you.
-
-<br>
 
 In addition, when using particular services or materials on this Website, Users shall be subject to any posted rules applicable to such services or materials that may contain terms and conditions in addition to those in these Terms of Service. All such guidelines or rules are hereby incorporated by reference into these Terms of Service.
 
-<br>
-
 These Terms of Service are effective as of September 02, 2020. We expressly reserve the right to change these Terms of Service from time to time without notice to you. You acknowledge and agree that it is your responsibility to review this Website and these Terms of Service from time to time and to familiarize yourself with any modifications.
 
-<br>
-
 Your continued use of this Website after such modifications will constitute acknowledgement of the modified Terms of Service and agreement to abide and be bound by the modified Terms of Service.
-
-<br>
 
 We reserve the sole right to either modify or discontinue the Website, including any of the Website’s features, at any time with or without notice to you. We will not be liable to you or any third party should we exercise such right. Any new features that augment or enhance the then-current services on this Website shall also be subject to these Terms of Service.
 
@@ -42,15 +32,11 @@ Trademarks referenced in the Services are the property of their respective owner
 
 Users can request deletion of their account data at any time by contacting a bot moderator at the contact details provided in these Terms of Services.
 
-<br>
-
 You agree that we may, in our sole discretion, terminate or suspend your access to all or part of the Service with or without notice and for any reason, including, without limitation, breach of these Terms of Service. Any suspected fraudulent, abusive or illegal activity may be grounds for terminating your relationship and may be referred to appropriate law enforcement authorities.
 
 ### Disclaimer
 
 You understand and agree that temporary interruptions of the service may occur as normal events. You further understand and agree that we have no control over third party networks you may access in the course of the use of this Website, and therefore, delays and disruption of other network transmissions are completely beyond our control.
-
-<br>
 
 You understand and agree that the service is provided on an "AS IS" and "AS AVAILABLE" basis. The service is provided without warranties of any kind, whether express, implied or statutory, including, but not limited to the implied warranties of merchantability, fitness for a particular purpose, title and non-infringement.
 

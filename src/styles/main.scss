@@ -25,14 +25,19 @@
     }
 
     h1, h2, h3, h4, h5 {
-        font-family: $title-family
+        font-family: $title-family;
     }
 
-    p {
-        margin-bottom: 0 !important;
+    h3, h4, h5 {
+        font-weight: 600;
+        color: var(--p-txt-color);
     }
 
     li {
+        color: var(--p-txt-color);
+    }
+
+    table {
         color: var(--p-txt-color);
     }
 }
@@ -42,8 +47,14 @@ body {
 }
 
 .autolinkHeader svg {
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 1rem;
+    height: 1rem;
+    vertical-align: middle;
+    margin-top: -4px;
+}
+
+.hideHeaders .autolinkHeader {
+    display: none;
 }
 
 span:not(.token) {

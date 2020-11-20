@@ -4,11 +4,7 @@ title: 'Privacy Policy'
 
 Updated: September 02, 2020
 
-<br>
-
 blobfysh ("Us", "We" or "Our") operates the the website https://lootcord.com (the "Website") and its various related services (collectively, such services, including any new features and applications, and the Website, the "Service(s)"). This Privacy Policy informs you of how we collect and store your Personal Information and what we do with it regarding our services.
-
-<br>
 
 If you choose to use our Services, then you agree to the collection and use of information in relation to this policy. The Personal Information that we collect is used for providing and improving the Service. We will not use or share your information with anyone except as described in this Privacy Policy.
 
@@ -29,8 +25,6 @@ We use third party services that may collect information used to identify you. I
 
 All data collected is necessary for the service to function. For example, we may use your User ID to store information when running commands. This data is only stored when you run a command that requires your information is stored or when it is required for our service to function. If you wish to have this data removed from our service, simply contact us at the contact details below and ask us to remove your data.
 
-<br>
-
 Guild Data including Guild ID, Channel IDs, are used to store Guild-specific settings and are entirely opt-in. We will not store your Guild ID unless you use a feature that requires it such as running a command that may change a setting regarding your Guild or running another command that deals with your Guild. If you wish to have your Guild information removed from our service, simply remove the bot from the Guild and your Guild data will automatically be removed.
 
 ### Log Data
@@ -40,8 +34,6 @@ We want to inform you that whenever you use our Service, in a case of an error i
 ### Cookies
 
 Cookies are files with small amount of data, which may include an anonymous unique identifier. Cookies are sent to your browser from a web site and stored on your computer's hard drive.
-
-<br>
 
 Like many sites, we use "cookies" to collect information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Site.
 
@@ -60,8 +52,6 @@ These Services do not address anyone under the age of 13. We do not knowingly co
 ### Changes to this Privacy Policy
 
 This Privacy Policy is effective as of September 02, 2020 and will remain in effect except with respect to any changes in its provisions in the future, which will be in effect immediately after being posted on this page.
-
-<br>
 
 We reserve the right to update or change our Privacy Policy at any time and you should check this Privacy Policy periodically. Your continued use of the Service after we post any modifications to the Privacy Policy on this page will constitute your acknowledgment of the modifications and your consent to abide and be bound by the modified Privacy Policy.
 

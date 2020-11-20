@@ -30,8 +30,6 @@ There is a system in place to try and avoid abusing t-deactivate, but moderators
 
 Giving another player free items/money whether it be through trading, the black market, clans, or kills is not allowed. Doing so will result in a warning or trade ban.
 
-<br>
-
 You can deposit an item into the clan vault and let a member withdraw it but if you are found to be abusing this with alt accounts or inviting temporary members to withdraw items/money, you will be trade banned.
 
 ## Rule #6

@@ -6,8 +6,6 @@ order: 2
 
 Lootcord features all kinds of ways to spend money and try to win more back.
 
-<br>
-
 The current available gambling game options are:
 
  - **Blackjack**

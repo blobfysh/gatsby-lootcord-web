@@ -52,18 +52,10 @@ moderators:
 
 Lootcord is a looting, battling, raiding game bot filled with various weapons and items hidden inside boxes waiting for you to open them. Go forth and earn boxes to increase your arsenal of weapons, waiting for the right moment to strike your friends!
 
-<br>
-
 Released in September 2018, Lootcord was conceptually hatched from a desolate Discord server between a group of friends after taking inspiration from another looting bot, Boxbot. The bot is developed solely by owner Blobfysh but is help improved by suggestions from its community.
-
-<br>
 
 Lootcord has been through a lot of changes and updates, continuing to grow to this day. Have a suggestion? Post your ideas on the support server in the suggestions channel!
 
-<br>
-
 If you would like to see the source code of Lootcord, you can visit the github post here: https://github.com/blobfysh/Lootcord
-
-<br>
 
 This site was created using [GatsbyJS](https://www.gatsbyjs.com/), [Bulma](https://bulma.io/), [Vercel](https://vercel.com/) and is also [open source](https://github.com/blobfysh/gatsby-lootcord-web)!
