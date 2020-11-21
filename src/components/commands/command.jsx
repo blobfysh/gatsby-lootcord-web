@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import { faPatreon } from '@fortawesome/free-brands-svg-icons'
 import styles from './command.module.scss'
 
@@ -33,7 +33,7 @@ function Command({ name, description, usage, patronOnly }) {
 					</span>
 					<span><span className={styles.dash}> - </span>{description}</span>
 				</div>
-				<FontAwesomeIcon className={styles.fontIcon} icon={faAngleDown} />
+				<FontAwesomeIcon className={styles.fontIcon} icon={faCaretDown} />
 			</button>
 			<div className={`${!selected ? styles.hideUsage : ''} ${styles.infoWrap}`}>
 				<div className={`${styles.cmdInfo}`}>

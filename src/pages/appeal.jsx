@@ -7,7 +7,7 @@ import AppealForm from '../components/appeal-form/appeal-form'
 function Appeal() {
 	return (
 		<Layout>
-			<SEO title='Rules' />
+			<SEO title='Appeal' />
 			<section className='section container'>
 				<h1 className='title is-uppercase has-text-centered'>Appeal a Ban</h1>
 				<AppealForm />

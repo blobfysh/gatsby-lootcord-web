@@ -8,7 +8,7 @@ import GuidePost from '../components/guide-post/guide-post'
 function Guides({ data }) {
 	return (
 		<Layout>
-			<SEO title='Rules' />
+			<SEO title='Guides' />
 			<section className='section container'>
 				<h1 className='title is-uppercase has-text-centered'>Guides</h1>
 				{data.allMarkdownRemark.nodes.map(node => (
