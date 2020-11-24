@@ -17,6 +17,7 @@ function Post({ title, date, preview, slug }) {
 					<FontAwesomeIcon
 						className={`icon ${styles.icon}`}
 						icon={faLongArrowAltRight}
+						size='lg'
 					/>
 				</div>
 			</div>

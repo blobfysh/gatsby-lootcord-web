@@ -7,7 +7,8 @@ module.exports = {
 		siteUrl: 'https://www.lootcord.com',
 		title: 'Lootcord',
 		description: 'A Rust themed fighting and looting bot for Discord.',
-		author: 'blobfysh'
+		author: 'blobfysh',
+		image: '/images/lootcord_icon.png'
 	},
 	plugins: [
 		'gatsby-plugin-sass',
@@ -103,7 +104,7 @@ module.exports = {
 				background_color: '#cd412b',
 				theme_color: '#cd412b',
 				display: 'minimal-ui',
-				icon: 'src/images/icon.png'
+				icon: 'static/images/lootcord_icon.png'
 			}
 		},
 		{

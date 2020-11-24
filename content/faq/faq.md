@@ -30,7 +30,7 @@ If you're killed by another player, you will lose 75% of your Lootcoin, 50% of y
 
 The black market allows you to list items for sale to other players.
 
-You can search black market listings on the bot using the `blackmarket` command or you can search black market listings on the website [here](/blackmarket).
+You can search black market listings on the bot using the `blackmarket` command.
 
 ## How do I gain experience/level up?
 
