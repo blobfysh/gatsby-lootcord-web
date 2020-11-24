@@ -24,7 +24,7 @@ function Command({ name, description, usage, patronOnly }) {
 				onClick={handleClick}
 			>
 				<div className={styles.cmdName}>
-					<span className='blurple has-text-weight-bold'>
+					<span className='blurple has-text-weight-semibold'>
 						{
 							patronOnly &&
 							<FontAwesomeIcon className={styles.patreonIcon} icon={faPatreon} />

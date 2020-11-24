@@ -10,7 +10,7 @@ function Guide({ data }) {
 		<Layout>
 			<SEO title={post.frontmatter.title} description={post.frontmatter.preview} />
 			<section className='section container'>
-				<h1 className='title is-2 is-uppercase has-text-centered'>
+				<h1 className='title is-3 is-uppercase has-text-centered'>
 					{post.frontmatter.title}
 				</h1>
 				<h2 className='subtitle is-6 has-text-centered'>

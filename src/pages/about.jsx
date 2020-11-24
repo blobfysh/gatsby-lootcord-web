@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
 import Twemoji from '../components/twemoji'
-import CardList from '../components/card-list/card-list'
+import UserCardList from '../components/user-card-list/user-card-list'
 
 function sortUsers(a, b) {
 	const nameA = a.name.toLowerCase()
@@ -31,13 +31,13 @@ function About({ data }) {
 					dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
 				/>
 				<h1 className='title is-uppercase has-text-centered'>Who's Responsible?!</h1>
-				<CardList title='Developer' users={devs} />
-				<CardList title='Artists' users={artists} />
-				<CardList title='Moderators' users={mods} />
+				<UserCardList title='Developer' users={devs} />
+				<UserCardList title='Artists' users={artists} />
+				<UserCardList title='Moderators' users={mods} />
 
 				{
 					!!data.allPatron.nodes.length &&
-					<CardList
+					<UserCardList
 						title={(
 							<React.Fragment>
 								<Twemoji emoji='💖' />

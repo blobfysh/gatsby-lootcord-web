@@ -1,9 +1,9 @@
 import React from 'react'
 
 import UserCard from '../user-card/user-card'
-import styles from './card-list.module.scss'
+import styles from './user-card-list.module.scss'
 
-function CardList({ title, users }) {
+function UserCardList({ title, users }) {
 	return (
 		<div>
 			<h2 className={`subtitle is-3 ${styles.title}`}>{title}</h2>
@@ -31,4 +31,4 @@ function CardList({ title, users }) {
 	)
 }
 
-export default CardList
+export default UserCardList

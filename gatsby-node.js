@@ -76,9 +76,16 @@ exports.createPages = async ({ graphql, actions }) => {
 					}
 				}
 			}
+			items: allItem {
+				distinct(field: category)
+				nodes {
+					name
+				}
+			}
 		}
 	`)
 
+	// create guide pages
 	result.data.guides.nodes.forEach(node => {
 		createPage({
 			path: `/guides${node.fields.slug}`,
@@ -87,6 +94,28 @@ exports.createPages = async ({ graphql, actions }) => {
 				// Data passed to context is available
 				// in page queries as GraphQL variables.
 				slug: node.fields.slug
+			}
+		})
+	})
+
+	// create category pages
+	result.data.items.distinct.forEach(category => {
+		createPage({
+			path: `/items/category/${category.toLowerCase()}`,
+			component: path.resolve('./src/templates/category.jsx'),
+			context: {
+				category
+			}
+		})
+	})
+
+	// create item pages
+	result.data.items.nodes.forEach(item => {
+		createPage({
+			path: `/item/${item.name}`,
+			component: path.resolve('./src/templates/item.jsx'),
+			context: {
+				item: item.name
 			}
 		})
 	})
@@ -307,6 +336,27 @@ exports.sourceNodes = async ({
 		for (item in items) {
 			const itemInfo = items[item]
 
+			function getPossibleItems() {
+				const itemsArr = []
+
+				let rate
+				for (rate in itemInfo.rates) {
+					let possibleItem
+					for (possibleItem of itemInfo.rates[rate].items) {
+						const itemAmount = possibleItem.split('|')
+
+						itemsArr.push({
+							item___NODE: createNodeId(`${itemAmount[0]}-${items[itemAmount[0]].category}`),
+							amount: itemAmount[1],
+							xp: itemInfo.rates[rate].xp,
+							rate
+						})
+					}
+				}
+
+				return itemsArr
+			}
+
 			const itemData = {
 				name: item,
 				description: itemInfo.desc,
@@ -316,6 +366,7 @@ exports.sourceNodes = async ({
 				sell: itemInfo.sell.toString(),
 				minDamage: itemInfo.minDmg.toString(),
 				maxDamage: itemInfo.maxDmg.toString(),
+				damage: typeof itemInfo.damage === 'number' ? itemInfo.damage : null,
 				ammo: !itemInfo.ammo.length ? [] : itemInfo.ammo.map(ammo => ({
 					item___NODE: createNodeId(`${ammo}-${items[ammo].category}`),
 					damage: items[ammo].damage
@@ -341,6 +392,7 @@ exports.sourceNodes = async ({
 						}
 					})
 				},
+				possibleItems: !itemInfo.rates ? null : getPossibleItems(),
 				imageURL: itemInfo.image
 			}
 
@@ -400,11 +452,19 @@ exports.createSchemaCustomization = ({ actions }) => {
 			sell: String!
 			minDamage: String!
 			maxDamage: String!
+			damage: Int
 			ammo: [Ammo!]!
 			imageURL: String!
 			image: File @link(from: "image___NODE")
 			craftedWith: CraftingMaterials
 			recyclesTo: RecycleMaterials
+			possibleItems: [PossibleItem]
+		}
+		type PossibleItem {
+			item: Item! @link(from: "item___NODE")
+			amount: String!
+			xp: Int!
+			rate: String!
 		}
 		type CraftingMaterials {
 			level: Int!

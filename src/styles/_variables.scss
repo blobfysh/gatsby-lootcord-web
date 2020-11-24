@@ -14,7 +14,13 @@ $navbar-background-color: var(--nav-bg-color);
 $navbar-item-color: var(--nav-txt-color);
 $navbar-item-hover-color: var(--nav-txt-hover);
 $navbar-burger-color: var(--nav-burger-color);
-$navbar-item-hover-background-color: rgba(0, 0, 0, 0.1);
+$navbar-item-hover-background-color: var(--nav-item-hover-bg);
+$navbar-dropdown-background-color: var(--nav-item-hover-bg);
+// have to hide bulma arrow so I can maintain the nav-item hover background with my own arrow
+$navbar-dropdown-arrow: transparent;
+$navbar-dropdown-item-hover-background-color: var(--nav-item-hover-bg);
+$navbar-dropdown-item-hover-color: var(--nav-txt-hover);
+$navbar-dropdown-border-top: none;
 
 // Content and title styles
 // ========================
@@ -26,6 +32,7 @@ $title-color: var(--title-color);
 $subtitle-color: var(--subtitle-color);
 $content-heading-color: var(--title-color);
 $text-strong: var(--bold-txt);
+$section-padding: 3rem 0.5rem;
 
 // Input styles
 // ============

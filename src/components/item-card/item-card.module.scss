@@ -1,0 +1,56 @@
+@import '~bulma/sass/utilities/_all.sass';
+
+.itemCard {
+    width: 25%;
+}
+
+.innerCard {
+    margin: 2px;
+    background-color: var(--card-bg-color);
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    padding: 10px;
+    border-radius: 4px;
+
+    &:hover {
+        background-color: var(--card-hover-bg-color);
+    }
+}
+
+.imageContainer {
+    height: 64px;
+    min-width: 64px;
+    max-width: 64px;
+    margin-right: 10px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+
+@include desktop-only {
+    .itemCard {
+        width: 33%;
+    }
+}
+
+@include touch {
+    .itemCard {
+        width: 50%;
+    }
+}
+
+@include mobile {
+    .innerCard {
+        margin: 1px;
+        padding: 4px;
+    }
+    .imageContainer {
+        height: 40px;
+        min-width: 40px;
+        margin: 5px;
+    }
+    .name {
+        font-size: 0.9rem;
+    }
+}

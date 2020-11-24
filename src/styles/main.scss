@@ -28,7 +28,7 @@
         font-family: $title-family;
     }
 
-    h3, h4, h5 {
+    h2, h3, h4, h5 {
         font-weight: 600;
         color: var(--p-txt-color);
     }
@@ -53,6 +53,10 @@ body {
     margin-top: -4px;
 }
 
+.autolinkHeader.after {
+    position: absolute;
+}
+
 .hideHeaders .autolinkHeader {
     display: none;
 }
@@ -71,6 +75,10 @@ span:not(.token).blurple {
 
 p:not(.token) {
     color: var(--p-txt-color);
+}
+
+code {
+    background-color: transparent;
 }
 
 a.link:hover {

@@ -29,6 +29,12 @@
     transition: background-color ease .5s;
 }
 
+.icon {
+    right: 16px;
+    font-size: 1.3rem;
+    position: absolute;
+}
+
 .logoStyle {
     width: 200px;
     height: 28px;
@@ -39,5 +45,9 @@
 @include touch {
     .navMenu {
         box-shadow: 0 14px 16px rgba(10, 10, 10, 0.1);
+    }
+
+    .icon {
+        right: 19px;
     }
 }

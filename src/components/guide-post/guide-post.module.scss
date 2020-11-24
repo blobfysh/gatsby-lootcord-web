@@ -1,3 +1,5 @@
+@import '~bulma/sass/utilities/_all.sass';
+
 .guideWrap {
     background-color: var(--card-bg-color);
     border-radius: 4px;
@@ -9,6 +11,9 @@
     &:hover {
         .icon {
             transform: translateX(5px);
+        }
+        .readButton {
+            opacity: 1;
         }
     }
 }
@@ -24,17 +29,20 @@
     border-radius: 0;
     padding: 8px;
     background-color: var(--card-hover-bg-color);
+    transition: opacity .2s;
+    opacity: 0;
 }
 
 .btnText {
     vertical-align: middle;
+    color: var(--nav-txt-color) !important;
 }
 
 .icon {
     margin-left: 8px;
     margin-right: 8px;
-    color: var(--p-txt-color);
     vertical-align: middle;
     transition: transform .2s;
     font-size: 1.3rem;
+    color: var(--nav-txt-color);
 }
