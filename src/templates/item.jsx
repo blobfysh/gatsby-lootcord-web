@@ -34,6 +34,7 @@ export const query = graphql`
 			minDamage
 			damage
 			description
+			cooldown
 			ammo {
 				damage
 				item {

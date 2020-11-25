@@ -392,6 +392,7 @@ exports.sourceNodes = async ({
 						}
 					})
 				},
+				cooldown: itemInfo.cooldown === '' ? null : itemInfo.cooldown.seconds,
 				possibleItems: !itemInfo.rates ? null : getPossibleItems(),
 				imageURL: itemInfo.image
 			}
@@ -458,6 +459,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 			image: File @link(from: "image___NODE")
 			craftedWith: CraftingMaterials
 			recyclesTo: RecycleMaterials
+			cooldown: Int
 			possibleItems: [PossibleItem]
 		}
 		type PossibleItem {

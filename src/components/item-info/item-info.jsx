@@ -28,6 +28,46 @@ function formatNumber(number) {
 	return number.toLocaleString('en-US')
 }
 
+function formatCooldown(ms) {
+	let remaining = ms
+	const finalStr = []
+
+	const rawDays = remaining / (1000 * 60 * 60 * 24)
+	const days = Math.floor(rawDays)
+	remaining %= 1000 * 60 * 60 * 24
+
+	const rawHours = remaining / (1000 * 60 * 60)
+	const hours = Math.floor(rawHours)
+	remaining %= 1000 * 60 * 60
+
+	const rawMinutes = remaining / (1000 * 60)
+	const minutes = Math.floor(rawMinutes)
+	remaining %= 1000 * 60
+
+	const seconds = Math.floor(remaining / 1000)
+
+	if (days > 0) {
+		finalStr.push(days === 1 ? `${days} day` : `${days} days`)
+	}
+	if (hours > 0) {
+		if (days > 0) {
+			finalStr.push(`${rawHours.toFixed(1)} hours`)
+			return finalStr.join(' ')
+		}
+		finalStr.push(hours === 1 ? `${hours} hour` : `${hours} hours`)
+	}
+	if (minutes > 0) {
+		if (hours > 0 || days > 0) {
+			finalStr.push(`${rawMinutes.toFixed(1)} minutes`)
+			return finalStr.join(' ')
+		}
+		finalStr.push(minutes === 1 ? `${minutes} minute` : `${minutes} minutes`)
+	}
+
+	if (seconds !== 0) finalStr.push(seconds === 1 ? `${seconds} second` : `${seconds} seconds`)
+	return finalStr.join(' ')
+}
+
 function ItemInfo({ item, ammoFor, usedToCraft, recyclesFrom, obtainedFrom }) {
 	return (
 		<div className={styles.itemInfoWrap}>
@@ -69,6 +109,23 @@ function ItemInfo({ item, ammoFor, usedToCraft, recyclesFrom, obtainedFrom }) {
 						<span className={`${styles.tier} ${styles[`tier${item.tier}`]}`}>{item.tier === 0 ? 'None' : item.tier}</span>
 					</div>
 					{
+						item.buy &&
+						<div className={styles.contentRow}>
+							<div className={styles.infoTag}>
+								<strong>Buy Price</strong>
+							</div>
+							<span>
+								<img
+									src={lootcoinImg}
+									alt=''
+									draggable='false'
+									className={styles.lootcoinIcon}
+								/>
+								{formatNumber(item.buy)}
+							</span>
+						</div>
+					}
+					{
 						item.sell &&
 						<div className={styles.contentRow}>
 							<div className={styles.infoTag}>
@@ -93,23 +150,6 @@ function ItemInfo({ item, ammoFor, usedToCraft, recyclesFrom, obtainedFrom }) {
 						</div>
 					}
 					{
-						item.buy &&
-						<div className={styles.contentRow}>
-							<div className={styles.infoTag}>
-								<strong>Buy Price</strong>
-							</div>
-							<span>
-								<img
-									src={lootcoinImg}
-									alt=''
-									draggable='false'
-									className={styles.lootcoinIcon}
-								/>
-								{formatNumber(item.buy)}
-							</span>
-						</div>
-					}
-					{
 						item.minDamage &&
 						<div className={styles.contentRow}>
 							<div className={styles.infoTag}>
@@ -128,6 +168,17 @@ function ItemInfo({ item, ammoFor, usedToCraft, recyclesFrom, obtainedFrom }) {
 							</div>
 							<span>
 								{item.damage}
+							</span>
+						</div>
+					}
+					{
+						item.cooldown &&
+						<div className={styles.contentRow}>
+							<div className={styles.infoTag}>
+								<strong>Cooldown</strong>
+							</div>
+							<span>
+								{formatCooldown(item.cooldown * 1000)}
 							</span>
 						</div>
 					}
