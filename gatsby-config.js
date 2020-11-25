@@ -11,6 +11,13 @@ module.exports = {
 		image: '/images/lootcord_icon.png'
 	},
 	plugins: [
+		{
+			resolve: 'gatsby-plugin-google-analytics',
+			options: {
+				trackingId: 'UA-160373540-1',
+				head: true
+			}
+		},
 		'gatsby-plugin-sass',
 		'gatsby-plugin-react-helmet',
 		{
