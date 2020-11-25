@@ -6,71 +6,59 @@ import Switch from '../switch/switch'
 import styles from './footer.module.scss'
 
 function Footer() {
-	const [theme, setTheme] = useContext(ThemeContext)
-
-	const toggleTheme = () => {
-		if (theme === 'light') {
-			setTheme('dark')
-		}
-		else {
-			setTheme('light')
-		}
-	}
+	const theme = useContext(ThemeContext)
 
 	return (
 		<footer className={styles.footerStyles}>
 			<div className={`container ${styles.listContainer}`}>
 				<div>
 					<div>
-						<span>Links</span>
 						<ul className={styles.footerList}>
 							<li>
-								<Link className='link' to={'/'}>
+								<Link className='link' to={'/appeal'}>
+									Appeal
+								</Link>
+							</li>
+							<li>
+								<Link className='link' to={'/rules'}>
 									Rules
 								</Link>
 							</li>
 							<li>
-								<Link className='link' to={'/'}>
-									About
-								</Link>
-							</li>
-							<li>
-								<Link className='link' to={'/'}>
-									Guides
-								</Link>
-							</li>
-							<li>
-								<Link className='link' to={'/'}>
+								<Link className='link' to={'/terms'}>
 									Terms
 								</Link>
 							</li>
 							<li>
-								<Link className='link' to={'/'}>
+								<Link className='link' to={'/privacy'}>
 									Privacy
 								</Link>
 							</li>
 						</ul>
 					</div>
 					<div>
-						<span>Extras</span>
 						<ul className={styles.footerList}>
 							<li>
-								<Switch
-									checked={theme !== 'dark'}
-									onChange={toggleTheme}
-									text='Light Theme'
-								/>
+								{theme !== null ? (
+									<Switch
+										checked={theme !== 'dark'}
+										onChange={() => { window.toggleTheme() }}
+										text='Light Theme'
+									/>
+								) : (
+									<div style={{ height: '24px' }} />
+								)}
 							</li>
 						</ul>
 					</div>
 				</div>
-				<ul className={styles.copyList}>
+				<div className={styles.copyList}>
 					<span>
 						© Copyright 2020 Blobfysh
 						<br />
 						Lootcord is not affiliated with Facepunch
 					</span>
-				</ul>
+				</div>
 			</div>
 		</footer>
 	)

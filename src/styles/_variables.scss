@@ -1,0 +1,54 @@
+// Fonts
+// =====
+$title-family: "Open Sans", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
+
+$body-family: "Open Sans", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    "Helvetica", "Arial", sans-serif;
+
+// Navbar styles
+// =============
+$navbar-background-color: var(--nav-bg-color);
+$navbar-item-color: var(--nav-txt-color);
+$navbar-item-hover-color: var(--nav-txt-hover);
+$navbar-burger-color: var(--nav-burger-color);
+$navbar-item-hover-background-color: var(--nav-item-hover-bg);
+$navbar-dropdown-background-color: var(--nav-item-hover-bg);
+// have to hide bulma arrow so I can maintain the nav-item hover background with my own arrow
+$navbar-dropdown-arrow: transparent;
+$navbar-dropdown-item-hover-background-color: var(--nav-item-hover-bg);
+$navbar-dropdown-item-hover-color: var(--nav-txt-hover);
+$navbar-dropdown-border-top: none;
+
+// Content and title styles
+// ========================
+$content-heading-weight: 800;
+$title-weight: 800;
+$link: var(--links-color);
+$link-hover: var(--links-color);
+$title-color: var(--title-color);
+$subtitle-color: var(--subtitle-color);
+$content-heading-color: var(--title-color);
+$text-strong: var(--bold-txt);
+$section-padding: 3rem 0.5rem;
+
+// Input styles
+// ============
+$input-background-color: var(--input-bg-color);
+$input-icon-color: var(--input-icon-color);
+$input-icon-active-color: var(--input-icon-active);
+$input-border-color: var(--input-bg-color);
+$input-hover-border-color: var(--input-bg-color);
+$input-disabled-background-color: var(--input-disabled-bg-color);
+$input-disabled-border-color: var(--input-disabled-bg-color);
+
+// Set colors
+// ==========
+// Bulma doesn't support css variables for colors :(
+$primary: #7289DA;
+$primary-invert: #ffffff;
+$primary-light: #8094dd;
+$primary-dark: #667bc4;
+$dark: #38393C;

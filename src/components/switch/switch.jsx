@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styles from './switch.module.scss'
 
 function Switch({ checked, onChange, text }) {
-	const [isChecked, setChecked] = useState(false)
+	const [isChecked, setChecked] = useState(checked)
 	const [hasOutline, setOutline] = useState(false)
 
 	const handleChange = e => {
@@ -27,6 +27,7 @@ function Switch({ checked, onChange, text }) {
 				/>
 				<input
 					role='switch'
+					aria-checked={isChecked}
 					type='checkbox'
 					defaultChecked={isChecked}
 					onChange={handleChange}

@@ -13,7 +13,41 @@ export default function HTML(props) {
 				/>
 				{props.headComponents}
 			</head>
-			<body {...props.bodyAttributes}>
+			<body {...props.bodyAttributes} className='theme-dark'>
+				<script dangerouslySetInnerHTML={{ __html: `
+					(function() {
+						var savedTheme;
+						try {
+							savedTheme = localStorage.getItem('theme');
+						}
+						catch (err) {
+						}
+
+						if (savedTheme) {
+							window.theme = savedTheme
+							document.body.className = 'theme-' + savedTheme;
+						}
+						else {
+							window.theme = 'dark';
+						}
+
+						window.toggleTheme = function() {
+							if (window.theme === 'dark') {
+								window.theme = 'light';
+							}
+							else {
+								window.theme = 'dark';
+							}
+
+							window.onThemeChange();
+							document.body.className = 'theme-' + window.theme;
+							localStorage.setItem('theme', window.theme);
+						}
+
+						window.onThemeChange = function() {}
+					})();
+					` }}
+				/>
 				{props.preBodyComponents}
 				<noscript>This app works best with JavaScript enabled.</noscript>
 				<div

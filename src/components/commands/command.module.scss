@@ -1,0 +1,88 @@
+@import '~bulma/sass/utilities/_all.sass';
+
+.commandWrap {
+    margin-bottom: 5px;
+    display: flex;
+    flex-flow: column nowrap;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.cmdButton {
+    height: fit-content;
+    white-space: normal;
+    background-color: var(--card-bg-color);
+    border: 0;
+    cursor: pointer;
+    min-height: 2.5em;
+    padding: 0.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    outline: none;
+    text-align: left;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    &:hover {
+        background-color: var(--card-hover-bg-color);
+    }
+    &:focus {
+        background-color: var(--card-hover-bg-color);
+    }
+}
+
+.cmdInfo {
+    padding: 1rem;
+    background-color: var(--card-bg-color);
+    border-top: solid rgba(0, 0, 0, 0.3) 1px;
+}
+
+.infoWrap {
+    max-height: 100px;
+    transition: max-height 0.3s;
+    text-align: left;
+}
+
+.hideUsage {
+    max-height: 0;
+}
+
+.fontIcon {
+    color: var(--p-txt-color);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.patreonIcon {
+    color: #f96854;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.buttonSelected {
+    & .fontIcon {
+        transform: rotate(180deg);
+    }
+}
+
+@include mobile {
+    .cmdButton {
+        justify-content: center;
+        text-align: center;
+    }
+    .cmdName {
+        display: flex;
+        flex-flow: column nowrap;
+    }
+    .infoWrap {
+        text-align: center;
+    }
+    .dash {
+        display: none;
+    }
+    .fontIcon {
+        display: none !important;
+    }
+}

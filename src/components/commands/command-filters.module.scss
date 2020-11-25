@@ -1,0 +1,35 @@
+@import '~bulma/sass/utilities/_all.sass';
+
+.categoryTags {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.filtersWrap {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding: 5px;
+    background-color: var(--nav-bg-color);
+    border-radius: 4px;
+    height: fit-content;
+}
+
+@include mobile {
+    .filtersWrap {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@include touch {
+    .filtersWrap {
+        margin-bottom: 15px;
+        padding: 5px;
+    }
+    .categoryTags {
+        flex-flow: row wrap;
+    }
+}

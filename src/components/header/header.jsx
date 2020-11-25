@@ -1,14 +1,28 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 
-import { Link } from 'gatsby'
-import ThemeContext from '../../context/ThemeContext'
-import lightThemeLogo from '../../images/lootcordlogodark.png'
-import darkThemeLogo from '../../images/lootcordlogowhite.png'
+import { Link, useStaticQuery, graphql } from 'gatsby'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import patronButton from '../../images/patron_button.png'
 import styles from './header.module.scss'
 
 function Header() {
-	const theme = useContext(ThemeContext)[0]
+	const data = useStaticQuery(
+		graphql`
+			query {
+				allItem {
+					nodes {
+						name
+					}
+				}
+				allCommand {
+					nodes {
+						name
+					}
+				}
+			}
+		`
+	)
 	const [menuActive, setMenuActive] = useState(false)
 
 	const toggleMenu = () => {
@@ -22,17 +36,15 @@ function Header() {
 
 	return (
 		<nav
-			className={`navbar is-transparent ${styles.navStyles}`}
+			className={`navbar ${styles.navStyles}`}
 			role='navigation'
 			aria-label='main navigation'
 		>
 			<div className='container'>
 				<div className='navbar-brand'>
-					<Link to={'/'} className='navbar-item'>
-						<img
-							src={theme === 'dark' ? darkThemeLogo : lightThemeLogo}
-							alt='Lootcord Icon'
-							draggable='false'
+					<Link to={'/'} className='navbar-item' aria-label='Home Page'>
+						<div
+							className={styles.logoStyle}
 						/>
 					</Link>
 					<button
@@ -49,14 +61,49 @@ function Header() {
 				</div>
 				<div id='navbar-menu' className={`navbar-menu ${menuActive ? 'is-active' : ''} ${styles.navMenu}`}>
 					<div className='navbar-start has-text-weight-semibold'>
-						<Link to={'/'} className='navbar-item'>
-							Commands
-						</Link>
-						<Link to={'/'} className='navbar-item'>
+						{
+							!!data.allCommand.nodes.length &&
+							<Link to={'/commands'} className='navbar-item'>
+								Commands
+							</Link>
+						}
+						{
+							!!data.allItem.nodes.length &&
+							<div className='navbar-item has-dropdown is-hoverable'>
+								<Link to={'/items'} className='navbar-link'>
+									Items
+									<FontAwesomeIcon className={styles.icon} icon={faCaretDown} />
+								</Link>
+								<div className='navbar-dropdown'>
+									<Link to={'/items/category/ammo'} className='navbar-item'>
+										Ammunition
+									</Link>
+									<Link to={'/items/category/material'} className='navbar-item'>
+										Materials
+									</Link>
+									<Link to={'/items/category/melee'} className='navbar-item'>
+										Melee Weapons
+									</Link>
+									<Link to={'/items/category/ranged'} className='navbar-item'>
+										Ranged Weapons
+									</Link>
+									<Link to={'/items/category/item'} className='navbar-item'>
+										Usable Items
+									</Link>
+									<Link to={'/items/category/storage'} className='navbar-item'>
+										Storage Containers
+									</Link>
+								</div>
+							</div>
+						}
+						<Link to={'/faq'} className='navbar-item'>
 							FAQ
 						</Link>
-						<Link to={'/'} className='navbar-item'>
-							Black Market
+						<Link to={'/guides'} className='navbar-item'>
+							Guides
+						</Link>
+						<Link to={'/about'} className='navbar-item'>
+							About
 						</Link>
 					</div>
 					<div className='navbar-end'>
@@ -73,8 +120,6 @@ function Header() {
 											src={patronButton}
 											alt='Become a Patron'
 											draggable='false'
-											width='148'
-											height='36'
 											className={styles.patronButton}
 										/>
 									</a>

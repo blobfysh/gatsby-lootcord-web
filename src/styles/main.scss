@@ -1,11 +1,12 @@
 @charset 'utf-8';
 
-@import './themes.scss';
+// Light and dark theme variables
+@import './_themes.scss';
 
-// Import variables
-@import './variables.scss';
+// Set variables
+@import './_variables.scss';
 
-// Import bulma
+// Import Bulma
 @import '~bulma/bulma.sass';
 
 .content {
@@ -24,7 +25,20 @@
     }
 
     h1, h2, h3, h4, h5 {
-        font-family: $title-family
+        font-family: $title-family;
+    }
+
+    h2, h3, h4, h5 {
+        font-weight: 600;
+        color: var(--p-txt-color);
+    }
+
+    li {
+        color: var(--p-txt-color);
+    }
+
+    table {
+        color: var(--p-txt-color);
     }
 }
 
@@ -32,12 +46,39 @@ body {
     background-color: var(--nav-bg-color);
 }
 
+.autolinkHeader svg {
+    width: 1rem;
+    height: 1rem;
+    vertical-align: middle;
+    margin-top: -4px;
+}
+
+.autolinkHeader.after {
+    position: absolute;
+}
+
+.hideHeaders .autolinkHeader {
+    display: none;
+}
+
 span:not(.token) {
     color: var(--p-txt-color);
 }
 
+span:not(.token).rustyred {
+    color: var(--rustyred);
+}
+
+span:not(.token).blurple {
+    color: var(--blurple);
+}
+
 p:not(.token) {
     color: var(--p-txt-color);
+}
+
+code {
+    background-color: transparent;
 }
 
 a.link:hover {

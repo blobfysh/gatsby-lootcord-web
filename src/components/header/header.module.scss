@@ -1,6 +1,14 @@
+@import '~bulma/sass/utilities/_all.sass';
+
 .patronButton {
     max-height: none !important;
     border-radius: 4px;
+    width: 148px;
+    height: 36px;
+
+    &:hover {
+        filter: brightness(90%);
+    }
 }
 
 .controlButton {
@@ -17,17 +25,29 @@
     }
 }
 
-.navMenu {
-    box-shadow: none;
-}
-
 .navStyles {
     transition: background-color ease .5s;
 }
 
-:global(.noTransitions) .navStyles {
-    -o-transition: none;
-    -moz-transition: none;
-    -webkit-transition: none;
-    transition: none;
+.icon {
+    right: 16px;
+    font-size: 1.3rem;
+    position: absolute;
+}
+
+.logoStyle {
+    width: 171px;
+    height: 28px;
+    background-image: var(--logoURL);
+}
+
+
+@include touch {
+    .navMenu {
+        box-shadow: 0 14px 16px rgba(10, 10, 10, 0.1);
+    }
+
+    .icon {
+        right: 19px;
+    }
 }

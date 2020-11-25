@@ -2,17 +2,10 @@
 
 .footerStyles {
     text-align: center;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     background-color: var(--nav-bg-color);
     transition: background-color ease .5s;
-}
-
-:global(.noTransitions) .footerStyles {
-    -o-transition: none;
-    -moz-transition: none;
-    -webkit-transition: none;
-    transition: none;
 }
 
 .listContainer {
@@ -34,12 +27,21 @@
 }
 
 .copyList {
-    margin-top: 10px;
     margin-bottom: 0;
 }
 
 @include tablet {
     .listContainer {
         flex-flow: row-reverse nowrap;
+    }
+
+    .footerList {
+        margin-bottom: 0;
+    }
+}
+
+@include mobile {
+    .copyList {
+        padding-top: 25px;
     }
 }

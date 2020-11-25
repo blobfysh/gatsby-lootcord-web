@@ -2,17 +2,11 @@
     display: flex;
     flex-flow: column;
     min-height: 100vh;
+    overflow: hidden;
 }
 
 .contentBody {
     flex: 1 1 auto;
     background-color: var(--bg-color);
     transition: background-color ease .5s;
-}
-
-:global(.noTransitions) .contentBody {
-    -o-transition: none;
-    -moz-transition: none;
-    -webkit-transition: none;
-    transition: none;
 }

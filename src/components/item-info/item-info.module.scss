@@ -1,0 +1,159 @@
+@import '~bulma/sass/utilities/_all.sass';
+
+.itemInfo {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    background-color: var(--card-bg-color);
+    padding: 10px;
+    width: fit-content;
+    border-radius: 4px;
+    height: fit-content;
+    margin-right: 0;
+    text-align: center;
+    min-width: 425px;
+    max-width: 450px;
+}
+
+.itemInfoWrap {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.content {
+    display: flex;
+    flex-flow: column nowrap;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.contentRow {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: baseline;
+    line-height: 30px;
+}
+
+.infoTag {
+    min-width: 100px;
+}
+
+.contentSection {
+    width: 100%;
+}
+
+.tier {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.tier0 {
+    font-size: 1rem;
+}
+
+.tier1 {
+    color: #00FF00 !important;
+    -webkit-text-stroke: 1px #000000;
+    text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+}
+
+.tier2 {
+    color: #FFFF00 !important;
+    -webkit-text-stroke: 1px #000000;
+    text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+}
+
+.tier3 {
+    color: #FF0000 !important;
+    -webkit-text-stroke: 1px #000000;
+    text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+}
+
+.lootcoinIcon {
+    width: 25px;
+    margin-bottom: 3px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.imageContainer {
+    width: 175px;
+    margin: 10px;
+}
+
+.table {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.tableHeader .cell {
+    background-color: transparent;
+}
+.tableRow {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.cell {
+    width: fit-content;
+    background-color: var(--card-bg-color);
+    margin: 1px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-flow: column nowrap;
+}
+
+.itemCell {
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.ammoImage {
+    width: 32px;
+    margin: 10px;
+}
+
+.itemDesc {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.tabs {
+    display: flex;
+    flex-flow: row wrap;
+    margin-bottom: 10px;
+}
+
+.tab {
+    color: var(--p-txt-color);
+    border: solid var(--bg-color) 2px;
+    background-color: var(--card-bg-color);
+    padding: 10px;
+    cursor: pointer;
+
+    &.tabSelected {
+        background-color: var(--card-hover-bg-color);
+        color: var(--nav-txt-color);
+    }
+}
+
+@include touch {
+    .itemInfoWrap {
+        flex-flow: column nowrap;
+    }
+    .itemInfo {
+        min-width: 300px;
+        align-self: center;
+    }
+    .itemDesc {
+        margin: 0;
+    }
+    .tabs {
+        justify-content: center;
+    }
+}

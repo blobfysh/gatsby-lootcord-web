@@ -1,18 +1,28 @@
-# WORK IN PROGRESS
+Welcome to the home of the Lootcord website remade with [React](https://reactjs.org/) using [GatsbyJS](https://www.gatsbyjs.com/).
 
-This will soon be the home of the new Lootcord website remade with [React](https://reactjs.org/) using [GatsbyJS](https://www.gatsbyjs.com/)
+## Contributing
 
-- [x] SEO component
-- [x] Image optimization
-- [x] Design layout with header and footer
-- [x] Add theme toggle switch in the footer
-- [ ] Communicate with Lootcord api for leaderboard and command data on site build
-- [ ] Home page
-- [ ] Commands page
-- [ ] Faq page
-- [ ] Black market page that requests data from lootcord api using serverless function
-- [ ] Rules page
-- [ ] About page
-- [ ] Appeal page
-- [ ] Terms of Service page
-- [ ] Privacy Policy page
+Feel free to contribute! All content displayed on the website is located in the content/ folder.
+
+## Setting up dev environment
+
+Requirements:
+
+- Node.js 12.x or higher
+
+The .env variables are optional, if no lootcord api is provided the website will just omit the commands and items pages as well as the leaderboard.
+
+Install dependencies:
+```
+yarn install
+```
+
+Running:
+```
+yarn run dev
+```
+
+Make sure your additions follow the linting style:
+```
+yarn run lint
+```
