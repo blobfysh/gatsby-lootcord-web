@@ -4,7 +4,7 @@ require('dotenv').config({
 
 module.exports = {
 	siteMetadata: {
-		siteUrl: 'https://www.lootcord.com',
+		siteUrl: 'https://lootcord.com',
 		title: 'Lootcord',
 		description: 'A Rust themed fighting and looting bot for Discord.',
 		author: 'blobfysh',
