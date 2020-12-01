@@ -39,6 +39,7 @@
     font-size: inherit;
     font-weight: inherit;
     cursor: pointer;
+    width: 100%;
 
     &:hover {
         color: var(--nav-txt-hover);
@@ -98,6 +99,7 @@
     }
     .linkButton {
         margin-left: 0.75rem;
+        width: unset;
 
         &:focus {
             background-color: transparent;
