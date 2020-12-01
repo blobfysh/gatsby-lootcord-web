@@ -152,7 +152,7 @@ function Header() {
 									user && !user.isLoggedIn &&
 									<p className='control'>
 										<a
-											href='https://discord.com/api/oauth2/authorize?client_id=493316754689359874&redirect_uri=https%3A%2F%2Fgatsby-lootcord-web.blobfysh.vercel.app%2Fapi%2Fcallback&response_type=code&scope=identify'
+											href={process.env.DISCORD_OAUTH_URL}
 											rel='noopener noreferrer'
 											className='is-flex'
 										>
