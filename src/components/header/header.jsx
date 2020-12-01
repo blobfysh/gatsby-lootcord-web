@@ -152,7 +152,7 @@ function Header() {
 									user && !user.isLoggedIn &&
 									<p className='control'>
 										<a
-											href={process.env.DISCORD_OAUTH_URL}
+											href={process.env.GATSBY_DISCORD_OAUTH_URL}
 											rel='noopener noreferrer'
 											className='is-flex'
 										>
