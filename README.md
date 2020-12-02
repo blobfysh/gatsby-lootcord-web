@@ -2,7 +2,9 @@ Welcome to the home of the Lootcord website remade with [React](https://reactjs.
 
 ## Contributing
 
-Feel free to contribute! All content displayed on the website is located in the content/ folder.
+Feel free to contribute! Just make sure you submit your pull request to the dev branch, the master branch is reserved for production deployments.
+
+If you want to edit some content displayed on the site such as guide pages, these will be located in the content/ folder.
 
 ## Setting up dev environment
 
@@ -10,7 +12,7 @@ Requirements:
 
 - Node.js 12.x or higher
 
-The .env variables are optional, if no lootcord api is provided the website will just omit the commands and items pages as well as the leaderboard.
+.env file is optional, if no lootcord api is provided the website will just omit the commands and items pages as well as the leaderboard.
 
 Install dependencies:
 ```

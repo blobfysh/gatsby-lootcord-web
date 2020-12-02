@@ -45,6 +45,15 @@ export default function HTML(props) {
 						}
 
 						window.onThemeChange = function() {}
+
+						window.fetch('/api/me').then(res => res.json()).then(data => {
+							window.user = data;
+							window.onUserChange();
+						}).catch(err => {
+							window.user = {}
+						})
+
+						window.onUserChange = function() {}
 					})();
 					` }}
 				/>

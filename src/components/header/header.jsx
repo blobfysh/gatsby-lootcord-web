@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 
+import { navigate } from '@reach/router'
 import { Link, useStaticQuery, graphql } from 'gatsby'
+import UserContext from '../../context/UserContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import patronButton from '../../images/patron_button.png'
+import loginButton from '../../images/login_button.png'
 import styles from './header.module.scss'
 
 function Header() {
@@ -24,6 +27,7 @@ function Header() {
 		`
 	)
 	const [menuActive, setMenuActive] = useState(false)
+	const user = useContext(UserContext)
 
 	const toggleMenu = () => {
 		if (menuActive) {
@@ -31,6 +35,21 @@ function Header() {
 		}
 		else {
 			setMenuActive(true)
+		}
+	}
+
+	const handleLogout = async () => {
+		try {
+			await fetch('/api/logout', {
+				method: 'POST'
+			})
+
+			// navigate to home page to remove from any authenticated routes and force refresh to update user state
+			navigate('/')
+			window.location.reload(false)
+		}
+		catch (err) {
+			// continue
 		}
 	}
 
@@ -59,8 +78,8 @@ function Header() {
 						<span aria-hidden='true' />
 					</button>
 				</div>
-				<div id='navbar-menu' className={`navbar-menu ${menuActive ? 'is-active' : ''} ${styles.navMenu}`}>
-					<div className='navbar-start has-text-weight-semibold'>
+				<div id='navbar-menu' className={`navbar-menu ${menuActive ? 'is-active' : ''} ${styles.navMenu} has-text-weight-semibold`}>
+					<div className='navbar-start'>
 						{
 							!!data.allCommand.nodes.length &&
 							<Link to={'/commands'} className='navbar-item'>
@@ -107,8 +126,45 @@ function Header() {
 						</Link>
 					</div>
 					<div className='navbar-end'>
+						{
+							user && user.isLoggedIn &&
+							<div className={`navbar-item has-dropdown is-hoverable ${styles.userDropdown}`}>
+								<button className={`navbar-link ${styles.userItem} ${styles.linkButton}`}>
+									<img
+										src={user.data.avatar}
+										alt='Discord avatar'
+										draggable='false'
+										className={styles.userAvatar}
+									/>
+									<div className={styles.username}>{user.data.username}</div>
+									<FontAwesomeIcon className={styles.userArrow} icon={faCaretDown} />
+								</button>
+								<div className='navbar-dropdown'>
+									<button onClick={handleLogout} className={`navbar-item ${styles.linkButton}`}>
+										Logout
+									</button>
+								</div>
+							</div>
+						}
 						<div className='navbar-item'>
 							<div className='field is-grouped is-grouped-multiline'>
+								{
+									user && !user.isLoggedIn &&
+									<p className='control'>
+										<a
+											href={process.env.GATSBY_DISCORD_OAUTH_URL}
+											rel='noopener noreferrer'
+											className='is-flex'
+										>
+											<img
+												src={loginButton}
+												alt='Login with Discord'
+												draggable='false'
+												className={styles.patronButton}
+											/>
+										</a>
+									</p>
+								}
 								<p className='control'>
 									<a
 										href='https://www.patreon.com/bePatron?u=14199989'
