@@ -26,34 +26,16 @@ function FormInput({ refVal, isFailed, placeHolder }) {
 }
 
 function AppealForm({ onSubmit }) {
-	const tagRef = useRef(null)
-	const idRef = useRef(null)
 	const infoRef = useRef(null)
-	const [tagIsFailed, setTagFailed] = useState(false)
-	const [idIsFailed, setIdFailed] = useState(false)
+	const reasonRef = useRef(null)
 	const [infoIsFailed, setInfoFailed] = useState(false)
+	const [reasonIsFailed, setReasonFailed] = useState(false)
 	const [submitLoading, setLoading] = useState(false)
 	const [submitted, setSubmitted] = useState(false)
-	const [isErrored, setErrored] = useState(false)
+	const [error, setError] = useState(false)
 
 	const isValidated = () => {
 		let validated = true
-
-		if (!tagRef.current.value) {
-			setTagFailed(true)
-			validated = false
-		}
-		else {
-			setTagFailed(false)
-		}
-
-		if (!idRef.current.value) {
-			setIdFailed(true)
-			validated = false
-		}
-		else {
-			setIdFailed(false)
-		}
 
 		if (!infoRef.current.value) {
 			setInfoFailed(true)
@@ -63,11 +45,19 @@ function AppealForm({ onSubmit }) {
 			setInfoFailed(false)
 		}
 
+		if (!reasonRef.current.value) {
+			setReasonFailed(true)
+			validated = false
+		}
+		else {
+			setReasonFailed(false)
+		}
+
 		return validated
 	}
 
 	const handleSubmit = async () => {
-		setErrored(false)
+		setError('')
 
 		if (isValidated()) {
 			setLoading(true)
@@ -79,17 +69,16 @@ function AppealForm({ onSubmit }) {
 						'Content-Type': 'application/json'
 					},
 					body: JSON.stringify({
-						tag: tagRef.current.value,
-						id: idRef.current.value,
-						info: infoRef.current.value
+						info: infoRef.current.value,
+						reason: reasonRef.current.value
 					})
 				})
 
-				if (res.status !== 200) {
-					setErrored(true)
-				}
-				else {
-					setSubmitted(true)
+				switch (res.status) {
+					case 401: setError('You need to be logged in to send appeals. Log in using the button at the top of the page.'); break
+					case 429: setError('You sent an appeal recently, please wait a bit before sending another.'); break
+					case 200: setSubmitted(true); break
+					default: setError('An unexpected error occured, try again later???')
 				}
 
 				setLoading(false)
@@ -104,32 +93,13 @@ function AppealForm({ onSubmit }) {
 		<div>
 			<fieldset disabled={submitted}>
 				<div className='field'>
-					<label className='label'>Discord Tag (ex. blobfysh#4679)</label>
+					<label className='label'>What were you banned for?</label>
 					<FormInput
-						isFailed={tagIsFailed}
-						refVal={tagRef}
+						isFailed={reasonIsFailed}
+						refVal={reasonRef}
 					/>
 					{
-						tagIsFailed &&
-						<p className='help is-danger'>This is required.</p>
-					}
-				</div>
-				<div className='field'>
-					<label className='label'>
-						Discord User ID <a
-							href='https://support.discordapp.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-'
-							target='_blank'
-							rel='noopener noreferrer'
-						>
-							What's this?
-						</a>
-					</label>
-					<FormInput
-						isFailed={idIsFailed}
-						refVal={idRef}
-					/>
-					{
-						idIsFailed &&
+						reasonIsFailed &&
 						<p className='help is-danger'>This is required.</p>
 					}
 				</div>
@@ -149,15 +119,15 @@ function AppealForm({ onSubmit }) {
 				<div className={`field ${styles.button}`}>
 					<div className='control'>
 						<button
-							className={`button ${isErrored ? 'is-danger' : 'is-primary'} ${submitLoading ? 'is-loading' : ''}`}
+							className={`button ${error.length ? 'is-danger' : 'is-primary'} ${submitLoading ? 'is-loading' : ''}`}
 							onClick={handleSubmit}
 						>
 							Send
 						</button>
 					</div>
 					{
-						isErrored &&
-						<p className='help is-danger'>There was an error sending your appeal, you might be sending appeals too quickly.</p>
+						!!error.length &&
+						<p className='help is-danger'>{error}</p>
 					}
 					{
 						submitted &&
