@@ -1,0 +1,14 @@
+name: Schedule
+
+on:
+  schedule:
+    - cron: '0 0/12 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Call redeploy webhook
+        run: |
+          curl -X POST ${{ secrets.REDEPLOY_URL }}
