@@ -7,7 +7,6 @@ import HomePost from '../components/home-post/home-post'
 import SlideIn from '../components/slide-in/slide-in'
 import Hero from '../components/hero/hero'
 import Leaderboard from '../components/leaderboard/leaderboard'
-import SnowStorm from 'react-snowstorm'
 
 function HeroText() {
 	return <div>A <span className='rustyred'>Rust</span> themed fighting and looting bot for <span className='blurple'>Discord</span></div>
@@ -39,12 +38,6 @@ function HeroButtons() {
 function Home({ data }) {
 	return (
 		<Layout>
-			<SnowStorm
-				snowStick={false}
-				snowColor={'rgba(255, 255, 255, 0.5)'}
-				vMaxY={2}
-				vMaxX={4}
-			/>
 			<SEO />
 			<Hero
 				text={HeroText()}
