@@ -37,8 +37,8 @@ async function Route(req: NowRequest, res: NowResponse) {
 			.setTitle('A ban appeal has arrived!')
 			.setColor(13451563)
 			.addField('User', `${user.username}#${user.discriminator} (ID: ${user.id})`)
-			.addField('What were you banned for?', req.body.info.slice(0, 1024))
-			.addField('Why should you be unbanned?', req.body.reason.slice(0, 1024))
+			.addField('What were you banned for?', req.body.reason.slice(0, 1024))
+			.addField('Why should you be unbanned?', req.body.info.slice(0, 1024))
 
 		await webhookClient.send('', {
 			embeds: [embed]

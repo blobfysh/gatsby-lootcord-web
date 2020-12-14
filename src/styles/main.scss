@@ -58,7 +58,7 @@ body {
 }
 
 .hideHeaders .autolinkHeader {
-    display: none;
+    display: none !important;
 }
 
 span:not(.token) {

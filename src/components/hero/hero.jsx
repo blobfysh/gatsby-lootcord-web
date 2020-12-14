@@ -2,10 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 import styles from './hero.module.scss'
+import loadable from '@loadable/component'
+
+const Snowfall = loadable(() => import('react-snowfall'))
 
 function Hero({ image, text, buttons, hasBackground }) {
 	return (
 		<div className={`hero ${styles.heroStyle} ${hasBackground ? styles.heroBg : null}`}>
+			<div style={{ height: '100%', width: '100%', position: 'absolute' }}>
+				<Snowfall />
+			</div>
 			{
 				image && (
 					<Img
