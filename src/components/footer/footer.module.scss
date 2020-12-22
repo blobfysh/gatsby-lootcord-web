@@ -31,6 +31,14 @@
     margin-bottom: 0;
 }
 
+.switchWrap {
+    cursor: pointer;
+
+    & span {
+        margin-right: 10px;
+    }
+}
+
 @include tablet {
     .listContainer {
         flex-flow: row-reverse nowrap;
