@@ -59,7 +59,7 @@ function Footer() {
 				</div>
 				<div className={styles.copyList}>
 					<span>
-						© Copyright 2020 Blobfysh
+						© Copyright 2021 Blobfysh
 						<br />
 						Lootcord is not affiliated with Facepunch
 					</span>
