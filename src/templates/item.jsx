@@ -85,7 +85,7 @@ export const query = graphql`
 				}
 			}
 			possibleItems {
-				xp
+				rate
 				amount
 				item {
 					name

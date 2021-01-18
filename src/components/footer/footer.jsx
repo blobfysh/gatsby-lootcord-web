@@ -2,7 +2,8 @@ import React, { useContext } from 'react'
 
 import { Link } from 'gatsby'
 import ThemeContext from '../../context/ThemeContext'
-import Switch from '../switch/switch'
+import { DragSwitch } from 'react-dragswitch'
+import 'react-dragswitch/dist/index.css'
 import styles from './footer.module.scss'
 
 function Footer() {
@@ -40,11 +41,15 @@ function Footer() {
 						<ul className={styles.footerList}>
 							<li>
 								{theme !== null ? (
-									<Switch
-										checked={theme !== 'dark'}
-										onChange={() => { window.toggleTheme() }}
-										text='Light Theme'
-									/>
+									<label className={styles.switchWrap}>
+										<span>Light Theme</span>
+										<DragSwitch
+											checked={theme !== 'dark'}
+											onChange={() => {
+												window.toggleTheme()
+											}}
+										/>
+									</label>
 								) : (
 									<div style={{ height: '24px' }} />
 								)}
@@ -54,7 +59,7 @@ function Footer() {
 				</div>
 				<div className={styles.copyList}>
 					<span>
-						© Copyright 2020 Blobfysh
+						© Copyright 2021 Blobfysh
 						<br />
 						Lootcord is not affiliated with Facepunch
 					</span>

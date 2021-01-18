@@ -50,7 +50,7 @@ function Command({ name, description, usage, patronOnly }) {
 							</span>
 						</div>
 					}
-					<span>Usage: <code className='language-text'>{usage}</code></span>
+					<span className='content'>Usage: <code>{usage}</code></span>
 				</div>
 			</div>
 		</div>

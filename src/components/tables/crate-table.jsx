@@ -11,11 +11,11 @@ function CrateTable({ items }) {
 				<tr>
 					<th>Item</th>
 					<th>Amount</th>
-					<th>XP</th>
+					<th>Chance</th>
 				</tr>
 			</thead>
 			<tbody>
-				{items.sort((a, b) => b.xp - a.xp).map(possibleItem => (
+				{items.sort((a, b) => b.rate - a.rate).map(possibleItem => (
 					<tr key={possibleItem.item.name}>
 						<td>
 							<div className={styles.itemCell}>
@@ -40,7 +40,7 @@ function CrateTable({ items }) {
 							</div>
 						</td>
 						<td>{possibleItem.amount}</td>
-						<td>{possibleItem.xp}</td>
+						<td>{possibleItem.rate}%</td>
 					</tr>
 				))}
 			</tbody>
