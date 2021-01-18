@@ -6,7 +6,7 @@ date: '2020-11-19'
 
 ## Attacking Other Players
 
-You can attack other players by using a weapon on them. This is done with the `use` command, ex. `t-use rock @blobfysh` would attack blobfysh with a rock.
+You can attack other players by using a weapon on them. This is done with the `use` command, ex. `t-use rock @blobfysh` would attack blobfysh with a [rock](/item/rock).
 
 When you attack, you will receive an attack cooldown based on the weapon you used to attack, you can check how long the weapon's cooldown is with the `item` command, ex. `t-item rock` to see how long an attack cooldown would be when using a rock.
 
