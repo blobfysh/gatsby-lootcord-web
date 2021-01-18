@@ -23,7 +23,10 @@ $themes: (
         'input-bg-color': #E3E5E8,
         'input-icon-color': #737475,
         'input-icon-active': #23272A,
-        'input-disabled-bg-color': #E5E7EA
+        'input-disabled-bg-color': #E5E7EA,
+        'code-txt-color': #000000,
+        'code-bg-color': #F2F3F5,
+        'code-border-color': #E3E5E8
     ),
     dark: (
         'bg-color': #2f3136,
@@ -49,7 +52,10 @@ $themes: (
         'input-bg-color': #23272A,
         'input-icon-color': #B1B3B4,
         'input-icon-active': #e5e5e5,
-        'input-disabled-bg-color': #262A2D
+        'input-disabled-bg-color': #262A2D,
+        'code-txt-color': #B9BBBE,
+        'code-bg-color': #2F3136,
+        'code-border-color': #202225
     )
 );
 

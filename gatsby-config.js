@@ -89,8 +89,7 @@ module.exports = {
 							isIconAfterHeader: true,
 							className: 'autolinkHeader'
 						}
-					},
-					'gatsby-remark-prismjs'
+					}
 				]
 			}
 		},

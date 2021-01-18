@@ -1,9 +1,6 @@
 // import global css
 import '../../styles/main.scss'
 
-// prismjs code styling
-import 'prismjs/themes/prism.css'
-
 import React, { useState, useLayoutEffect, useEffect } from 'react'
 import ThemeContext from '../../context/ThemeContext'
 import UserContext, { defaultUser } from '../../context/UserContext'
