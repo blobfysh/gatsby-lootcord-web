@@ -366,6 +366,8 @@ exports.sourceNodes = async ({
 				sell: itemInfo.sell.toString(),
 				minDamage: itemInfo.minDmg.toString(),
 				maxDamage: itemInfo.maxDmg.toString(),
+				bleedDamage: itemInfo.bleed > 0 ? itemInfo.bleed.toString() : null,
+				burnDamage: itemInfo.burn > 0 ? itemInfo.burn.toString() : null,
 				damage: typeof itemInfo.damage === 'number' ? itemInfo.damage : null,
 				ammo: !itemInfo.ammo.length ? [] : itemInfo.ammo.map(ammo => ({
 					item___NODE: createNodeId(`${ammo}-${items[ammo].category}`),

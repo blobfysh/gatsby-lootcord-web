@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import styles from './table.module.scss'
+import Twemoji from '../twemoji'
 
-function AmmoTable({ items, baseMinDamage, baseMaxDamage }) {
+function AmmoTable({ items, baseMinDamage, baseMaxDamage, bleedDamage }) {
 	return (
 		<table className={styles.table}>
 			<thead>
@@ -38,7 +39,22 @@ function AmmoTable({ items, baseMinDamage, baseMaxDamage }) {
 								</Link>
 							</div>
 						</td>
-						<td>{`${baseMinDamage + ammo.damage} - ${baseMaxDamage + ammo.damage}`}</td>
+						<td>
+							{
+								ammo.item.bleedDamage ?
+									<span>
+										{`${baseMinDamage + ammo.damage} - ${baseMaxDamage + ammo.damage} + `}
+										<Twemoji emoji='🩸' className={styles.emoji} />
+										{`${ammo.item.bleedDamage} bleed`}
+									</span> : ammo.item.burnDamage ?
+										<span>
+											{`${baseMinDamage + ammo.damage} - ${baseMaxDamage + ammo.damage} + `}
+											<Twemoji emoji='🔥' className={styles.emoji} />
+											{`${ammo.item.burnDamage} burn`}
+										</span> :
+										`${baseMinDamage + ammo.damage} - ${baseMaxDamage + ammo.damage}`
+							}
+						</td>
 					</tr>
 				))}
 			</tbody>

@@ -142,6 +142,15 @@
     }
 }
 
+.emoji {
+    width: 25px;
+    display: inline-block;
+
+    & img {
+        vertical-align: middle;
+    }
+}
+
 @include touch {
     .itemInfoWrap {
         flex-flow: column nowrap;

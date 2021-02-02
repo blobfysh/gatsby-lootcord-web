@@ -10,6 +10,7 @@ import CraftTable from '../tables/craft-table'
 import ItemTable from '../tables/item-table'
 import CrateTable from '../tables/crate-table'
 import styles from './item-info.module.scss'
+import Twemoji from '../twemoji'
 
 function getCategoryDisplay(category) {
 	switch (category) {
@@ -166,9 +167,22 @@ function ItemInfo({ item, ammoFor, usedToCraft, recyclesFrom, obtainedFrom }) {
 							<div className={styles.infoTag}>
 								<strong>Damage</strong>
 							</div>
-							<span>
-								{item.damage}
-							</span>
+							{
+								item.bleedDamage ?
+									<span>
+										{`${item.damage} + `}
+										<Twemoji emoji='🩸' className={styles.emoji} />
+										{`${item.bleedDamage} bleed`}
+									</span> : item.burnDamage ?
+										<span>
+											{`${item.damage} + `}
+											<Twemoji emoji='🔥' className={styles.emoji} />
+											{`${item.burnDamage} burn`}
+										</span> :
+										<span>
+											{item.damage}
+										</span>
+							}
 						</div>
 					}
 					{

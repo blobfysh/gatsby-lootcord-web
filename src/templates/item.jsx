@@ -32,6 +32,8 @@ export const query = graphql`
 			buy
 			maxDamage
 			minDamage
+			bleedDamage
+			burnDamage
 			damage
 			description
 			cooldown
@@ -39,6 +41,8 @@ export const query = graphql`
 				damage
 				item {
 					name
+					bleedDamage
+					burnDamage
 					image {
 						extension
 						publicURL

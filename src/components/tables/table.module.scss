@@ -25,6 +25,15 @@
     margin-right: 10px;
 }
 
+.emoji {
+    width: 25px;
+    display: inline-block;
+
+    & img {
+        vertical-align: bottom;
+    }
+}
+
 .itemCell {
     display: flex;
     flex-flow: row nowrap;
