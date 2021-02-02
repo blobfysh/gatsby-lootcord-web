@@ -455,6 +455,8 @@ exports.createSchemaCustomization = ({ actions }) => {
 			sell: String!
 			minDamage: String!
 			maxDamage: String!
+			bleedDamage: String
+			burnDamage: String
 			damage: Int
 			ammo: [Ammo!]!
 			imageURL: String!
