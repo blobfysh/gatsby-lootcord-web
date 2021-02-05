@@ -1,0 +1,11 @@
+.select {
+    width: 100%;
+
+    &:hover:not(.is-multiple):not(.is-loading)::after {
+        border-color: var(--input-icon-active);
+    }
+
+    &:not(.is-multiple):not(.is-loading)::after {
+        border-color: var(--input-icon-color);
+    }
+}

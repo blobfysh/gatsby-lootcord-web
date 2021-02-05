@@ -3,6 +3,9 @@
 .itemCard {
     width: 25%;
 }
+.enemyCard {
+    width: 33.33%;
+}
 
 .innerCard {
     margin: 2px;
@@ -27,16 +30,28 @@
     flex-flow: column nowrap;
     justify-content: center;
 }
+.enemyImage {
+    width: 100%;
+    min-width: 128px;
+    max-width: 128px;
+    margin-right: 10px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
 
 @include desktop-only {
     .itemCard {
-        width: 33%;
+        width: 33.33%;
     }
 }
 
 @include touch {
     .itemCard {
         width: 50%;
+    }
+    .enemyCard {
+        width: 100%;
     }
 }
 

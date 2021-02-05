@@ -43,7 +43,7 @@ exports.onCreateNode = async ({
 			console.error(err)
 		}
 	}
-	else if (node.internal.type === 'Item' && node.imageURL) {
+	else if ((node.internal.type === 'Item' || node.internal.type === 'Monster') && node.imageURL) {
 		try {
 			const fileNode = await createRemoteFileNode({
 				url: `${node.imageURL}`,
@@ -77,9 +77,13 @@ exports.createPages = async ({ graphql, actions }) => {
 				}
 			}
 			items: allItem {
-				distinct(field: category)
 				nodes {
 					name
+				}
+			}
+			monsters: allMonster {
+				nodes {
+					rawName
 				}
 			}
 		}
@@ -98,17 +102,6 @@ exports.createPages = async ({ graphql, actions }) => {
 		})
 	})
 
-	// create category pages
-	result.data.items.distinct.forEach(category => {
-		createPage({
-			path: `/items/category/${category.toLowerCase()}`,
-			component: path.resolve('./src/templates/category.jsx'),
-			context: {
-				category
-			}
-		})
-	})
-
 	// create item pages
 	result.data.items.nodes.forEach(item => {
 		createPage({
@@ -116,6 +109,17 @@ exports.createPages = async ({ graphql, actions }) => {
 			component: path.resolve('./src/templates/item.jsx'),
 			context: {
 				item: item.name
+			}
+		})
+	})
+
+	// create monster pages
+	result.data.monsters.nodes.forEach(enemy => {
+		createPage({
+			path: `/enemy/${enemy.rawName}`,
+			component: path.resolve('./src/templates/enemy.jsx'),
+			context: {
+				enemy: enemy.rawName
 			}
 		})
 	})
@@ -131,6 +135,7 @@ exports.sourceNodes = async ({
 	let commands
 	let patrons
 	let items
+	let monsters
 
 	if (process.env.LOOTCORD_API) {
 		try {
@@ -212,6 +217,27 @@ exports.sourceNodes = async ({
 			)
 
 			items = itemsRes.data
+		}
+		catch (err) {
+			// continue
+		}
+
+		try {
+			const monstersRes = await axios(
+				{
+					method: 'POST',
+					headers: {
+						'Authorization': process.env.LOOTCORD_API_AUTH,
+						'Content-Type': 'application/json'
+					},
+					url: `${process.env.LOOTCORD_API}/api/monsters`
+				},
+				{
+					timeout: 5000
+				}
+			)
+
+			monsters = monstersRes.data
 		}
 		catch (err) {
 			// continue
@@ -362,7 +388,10 @@ exports.sourceNodes = async ({
 				description: itemInfo.desc,
 				category: itemInfo.category,
 				tier: itemInfo.tier,
-				buy: itemInfo.buy !== '' ? itemInfo.buy.amount.toString() : '',
+				buy: itemInfo.buy !== '' ? {
+					price: itemInfo.buy.amount.toString(),
+					currency: itemInfo.buy.currency
+				} : null,
 				sell: itemInfo.sell.toString(),
 				minDamage: itemInfo.minDmg.toString(),
 				maxDamage: itemInfo.maxDmg.toString(),
@@ -415,6 +444,82 @@ exports.sourceNodes = async ({
 			createNode(itemNode)
 		}
 	}
+
+	if (items && monsters) {
+		let monster
+		for (monster in monsters) {
+			const monsterInfo = monsters[monster]
+
+			function getMonsterLoot() {
+				const mainLoot = []
+				const extraLoot = []
+
+				let rate
+				for (rate in monsterInfo.loot.main) {
+					let possibleItem
+					for (possibleItem of monsterInfo.loot.main[rate].items) {
+						const itemAmount = possibleItem.split('|')
+
+						mainLoot.push({
+							item___NODE: createNodeId(`${itemAmount[0]}-${items[itemAmount[0]].category}`),
+							amount: itemAmount[1],
+							rate
+						})
+					}
+				}
+
+				for (rate in monsterInfo.loot.extras) {
+					let possibleItem
+					for (possibleItem of monsterInfo.loot.extras[rate].items) {
+						const itemAmount = possibleItem.split('|')
+
+						extraLoot.push({
+							item___NODE: createNodeId(`${itemAmount[0]}-${items[itemAmount[0]].category}`),
+							amount: itemAmount[1],
+							rate
+						})
+					}
+				}
+
+				return {
+					main: mainLoot,
+					extras: extraLoot
+				}
+			}
+
+			const mobData = {
+				name: monsterInfo.title,
+				rawName: monster,
+				imageURL: monsterInfo.image,
+				minDamage: monsterInfo.minDamage.toString(),
+				maxDamage: monsterInfo.maxDamage.toString(),
+				minMoney: monsterInfo.minMoney,
+				maxMoney: monsterInfo.maxMoney,
+				health: monsterInfo.health,
+				weapon___NODE: createNodeId(`${monsterInfo.weapon.name}-${items[monsterInfo.weapon.name].category}`),
+				ammo___NODE: monsterInfo.ammo === '' ? null : createNodeId(`${monsterInfo.ammo}-${items[monsterInfo.ammo].category}`),
+				loot: getMonsterLoot(),
+				special: monsterInfo.special === '' ? null : monsterInfo.special,
+				xp: monsterInfo.xp,
+				staysFor: monsterInfo.staysFor.seconds
+			}
+
+			const nodeContent = JSON.stringify(mobData)
+
+			const mobNode = {
+				id: createNodeId(`${monster}`),
+				parent: null,
+				children: [],
+				internal: {
+					type: 'Monster',
+					contentDigest: createContentDigest(nodeContent)
+				},
+				...mobData
+			}
+
+			createNode(mobNode)
+		}
+	}
 }
 
 // graphql schema definitions to prevent errors when nodes are not created (this can happen if there's no response from the lootcord api)
@@ -451,7 +556,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 			description: String!
 			category: String!
 			tier: Int!
-			buy: String!
+			buy: ItemBuy
 			sell: String!
 			minDamage: String!
 			maxDamage: String!
@@ -465,6 +570,10 @@ exports.createSchemaCustomization = ({ actions }) => {
 			recyclesTo: RecycleMaterials
 			cooldown: Int
 			possibleItems: [PossibleItem]
+		}
+		type ItemBuy {
+			currency: String!
+			price: String!
 		}
 		type PossibleItem {
 			item: Item! @link(from: "item___NODE")
@@ -486,6 +595,33 @@ exports.createSchemaCustomization = ({ actions }) => {
 		type Material {
 			item: Item! @link(from: "item___NODE")
 			amount: Int!
+		}
+
+		type Monster implements Node {
+			name: String!
+			rawName: String!
+			imageURL: String!
+			image: File @link(from: "image___NODE")
+			minDamage: String!
+			maxDamage: String!
+			minMoney: Int!
+			maxMoney: Int!
+			health: Int!
+			weapon: Item! @link(from: "weapon___NODE")
+			ammo: Item @link(from: "ammo___NODE")
+			loot: MonsterLoot
+			special: String
+			xp: Int!
+			staysFor: Int!
+		}
+		type MonsterLoot {
+			main: [MonsterLootItem!]!
+			extras: [MonsterLootItem!]!
+		}
+		type MonsterLootItem {
+			item: Item! @link(from: "item___NODE")
+			amount: String!
+			rate: String!
 		}
 	`
 

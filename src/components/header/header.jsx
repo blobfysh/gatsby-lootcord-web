@@ -89,28 +89,16 @@ function Header() {
 						{
 							!!data.allItem.nodes.length &&
 							<div className='navbar-item has-dropdown is-hoverable'>
-								<Link to={'/items'} className='navbar-link'>
-									Items
+								<div className='navbar-link'>
+									Info
 									<FontAwesomeIcon className={styles.icon} icon={faCaretDown} />
-								</Link>
+								</div>
 								<div className='navbar-dropdown'>
-									<Link to={'/items/category/ammo'} className='navbar-item'>
-										Ammunition
+									<Link to={'/items'} className='navbar-item'>
+										Items
 									</Link>
-									<Link to={'/items/category/material'} className='navbar-item'>
-										Materials
-									</Link>
-									<Link to={'/items/category/melee'} className='navbar-item'>
-										Melee Weapons
-									</Link>
-									<Link to={'/items/category/ranged'} className='navbar-item'>
-										Ranged Weapons
-									</Link>
-									<Link to={'/items/category/item'} className='navbar-item'>
-										Usable Items
-									</Link>
-									<Link to={'/items/category/storage'} className='navbar-item'>
-										Storage Containers
+									<Link to={'/enemies'} className='navbar-item'>
+										Enemy Spawns
 									</Link>
 								</div>
 							</div>

@@ -6,7 +6,7 @@
     align-items: center;
     background-color: var(--card-bg-color);
     padding: 10px;
-    width: fit-content;
+    width: 100%;
     border-radius: 4px;
     height: fit-content;
     margin-right: 0;
@@ -78,6 +78,11 @@
 
 .imageContainer {
     width: 175px;
+    margin: 10px;
+}
+
+.wideImage {
+    width: 100%;
     margin: 10px;
 }
 
