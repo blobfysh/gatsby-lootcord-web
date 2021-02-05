@@ -8,9 +8,10 @@ import Filter from '../components/filter/filter'
 import ItemCardList from '../components/item-card-list/item-card-list'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import getCategoryDisplay from '../utils/getCategoryDisplay'
+import { useQueryState } from 'use-location-state'
 
 function Items({ data }) {
-	const [category, setCategory] = useState('')
+	const [category, setCategory] = useQueryState('category', '')
 	const [search, setSearch] = useState('')
 
 	const handleInput = e => {
@@ -58,6 +59,7 @@ function Items({ data }) {
 					<div className='column'>
 						<Filter
 							onChange={handleFilter}
+							value={category}
 							data={[
 								{
 									display: 'All Items',

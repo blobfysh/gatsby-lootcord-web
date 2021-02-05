@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './filter.module.scss'
 
-function Filter({ data, onChange, className }) {
+function Filter({ data, value, onChange, className }) {
 	return (
 		<div className={`select ${styles.select} ${className}`}>
-			<select onChange={onChange} className={styles.select}>
+			<select onChange={onChange} className={styles.select} value={value}>
 				{data.map(opt => (
 					<option key={opt.value} value={opt.value}>{opt.display}</option>
 				))}
@@ -16,6 +16,7 @@ function Filter({ data, onChange, className }) {
 
 Filter.defaultProps = {
 	data: [],
+	value: '',
 	// eslint-disable-next-line no-empty-function
 	onChange: () => {},
 	className: ''
@@ -26,6 +27,7 @@ Filter.propTypes = {
 		display: PropTypes.string.isRequired,
 		value: PropTypes.string.isRequired
 	})).isRequired,
+	value: PropTypes.string.isRequired,
 	onChange: PropTypes.func,
 	className: PropTypes.string
 }
