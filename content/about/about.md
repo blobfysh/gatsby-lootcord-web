@@ -48,6 +48,11 @@ moderators:
     socials:
         youtube: 'https://www.youtube.com/channel/UCCjdECTdq8WyVdyKd2Z3_fQ'
         steam: 'https://steamcommunity.com/profiles/76561198271043159'
+  - name: 'Kamikahena#7420'
+    image: './kami.jpg'
+    socials:
+        youtube: 'https://www.youtube.com/channel/UCrZsAhUFzpw2VrBAAFSh9oA'
+        spotify: 'https://open.spotify.com/user/wdx8qvyyt2s1l9oeoag5b91n0'
 ---
 
 Lootcord is a looting, battling, raiding game bot filled with various weapons and items hidden inside boxes waiting for you to open them. Go forth and earn boxes to increase your arsenal of weapons, waiting for the right moment to strike your friends!
