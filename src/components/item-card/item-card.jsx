@@ -4,15 +4,15 @@ import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import styles from './item-card.module.scss'
 
-function ItemCard({ name, image }) {
+function ItemCard({ name, image, enemy }) {
 	if (!image) {
 		return null
 	}
 
 	return (
-		<div className={styles.itemCard}>
-			<Link to={`/item/${name}`} className={`${styles.innerCard}`}>
-				<div className={styles.imageContainer}>
+		<div className={`${styles.itemCard} ${enemy && styles.enemyCard}`}>
+			<Link to={enemy ? `/enemy/${name}` : `/item/${name}`} className={`${styles.innerCard}`}>
+				<div className={enemy ? styles.enemyImage : styles.imageContainer}>
 					{
 						image.extension !== 'gif' ?
 							<Img
@@ -27,7 +27,7 @@ function ItemCard({ name, image }) {
 							/>
 					}
 				</div>
-				<span className={styles.name}>{name.split('_').join(' ')}</span>
+				<span className={styles.name}>{enemy ? name.split('_').map(part => part[0].toUpperCase() + part.slice(1)).join(' ') : name.split('_').join(' ')}</span>
 			</Link>
 		</div>
 	)

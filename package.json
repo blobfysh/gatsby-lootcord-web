@@ -25,6 +25,7 @@
     "gatsby-plugin-sharp": "^2.7.0",
     "gatsby-remark-autolink-headers": "2.3.15",
     "gatsby-remark-images": "^3.4.0",
+    "gatsby-remark-twemoji-shortcut": "^0.10.1",
     "gatsby-source-filesystem": "^2.4.0",
     "gatsby-transformer-remark": "^2.9.1",
     "gatsby-transformer-sharp": "^2.5.21",
@@ -37,7 +38,9 @@
     "react-helmet": "^6.1.0",
     "react-markdown": "^5.0.3",
     "react-tabs": "^3.1.1",
-    "twemoji": "^13.0.1"
+    "react-wavify": "^1.5.2",
+    "twemoji": "^13.0.1",
+    "use-location-state": "^2.5.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "4.0.0",

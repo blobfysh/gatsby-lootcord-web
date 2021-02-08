@@ -1,12 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { graphql } from 'gatsby'
 import Layout from '../components/layout/layout'
 import SEO from '../components/seo'
+import Input from '../components/input/input'
+import Filter from '../components/filter/filter'
 import ItemCardList from '../components/item-card-list/item-card-list'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import getCategoryDisplay from '../utils/getCategoryDisplay'
+import { useQueryState } from 'use-location-state'
 
 function Items({ data }) {
-	if (!data.items.nodes.length) {
+	const [category, setCategory] = useQueryState('category', '')
+	const [search, setSearch] = useState('')
+
+	const handleInput = e => {
+		setSearch(e.target.value)
+	}
+
+	const handleFilter = e => {
+		setCategory(e.target.value)
+	}
+
+	if (!data.allItem.nodes.length) {
 		return (
 			<Layout>
 				<SEO title='Items' />
@@ -19,37 +35,73 @@ function Items({ data }) {
 		)
 	}
 
+	const filteredItems = data.allItem.nodes.filter(item => (category === '' || item.category === category) && item.name.includes(search.toLowerCase()))
+
 	return (
 		<Layout>
 			<SEO title='Items' />
 			<section className='section container'>
 				<h1 className='title is-uppercase has-text-centered'>
-					All Items
+					{category ? getCategoryDisplay(category) : 'Items'}
 				</h1>
-				<h2 className='title mt-6 is-5 has-text-centered'>
-					Ranged Weapons
-				</h2>
-				<ItemCardList items={data.ranged.nodes} />
-				<h2 className='title mt-6 is-5 has-text-centered'>
-					Melee Weapons
-				</h2>
-				<ItemCardList items={data.melee.nodes} />
-				<h2 className='title mt-6 is-5 has-text-centered'>
-					Ammunition
-				</h2>
-				<ItemCardList items={data.ammo.nodes} />
-				<h2 className='title mt-6 is-5 has-text-centered'>
-					Usable Items
-				</h2>
-				<ItemCardList items={data.items.nodes} />
-				<h2 className='title mt-6 is-5 has-text-centered'>
-					Storage Containers
-				</h2>
-				<ItemCardList items={data.storage.nodes} />
-				<h2 className='title mt-6 is-5 has-text-centered'>
-					Materials
-				</h2>
-				<ItemCardList items={data.materials.nodes} />
+				<div
+					className='content'
+					dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
+				/>
+				<div className='columns'>
+					<div className='column is-two-thirds'>
+						<Input
+							placeHolder='Search items...'
+							onChange={handleInput}
+							icon={faSearch}
+						/>
+					</div>
+					<div className='column'>
+						<Filter
+							onChange={handleFilter}
+							value={category}
+							data={[
+								{
+									display: 'All Items',
+									value: ''
+								},
+								{
+									display: 'Ranged Weapons',
+									value: 'Ranged'
+								},
+								{
+									display: 'Melee Weapons',
+									value: 'Melee'
+								},
+								{
+									display: 'Ammunition',
+									value: 'Ammo'
+								},
+								{
+									display: 'Usable Items',
+									value: 'Item'
+								},
+								{
+									display: 'Storage Containers',
+									value: 'Storage'
+								},
+								{
+									display: 'Materials',
+									value: 'Material'
+								},
+								{
+									display: 'Banners',
+									value: 'Banner'
+								}
+							]}
+						/>
+					</div>
+				</div>
+				<ItemCardList items={filteredItems} />
+				{
+					!filteredItems.length &&
+					<h2 className='title is-5 has-text-centered'>No items found!</h2>
+				}
 			</section>
 		</Layout>
 	)
@@ -57,89 +109,23 @@ function Items({ data }) {
 
 export const query = graphql`
 	query {
-		ranged: allItem(filter: { category: { eq: "Ranged" } }, sort: { fields: name, order: ASC } ) {
+		allItem(sort: { fields: name, order: ASC } ) {
 			nodes {
 				name
+				category
 				image {
 					extension
 					publicURL
 					childImageSharp {
-						fluid(maxHeight: 100) {
+						fluid(maxWidth: 64) {
 							...GatsbyImageSharpFluid
 						}
 					}
 				}
 			}
-        }
-        melee: allItem(filter: { category: { eq: "Melee" } }, sort: { fields: name, order: ASC } ) {
-			nodes {
-				name
-				image {
-					extension
-					publicURL
-					childImageSharp {
-						fluid(maxHeight: 100) {
-							...GatsbyImageSharpFluid
-						}
-					}
-				}
-			}
-        }
-        ammo: allItem(filter: { category: { eq: "Ammo" } }, sort: { fields: name, order: ASC } ) {
-			nodes {
-				name
-				image {
-					extension
-					publicURL
-					childImageSharp {
-						fluid(maxHeight: 100) {
-							...GatsbyImageSharpFluid
-						}
-					}
-				}
-			}
-        }
-        items: allItem(filter: { category: { eq: "Item" } }, sort: { fields: name, order: ASC } ) {
-			nodes {
-				name
-				image {
-					extension
-					publicURL
-					childImageSharp {
-						fluid(maxHeight: 100) {
-							...GatsbyImageSharpFluid
-						}
-					}
-				}
-			}
-        }
-        storage: allItem(filter: { category: { eq: "Storage" } }, sort: { fields: name, order: ASC } ) {
-			nodes {
-				name
-				image {
-					extension
-					publicURL
-					childImageSharp {
-						fluid(maxHeight: 100) {
-							...GatsbyImageSharpFluid
-						}
-					}
-				}
-			}
-        }
-        materials: allItem(filter: { category: { eq: "Material" } }, sort: { fields: name, order: ASC } ) {
-			nodes {
-				name
-				image {
-					extension
-					publicURL
-					childImageSharp {
-						fluid(maxHeight: 100) {
-							...GatsbyImageSharpFluid
-						}
-					}
-				}
-			}
+		}
+		markdownRemark(fileAbsolutePath: { regex: "/items/" }) {
+            html
 		}
 	}
 `

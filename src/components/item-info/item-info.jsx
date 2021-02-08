@@ -10,72 +10,19 @@ import CraftTable from '../tables/craft-table'
 import ItemTable from '../tables/item-table'
 import CrateTable from '../tables/crate-table'
 import styles from './item-info.module.scss'
+import Twemoji from '../twemoji'
+import formatNumber from '../../utils/formatNumber'
+import formatCooldown from '../../utils/formatCooldown'
+import getCategoryDisplay from '../../utils/getCategoryDisplay'
 
-function getCategoryDisplay(category) {
-	switch (category) {
-		case 'Ammo': return 'Ammunition'
-		case 'Banner': return 'Banner'
-		case 'Material': return 'Material'
-		case 'Melee': return 'Melee Weapon'
-		case 'Ranged': return 'Ranged Weapon'
-		case 'Item': return 'Usable Item'
-		case 'Storage': return 'Storage Container'
-		default: return ''
-	}
-}
-
-function formatNumber(number) {
-	return number.toLocaleString('en-US')
-}
-
-function formatCooldown(ms) {
-	let remaining = ms
-	const finalStr = []
-
-	const rawDays = remaining / (1000 * 60 * 60 * 24)
-	const days = Math.floor(rawDays)
-	remaining %= 1000 * 60 * 60 * 24
-
-	const rawHours = remaining / (1000 * 60 * 60)
-	const hours = Math.floor(rawHours)
-	remaining %= 1000 * 60 * 60
-
-	const rawMinutes = remaining / (1000 * 60)
-	const minutes = Math.floor(rawMinutes)
-	remaining %= 1000 * 60
-
-	const seconds = Math.floor(remaining / 1000)
-
-	if (days > 0) {
-		finalStr.push(days === 1 ? `${days} day` : `${days} days`)
-	}
-	if (hours > 0) {
-		if (days > 0) {
-			finalStr.push(`${rawHours.toFixed(1)} hours`)
-			return finalStr.join(' ')
-		}
-		finalStr.push(hours === 1 ? `${hours} hour` : `${hours} hours`)
-	}
-	if (minutes > 0) {
-		if (hours > 0 || days > 0) {
-			finalStr.push(`${rawMinutes.toFixed(1)} minutes`)
-			return finalStr.join(' ')
-		}
-		finalStr.push(minutes === 1 ? `${minutes} minute` : `${minutes} minutes`)
-	}
-
-	if (seconds !== 0) finalStr.push(seconds === 1 ? `${seconds} second` : `${seconds} seconds`)
-	return finalStr.join(' ')
-}
-
-function ItemInfo({ item, ammoFor, usedToCraft, recyclesFrom, obtainedFrom }) {
+function ItemInfo({ item, ammoFor, usedToCraft, recyclesFrom, obtainedFrom, obtainedFromMonsters }) {
 	return (
 		<div className={styles.itemInfoWrap}>
 			<div className={`content ${styles.itemInfo}`}>
 				<span>{item.name}</span>
 				{
 					item.image &&
-					<div className={styles.imageContainer}>
+					<div className={item.category === 'Banner' ? styles.wideImage : styles.imageContainer}>
 						{
 							item.image.extension !== 'gif' ?
 								<Img
@@ -115,13 +62,22 @@ function ItemInfo({ item, ammoFor, usedToCraft, recyclesFrom, obtainedFrom }) {
 								<strong>Buy Price</strong>
 							</div>
 							<span>
-								<img
-									src={lootcoinImg}
-									alt=''
-									draggable='false'
-									className={styles.lootcoinIcon}
-								/>
-								{formatNumber(item.buy)}
+								{
+									item.buy.currency === 'money' ?
+										<img
+											src={lootcoinImg}
+											alt=''
+											draggable='false'
+											className={styles.lootcoinIcon}
+										/> :
+										<img
+											src={scrapImg}
+											alt=''
+											draggable='false'
+											className={styles.lootcoinIcon}
+										/>
+								}
+								{formatNumber(parseInt(item.buy.price))}
 							</span>
 						</div>
 					}
@@ -166,9 +122,22 @@ function ItemInfo({ item, ammoFor, usedToCraft, recyclesFrom, obtainedFrom }) {
 							<div className={styles.infoTag}>
 								<strong>Damage</strong>
 							</div>
-							<span>
-								{item.damage}
-							</span>
+							{
+								item.bleedDamage ?
+									<span>
+										{`${item.damage} + `}
+										<Twemoji emoji='🩸' className={styles.emoji} />
+										{`${item.bleedDamage} bleed`}
+									</span> : item.burnDamage ?
+										<span>
+											{`${item.damage} + `}
+											<Twemoji emoji='🔥' className={styles.emoji} />
+											{`${item.burnDamage} burn`}
+										</span> :
+										<span>
+											{item.damage}
+										</span>
+							}
 						</div>
 					}
 					{
@@ -287,6 +256,14 @@ function ItemInfo({ item, ammoFor, usedToCraft, recyclesFrom, obtainedFrom }) {
 							items={obtainedFrom}
 							header='Item'
 						/>
+						{
+							!!obtainedFromMonsters.length &&
+							<ItemTable
+								items={obtainedFromMonsters}
+								header='Enemy'
+								enemy
+							/>
+						}
 					</TabPanel>
 				}
 			</Tabs>

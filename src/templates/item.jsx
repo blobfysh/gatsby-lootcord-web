@@ -16,6 +16,10 @@ function Item({ data }) {
 					usedToCraft={data.usedToCraft.nodes}
 					recyclesFrom={data.recyclesFrom.nodes}
 					obtainedFrom={data.obtainedFrom.nodes}
+					obtainedFromMonsters={[
+						...data.obtainedFromEnemiesMain.nodes,
+						...data.obtainedFromEnemiesExtras.nodes.filter(node => !data.obtainedFromEnemiesMain.nodes.some(mainNode => mainNode.name === node.name))
+					]}
 				/>
 			</section>
 		</Layout>
@@ -29,9 +33,14 @@ export const query = graphql`
 			category
 			tier
 			sell
-			buy
+			buy {
+				price
+				currency
+			}
 			maxDamage
 			minDamage
+			bleedDamage
+			burnDamage
 			damage
 			description
 			cooldown
@@ -39,6 +48,8 @@ export const query = graphql`
 				damage
 				item {
 					name
+					bleedDamage
+					burnDamage
 					image {
 						extension
 						publicURL
@@ -155,6 +166,34 @@ export const query = graphql`
 		obtainedFrom: allItem(filter: {possibleItems: {elemMatch: {item: {name: {eq: $item}}}}}) {
 			nodes {
 				name
+				image {
+					extension
+					publicURL
+					childImageSharp {
+						fluid(maxHeight: 175) {
+							...GatsbyImageSharpFluid
+						}
+					}
+				}
+			}
+		}
+		obtainedFromEnemiesMain: allMonster(filter: {loot: {main: {elemMatch: {item: {name: {eq: $item}}}}}}) {
+			nodes {
+				name: rawName
+				image {
+					extension
+					publicURL
+					childImageSharp {
+						fluid(maxHeight: 175) {
+							...GatsbyImageSharpFluid
+						}
+					}
+				}
+			}
+		}
+		obtainedFromEnemiesExtras: allMonster(filter: {loot: {extras: {elemMatch: {item: {name: {eq: $item}}}}}}) {
+			nodes {
+				name: rawName
 				image {
 					extension
 					publicURL

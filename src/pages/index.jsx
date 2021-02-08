@@ -7,6 +7,7 @@ import HomePost from '../components/home-post/home-post'
 import SlideIn from '../components/slide-in/slide-in'
 import Hero from '../components/hero/hero'
 import Leaderboard from '../components/leaderboard/leaderboard'
+import Wave from 'react-wavify'
 
 function HeroText() {
 	return <div>A <span className='rustyred'>Rust</span> themed fighting and looting bot for <span className='blurple'>Discord</span></div>
@@ -43,6 +44,12 @@ function Home({ data }) {
 				text={HeroText()}
 				image={data.file.childImageSharp.fixed}
 				buttons={HeroButtons()}
+			/>
+			<Wave
+				fill={'var(--nav-bg-color)'}
+				style={{
+					transform: 'rotateX(180deg) translateY(20px)'
+				}}
 			/>
 			<section className='section container'>
 				{data.allMarkdownRemark.nodes.map((node, i) => (

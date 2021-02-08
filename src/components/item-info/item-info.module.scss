@@ -6,7 +6,7 @@
     align-items: center;
     background-color: var(--card-bg-color);
     padding: 10px;
-    width: fit-content;
+    width: 100%;
     border-radius: 4px;
     height: fit-content;
     margin-right: 0;
@@ -81,6 +81,11 @@
     margin: 10px;
 }
 
+.wideImage {
+    width: 100%;
+    margin: 10px;
+}
+
 .table {
     display: flex;
     flex-flow: column nowrap;
@@ -139,6 +144,15 @@
     &.tabSelected {
         background-color: var(--card-hover-bg-color);
         color: var(--nav-txt-color);
+    }
+}
+
+.emoji {
+    width: 25px;
+    display: inline-block;
+
+    & img {
+        vertical-align: middle;
     }
 }
 

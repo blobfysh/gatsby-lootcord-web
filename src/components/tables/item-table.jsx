@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import styles from './table.module.scss'
 
-function ItemTable({ items, header }) {
+function ItemTable({ items, header, enemy = false }) {
 	return (
 		<table className={styles.table}>
 			<thead>
@@ -17,7 +17,7 @@ function ItemTable({ items, header }) {
 					<tr key={item.name}>
 						<td className={styles.itemCell}>
 							<div className={styles.itemCell}>
-								<div className={styles.ammoImage}>
+								<div className={enemy ? styles.enemyImage : styles.ammoImage}>
 									{
 										item.image.extension !== 'gif' ?
 											<Img
@@ -32,8 +32,8 @@ function ItemTable({ items, header }) {
 											/>
 									}
 								</div>
-								<Link to={`/item/${item.name}`}>
-									{item.name}
+								<Link to={enemy ? `/enemy/${item.name}` : `/item/${item.name}`}>
+									{enemy ? item.name.split('_').map(part => part[0].toUpperCase() + part.slice(1)).join(' ') : item.name}
 								</Link>
 							</div>
 						</td>

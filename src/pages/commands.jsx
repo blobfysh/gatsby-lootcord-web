@@ -19,7 +19,7 @@ function Commands({ data }) {
 		setSearch(e.target.value)
 	}
 
-	const filteredCommands = data.allCommand.nodes.filter(node => node.category === category || (category === null && (node.name.includes(search) || node.description.toLowerCase().includes(search))))
+	const filteredCommands = data.allCommand.nodes.filter(node => node.category === category || (category === null && (node.name.includes(search.toLowerCase()) || node.description.toLowerCase().includes(search))))
 
 	return (
 		<Layout>
