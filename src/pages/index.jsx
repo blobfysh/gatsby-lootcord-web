@@ -17,7 +17,7 @@ function HeroButtons() {
 	return [
 		<React.Fragment>
 			<a
-				href='https://discordapp.com/oauth2/authorize?client_id=493316754689359874&amp;permissions=388160&amp;scope=bot'
+				href='https://discord.com/oauth2/authorize?client_id=493316754689359874&permissions=388160&scope=bot%20applications.commands'
 				target='_blank'
 				rel='noopener noreferrer'
 				className='button is-primary is-large'
