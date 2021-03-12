@@ -15,33 +15,24 @@ function HeroText() {
 
 function HeroButtons() {
 	return [
-		<div className='has-text-centered'>
-			<div>
-				<a
-					href='https://discordapp.com/oauth2/authorize?client_id=493316754689359874&amp;permissions=388160&amp;scope=bot'
-					target='_blank'
-					rel='noopener noreferrer'
-					className='button is-primary is-large'
-				>
-					Invite
-				</a>
-				<a
-					href='https://discord.gg/apKSxuE'
-					target='_blank'
-					rel='noopener noreferrer'
-					className='button is-dark is-large'
-				>
-					Discord Server
-				</a>
-			</div>
+		<React.Fragment>
 			<a
-				href='https://discord.com/oauth2/authorize?client_id=755926417954308106&permissions=388160&scope=bot%20applications.commands'
+				href='https://discordapp.com/oauth2/authorize?client_id=493316754689359874&amp;permissions=388160&amp;scope=bot'
 				target='_blank'
 				rel='noopener noreferrer'
+				className='button is-primary is-large'
 			>
-				<u>Check out Lootcord Monthly, a new version of Lootcord that is wiped every month.</u>
+				Invite
 			</a>
-		</div>
+			<a
+				href='https://discord.gg/apKSxuE'
+				target='_blank'
+				rel='noopener noreferrer'
+				className='button is-dark is-large'
+			>
+				Discord Server
+			</a>
+		</React.Fragment>
 	]
 }
 
