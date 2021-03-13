@@ -10,3 +10,12 @@
     background-color: var(--bg-color);
     transition: background-color ease .5s;
 }
+
+.emoji {
+    width: 25px;
+    display: inline-block;
+
+    & img {
+        vertical-align: middle;
+    }
+}
