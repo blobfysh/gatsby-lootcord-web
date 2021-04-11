@@ -16,9 +16,9 @@ The use of secondary accounts operated by you to avoid cooldowns, hoard weapons 
 
 ## Rule #3
 
-**Do not leave servers or t-deactivate after attacking someone to avoid counterattacks.**
+**Do not leave servers you have just activated in to avoid the deactivate cooldown.**
 
-There is a system in place to try and avoid abusing t-deactivate, but moderators will be notified if you leave a server after attacking someone.
+This is known as cooldown dodging, and is automatically reported to moderators on offense. If you received a warning for this just be aware that after activating in a server, you must wait a bit before being able to use the deactivate command.
 
 ## Rule #4
 
