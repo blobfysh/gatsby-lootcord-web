@@ -86,8 +86,8 @@ function Items({ data }) {
 									value: 'Storage'
 								},
 								{
-									display: 'Materials',
-									value: 'Material'
+									display: 'Resources',
+									value: 'Resource'
 								},
 								{
 									display: 'Banners',

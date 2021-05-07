@@ -5,7 +5,7 @@ import Img from 'gatsby-image'
 import styles from './table.module.scss'
 import Twemoji from '../twemoji'
 
-function AmmoTable({ items, baseMinDamage, baseMaxDamage, bleedDamage }) {
+function AmmoTable({ items, baseMinDamage, baseMaxDamage }) {
 	return (
 		<table className={styles.table}>
 			<thead>
@@ -43,14 +43,20 @@ function AmmoTable({ items, baseMinDamage, baseMaxDamage, bleedDamage }) {
 							{
 								ammo.item.bleedDamage ?
 									<span>
-										{`${baseMinDamage + ammo.damage} - ${baseMaxDamage + ammo.damage} + `}
-										<Twemoji emoji='🩸' className={styles.emoji} />
-										{`${ammo.item.bleedDamage} bleed`}
+										{`${baseMinDamage + ammo.damage} - ${baseMaxDamage + ammo.damage}`}
+										<strong>
+											{' + '}
+											<Twemoji emoji='🩸' className={styles.emoji} />
+											{` ${ammo.item.bleedDamage} bleed`}
+										</strong>
 									</span> : ammo.item.burnDamage ?
 										<span>
-											{`${baseMinDamage + ammo.damage} - ${baseMaxDamage + ammo.damage} + `}
-											<Twemoji emoji='🔥' className={styles.emoji} />
-											{`${ammo.item.burnDamage} burn`}
+											{`${baseMinDamage + ammo.damage} - ${baseMaxDamage + ammo.damage}`}
+											<strong>
+												{' + '}
+												<Twemoji emoji='🔥' className={styles.emoji} />
+												{` ${ammo.item.burnDamage} burn`}
+											</strong>
 										</span> :
 										`${baseMinDamage + ammo.damage} - ${baseMaxDamage + ammo.damage}`
 							}
