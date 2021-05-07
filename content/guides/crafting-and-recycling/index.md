@@ -21,8 +21,10 @@ Some items are able to be recycled for materials, you can check if an item can b
 ![recycling assault_rifle example](./recycle.png)
 
 
-## Checking What Items a Material Can Craft
+## Checking What Items a Resource Can Craft
 
 You can see all items a materials can be used to craft with the `item` command, ex. `t-item metal` would show all items metal can craft:
 
 ![items metal can be used to craft](./metal.png)
+
+You can also check what an item can be used to craft on the [items](/items) page.
