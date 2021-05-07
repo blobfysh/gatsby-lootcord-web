@@ -14,7 +14,8 @@ You can view all items in your `inventory`:
 
 Your inventory shows how much money and health you have, as well as your currently equipped storage container and all items you own.
 
-You can also view another player's inventory by specifying: `t-inv blobfysh#4679`. This will only work if they are in the same server.
+[[info]]
+| You can also view another player's inventory by specifying: `t-inv blobfysh#4679`. This will only work if they are in the same server.
 
 ## Attacking
 
@@ -46,4 +47,5 @@ You can view your K/D ratio and other statistics on your `profile`:
 
 ![profile command](./profile.png)
 
-You can view another player's profile by specifying: `t-profile blobfysh#4679`. This will only work if they are in the same server.
+[[info]]
+| You can view another player's profile by specifying: `t-profile blobfysh#4679`. This will only work if they are in the same server.

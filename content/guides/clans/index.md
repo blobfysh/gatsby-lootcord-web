@@ -32,6 +32,9 @@ Clans allow you to team up with other looters and combine your power. All clans 
 - `t-clan deposit <item/money> <amount>` - Deposit items/money into your clan.
 - `t-clan withdraw <item/money> <amount>` - Withdraw items/money from your clan.
 
+[[danger]]
+| Be careful who you promote to trusted, they will be able to withdraw items/money from the clan and may rob you!
+
 ### Rank Needed - Officer+
 
 - `t-clan invite <@user>` - Invite a user to your clan.

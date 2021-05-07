@@ -8,6 +8,9 @@ A status effect is an effect that passively alters your player. They come in two
 
 ![status effects](./effects.png)
 
+[[warning]]
+| A status effect will never kill a player, instead their health will hit 1 and not reduce any further.
+
 ## Bleeding
 
 Bleeding is a debuff that reduces health at a rate of **5 HP every 5 minutes**. It can be reduced by using a [bandage](/item/bandage) or [large\_medkit](/item/large_medkit).

@@ -34,7 +34,7 @@ You can search black market listings on the bot using the `blackmarket` command.
 
 ## How do I gain experience/level up?
 
-You can gain experience from opening boxes and killing other players.
+You can gain experience from opening boxes, crafting items or killing other players.
 
 You can check your progress towards the next level with the `xp` command. Leveling up will reward you with a crate based on your level and unlock new crafting recipes.
 
@@ -67,3 +67,7 @@ A passive shield is a 24 hour attack shield given to you when you are killed. Th
 Scrap is the dedicated currency for all the gambling commands. You can get it by buying it: `t-buy scrap <amount>`
 
 Scrap is also used to purchase unique items from Outpost, you can check what you can purchase on the homepage of the `shop`.
+
+## Can I spawn items?
+
+If you are a server moderator, you can enable server-side economy mode. With this mode enabled, all player data will be isolated to your server and you will be able to spawn items. [Read more](/guides/server-side-economies)

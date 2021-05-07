@@ -26,6 +26,11 @@ If you manage the server, you can force all attacks to be random with the `toggl
 
 ## Ammunition
 
-Weapons are categorized by their type, melee or ranged. Melee weapons don't use ammo will always break when used while ranged weapons require ammo and have a chance of breaking. You can check what ammo a weapon uses with the `item` command:
+Weapons are categorized by their type, melee or ranged. Melee weapons don't use ammo but will always break when used while most ranged weapons require ammo and have a chance of breaking.
+
+You can check what ammo a weapon uses with the `item` command:
 
 ![item command ammo example](./ammo.png)
+
+[[info]]
+| You can also see what ammo a weapon uses by checking its item page here on the website!

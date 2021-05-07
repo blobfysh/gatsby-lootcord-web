@@ -92,3 +92,25 @@ code {
 a.link:hover {
     text-decoration: underline;
 }
+
+.custom-block {
+    padding: 10px;
+    border-radius: 5px;
+
+    p {
+        color: var(--p-txt-color);
+    }
+
+    &.is-danger {
+        background: rgba(240, 71, 71, .1);
+        border: 2px solid rgba(240, 71, 71, .5);
+    }
+    &.is-warning {
+        background: rgba(250, 166, 26, .1);
+        border: 2px solid rgba(250, 166, 26, .5);
+    }
+    &.is-info {
+        background: rgba(114, 137, 218, .1);
+        border: 2px solid rgba(114, 137, 218, .5);
+    }
+}
