@@ -38,3 +38,6 @@ As a server moderator, you can use various commands to control the economy:
 - `wipeserver` - Used to wipe everyone in the server, good for when you want to hold contests (first person to get x item wins, first to get x kills wins, etc).
 
 ![using the giveitem command](./giveitemcommand.png)
+
+[[info]]
+| The `giveitem` command can be used to give any item **except** limited items.
