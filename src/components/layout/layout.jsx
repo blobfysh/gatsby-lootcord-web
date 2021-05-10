@@ -7,22 +7,7 @@ import UserContext, { defaultUser } from '../../context/UserContext'
 
 import Header from '../header/header'
 import Footer from '../footer/footer'
-import Banner from '../banner/banner'
-import Twemoji from '../twemoji'
 import styles from './layout.module.scss'
-
-function BannerText() {
-	return (
-		<a
-			href='https://discord.com/oauth2/authorize?client_id=755926417954308106&permissions=388160&scope=bot%20applications.commands'
-			target='_blank'
-			rel='noopener noreferrer'
-		>
-			<Twemoji emoji='🎉' className={styles.emoji} />{' '}
-			<u>Check out Lootcord Monthly, a new version of Lootcord that gets wiped every month.</u>
-		</a>
-	)
-}
 
 function Layout({ children }) {
 	const [theme, setTheme] = useState(null)
@@ -97,9 +82,6 @@ function Layout({ children }) {
 		<div className={styles.contentFull}>
 			<ThemeContext.Provider value={theme}>
 				<UserContext.Provider value={user}>
-					<Banner
-						text={BannerText()}
-					/>
 					<Header />
 					<div className={styles.contentBody}>
 						{children}

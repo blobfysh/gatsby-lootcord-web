@@ -93,7 +93,7 @@ module.exports = {
 							linkImagesToOriginal: false,
 							maxWidth: 600,
 							backgroundColor: 'transparent',
-							wrapperStyle: 'margin-top: 30px;margin-bottom: 100px;border-radius: 4px;overflow: hidden;box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);'
+							wrapperStyle: 'margin-top: 1em;margin-bottom: 2em;border-radius: 4px;overflow: hidden;box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);'
 						}
 					},
 					{
@@ -111,6 +111,25 @@ module.exports = {
 								'vertical-align': '-0.3em',
 								'height': '1.5em',
 								'width': '1.5em'
+							}
+						}
+					},
+					{
+						resolve: 'gatsby-remark-custom-blocks',
+						options: {
+							blocks: {
+								danger: {
+									classes: 'is-danger',
+									title: 'optional'
+								},
+								info: {
+									classes: 'is-info',
+									title: 'optional'
+								},
+								warning: {
+									classes: 'is-warning',
+									title: 'optional'
+								}
 							}
 						}
 					}

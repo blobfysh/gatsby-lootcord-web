@@ -5,7 +5,7 @@ Items are separated into **7** categories based on their use:
 - **Ammunition** - Ammo for ranged weapons.
 - **Usable Items** - Items that can be used on yourself. Healing items, armor and crates that you can open are usable items.
 - **Storage Containers** - You can `equip` these to increase your inventory space.
-- **Materials** - Items that are used to craft other items.
+- **Resources** - Items that are used to craft other items.
 - **Banners** - You can `equip` these to change the look of your `profile`.
 
 There are also **3** tiers:

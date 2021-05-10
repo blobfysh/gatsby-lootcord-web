@@ -125,14 +125,20 @@ function ItemInfo({ item, ammoFor, usedToCraft, recyclesFrom, obtainedFrom, obta
 							{
 								item.bleedDamage ?
 									<span>
-										{`${item.damage} + `}
-										<Twemoji emoji='🩸' className={styles.emoji} />
-										{`${item.bleedDamage} bleed`}
+										{item.damage}
+										<strong>
+											{' + '}
+											<Twemoji emoji='🩸' className={styles.emoji} />
+											{` ${item.bleedDamage} bleed`}
+										</strong>
 									</span> : item.burnDamage ?
 										<span>
-											{`${item.damage} + `}
-											<Twemoji emoji='🔥' className={styles.emoji} />
-											{`${item.burnDamage} burn`}
+											{item.damage}
+											<strong>
+												{' + '}
+												<Twemoji emoji='🔥' className={styles.emoji} />
+												{` ${item.burnDamage} burn`}
+											</strong>
 										</span> :
 										<span>
 											{item.damage}
