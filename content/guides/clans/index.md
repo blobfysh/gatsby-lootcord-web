@@ -10,8 +10,8 @@ Clans allow you to team up with other looters and combine your power. All clans 
 
 - Clans have a maximum member limit of **20**.
 - Clan members cannot attack each other.
-- You can store money in the clan.
-- Clans require a daily upkeep of 5,000 Lootcoin per member in the clan, this upkeep is automatically taken out of the clans bank each night. If you fail to pay the upkeep for the day, a random item will be removed from the clan vault.
+- You can store scrap in the clan.
+- Clans require a daily upkeep of 5,000 scrap per member in the clan, this upkeep is automatically taken out of the clans bank each night. If you fail to pay the upkeep for the day, a random item will be removed from the clan vault.
 - Each member can provide up to **5** power to the clan, increasing the combined [clan power](#clan-power) and allowing more items to be stored in the vault (1 power = 1 item slot in the vault).
 - Only **Trusted**+ ranks provide power to a clan, this means you will have to promote Recruits in order for them to provide power to the clan. **Be careful though, Trusted members can withdraw items/money from the clan!**
 
@@ -20,8 +20,8 @@ Clans allow you to team up with other looters and combine your power. All clans 
 ### Rank Needed - None
 
 - `t-clan help` - Shows all clan commands
-- `t-clan create <clan name>` - Creates a new clan at the cost of 100,000 Lootcoin
-- `t-clan info <clan name>` - Look up information about a clan such as members, money, power, and upkeep.
+- `t-clan create <clan name>` - Creates a new clan at the cost of 100,000 scrap.
+- `t-clan info <clan name>` - Look up information about a clan such as members, scrap, power, and upkeep.
 - `t-clan logs <clan name>` - Look up a clans logs or view your own clan logs. Show withdraws, deposits, raids, members joining/leaving.
 - `t-clan vault <clan name>` - Similar syntax to the info command, but shows the items in a clans vault.
 - `t-clan leave` - Leave your current clan.
@@ -51,7 +51,7 @@ Clans allow you to team up with other looters and combine your power. All clans 
 
 ## The Clan Bank and Vault
 
-Clans allow you to store your Lootcoin and items for safekeeping. The clan bank allows you to store up to 1,000,000 Lootcoin for each member in the clan. The clan vault allows you to store a number of items based on the clans [power](#clan-power).
+Clans allow you to store your scrap and items for safekeeping. The clan bank allows you to store up to 1,000,000 scrap for each member in the clan. The clan vault allows you to store a number of items based on the clans [power](#clan-power).
 
 ## Clan Power
 

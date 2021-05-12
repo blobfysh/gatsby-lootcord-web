@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 import ReactMarkdown from 'react-markdown'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
-import lootcoinImg from '../../images/LCNcolor.png'
+import scrapImg from '../../images/scrap.png'
 import CrateTable from '../tables/crate-table'
 import ItemTable from '../tables/item-table'
 import styles from '../item-info/item-info.module.scss'
@@ -46,14 +46,14 @@ function EnemyInfo({ enemy }) {
 					</div>
 					<div className={styles.contentRow}>
 						<div className={styles.infoTag}>
-							<strong>Money</strong>
+							<strong>Scrap</strong>
 						</div>
 						<span>
 							<img
-								src={lootcoinImg}
+								src={scrapImg}
 								alt=''
 								draggable='false'
-								className={styles.lootcoinIcon}
+								className={styles.scrapIcon}
 							/>
 							{formatNumber(enemy.minMoney)} - {formatNumber(enemy.maxMoney)}
 						</span>

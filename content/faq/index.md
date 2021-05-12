@@ -11,7 +11,7 @@ You can view all commands with `t-help`, the most important commands to remember
 1. `use` - Uses an item on yourself or attacks another player with said item.
 1. `items` - View a full list of items. Specify an item to see specific information about it.
 1. `buy` - Purchase items, you can also specify an amount to purchase.
-1. `sell` - Sell your items for Lootcoin.
+1. `sell` - Sell your items for scrap.
 1. `leaderboard` - View the best players in your server or globally.
 1. `mysettings` - View your current settings such as notifications, and how to change them.
 1. `cd` - Check your current command cooldowns.
@@ -24,7 +24,7 @@ You can open boxes with the `use` command: `t-use crate`
 
 ## What happens if I die?
 
-If you're killed by another player, you will lose 75% of your Lootcoin, 50% of your Scrap and 2 or more items depending on the number of items in your inventory.
+If you're killed by another player, you will lose 75% of your scrap and 2 or more items depending on the number of items in your inventory.
 
 ## What is the black market?
 
@@ -61,12 +61,6 @@ If you have the Manage Server permission, you can change the prefix with the `se
 ## What is a passive shield?
 
 A passive shield is a 24 hour attack shield given to you when you are killed. The passive shield will automatically be removed if you decide to attack someone.
-
-## What is Scrap and how do I get it?
-
-Scrap is the dedicated currency for all the gambling commands. You can get it by buying it: `t-buy scrap <amount>`
-
-Scrap is also used to purchase unique items from Outpost, you can check what you can purchase on the homepage of the `shop`.
 
 ## Can I spawn items?
 
