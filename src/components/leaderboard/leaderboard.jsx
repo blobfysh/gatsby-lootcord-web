@@ -4,8 +4,7 @@ import Img from 'gatsby-image'
 import styles from './leaderboard.module.scss'
 
 function ValueDisplay({ value, type }) {
-	if (type === 'money') return <span><strong>{value} Lootcoin</strong></span>
-	else if (type === 'scrap') return <span><strong>{value} Scrap</strong></span>
+	if (type === 'money') return <span><strong>{value} Scrap</strong></span>
 	else if (type === 'level') return <span><strong>Level {value}</strong></span>
 	else if (value === '1') return <span><strong>{value} Kill</strong></span>
 	return <span><strong>{value} Kills</strong></span>
@@ -86,29 +85,6 @@ function Leaderboard({ title }) {
 						}
 					}
 				}
-				scrap: allLeaderboardUser(
-					limit: 3,
-					filter: { lbType: { eq: "scrap" }},
-					sort: { fields: rawValue, order: DESC }
-				) {
-					nodes {
-						id
-						value
-						lbType
-						user {
-							avatar {
-								childImageSharp {
-									fluid(maxWidth: 200) {
-										...GatsbyImageSharpFluid
-									}
-								}
-								publicURL
-								extension
-							}
-							tag
-						}
-					}
-				}
 				level: allLeaderboardUser(
 					limit: 3,
 					filter: { lbType: { eq: "level" }},
@@ -168,30 +144,8 @@ function Leaderboard({ title }) {
 		<div>
 			<h1 className={`title is-1 ${styles.title}`}>{title}</h1>
 			<div className={styles.lbSection}>
-				<h2 className='subtitle is-2 has-text-centered'>Lootcoin</h2>
-				{data.money.nodes.map((node, i) => {
-					if (i === 0) {
-						return <FirstPlacePlayer
-							key={node.id}
-							avatar={node.user.avatar}
-							name={node.user.tag}
-							value={node.value}
-							type={node.lbType}
-						/>
-					}
-
-					return <Player
-						key={node.id}
-						avatar={node.user.avatar}
-						name={node.user.tag}
-						value={node.value}
-						type={node.lbType}
-					/>
-				})}
-			</div>
-			<div className={styles.lbSection}>
 				<h2 className='subtitle is-2 has-text-centered'>Scrap</h2>
-				{data.scrap.nodes.map((node, i) => {
+				{data.money.nodes.map((node, i) => {
 					if (i === 0) {
 						return <FirstPlacePlayer
 							key={node.id}

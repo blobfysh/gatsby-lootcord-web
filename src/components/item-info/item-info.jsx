@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 import ReactMarkdown from 'react-markdown'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
-import lootcoinImg from '../../images/LCNcolor.png'
 import scrapImg from '../../images/scrap.png'
 import AmmoTable from '../tables/ammo-table'
 import CraftTable from '../tables/craft-table'
@@ -62,21 +61,12 @@ function ItemInfo({ item, ammoFor, usedToCraft, recyclesFrom, obtainedFrom, obta
 								<strong>Buy Price</strong>
 							</div>
 							<span>
-								{
-									item.buy.currency === 'money' ?
-										<img
-											src={lootcoinImg}
-											alt=''
-											draggable='false'
-											className={styles.lootcoinIcon}
-										/> :
-										<img
-											src={scrapImg}
-											alt=''
-											draggable='false'
-											className={styles.lootcoinIcon}
-										/>
-								}
+								<img
+									src={scrapImg}
+									alt=''
+									draggable='false'
+									className={styles.scrapIcon}
+								/>
 								{formatNumber(parseInt(item.buy.price))}
 							</span>
 						</div>
@@ -89,19 +79,12 @@ function ItemInfo({ item, ammoFor, usedToCraft, recyclesFrom, obtainedFrom, obta
 							</div>
 							<span>
 								<img
-									src={lootcoinImg}
-									alt=''
-									draggable='false'
-									className={styles.lootcoinIcon}
-								/>
-								{formatNumber(parseInt(item.sell))} Lootcoin (
-								<img
 									src={scrapImg}
 									alt=''
 									draggable='false'
-									className={styles.lootcoinIcon}
+									className={styles.scrapIcon}
 								/>
-								{formatNumber(Math.floor(parseInt(item.sell) * 1.5))} Scrap)
+								{formatNumber(parseInt(item.sell))}
 							</span>
 						</div>
 					}
