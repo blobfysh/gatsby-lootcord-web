@@ -6,7 +6,7 @@ date: '2021-05-19'
 
 ## What Are Clans?
 
-With clans you can team up with up to **20** friends, store loot and scrap and raid other clans for their loot.
+Clans allow you to team up with up to **20** friends, store loot together, and raid other clans for their loot.
 
 The main benefits to having a clan:
 
@@ -36,7 +36,7 @@ To remove items/scrap from the clan, simply use the `t-clan withdraw` command.
 
 The amount of items or scrap a clan can hold depends on the clans level. You can use the `clan upgrade` command to upgrade your clan to the next level:
 
-#### Level: 1: Twig
+#### Level 1: Twig
 
 This is the level your clan will start with.
 
