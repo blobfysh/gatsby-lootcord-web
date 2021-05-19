@@ -47,7 +47,7 @@ This is the level your clan will start with.
 
 #### Level 2: Wood
 
-Upgrade costs **50,000 scrap and 2x wood**, upgrades the following:
+Upgrade costs **50,000 scrap and 2x [wood](/item/wood)**, upgrades the following:
 
 - Storage can hold 5 items.
 - Scrap bank can hold 150,000 scrap.
@@ -56,7 +56,7 @@ Upgrade costs **50,000 scrap and 2x wood**, upgrades the following:
 
 #### Level 3: Stone
 
-Upgrade costs **150,000 scrap and 3x stone**, upgrades the following:
+Upgrade costs **150,000 scrap and 3x [stone](/item/stone)**, upgrades the following:
 
 - Storage can hold 10 items.
 - Scrap bank can hold 300,000 scrap.
@@ -65,7 +65,7 @@ Upgrade costs **150,000 scrap and 3x stone**, upgrades the following:
 
 #### Level 4: Metal
 
-Upgrade costs **300,000 scrap and 4x metal**, upgrades the following:
+Upgrade costs **300,000 scrap and 4x [metal](/item/metal)**, upgrades the following:
 
 - Storage can hold 20 items.
 - Scrap bank can hold 1,000,000 scrap.
@@ -74,12 +74,25 @@ Upgrade costs **300,000 scrap and 4x metal**, upgrades the following:
 
 #### Level 5: High Quality Metal
 
-Upgrade costs **1,000,000 scrap and 4x high\_quality\_metal**, upgrades the following:
+Upgrade costs **1,000,000 scrap and 4x [high\_quality\_metal](/item/high_quality_metal)**, upgrades the following:
 
 - Storage can hold 40 items.
 - Scrap bank can hold 2,000,000 scrap.
 - Clan health increased to 300.
 - Daily upkeep costs 50,000 scrap.
+
+## Repairing The Clan
+
+When someone uses an explosive on your clan, you may notice the health has dropped. **Clans gain 5 health every 2 hours passively**, but you might want to heal the clan faster than that. This is where the `t-clan repair` command comes in. Depending on your clans level, you can use materials to increase the clans health instantly.
+
+- Level 1 (Twig) costs 1 [wood](/item/wood) to repair 50 health.
+- Level 2 (Wood) costs 1 [wood](/item/wood) to repair 50 health.
+- Level 3 (Stone) costs 1 [stone](/item/stone) to repair 50 health.
+- Level 4 (Metal) costs 1 [metal](/item/metal) to repair 50 health.
+- Level 5 (High quality metal) costs 1 [high\_quality\_metal](/item/high_quality_metal) to repair 100 health.
+
+[[info]]
+| You can repair the clan multiple times with the `clan repair` command, just provide the amount of times you want to repair: `t-clan repair 3` to repair 3 times.
 
 ## Clan Ranks
 
@@ -118,7 +131,8 @@ Each member in your clan will have a rank, when you invite a new member to the c
 
 - `t-clan promote <@user>` - Promotes a member in your clan to a higher rank.
 - `t-clan demote <@user>` - Demotes a member in your clan to a lower rank.
-- `t-clan upgrade` - Used to upgrade the clan
+- `t-clan upgrade` - Used to upgrade the clan.
+- `t-clan repair` - Repair the clan using materials.
 
 [[info]]
 | The `promote`, `demote` and `kick` commands can be used with the number from the clan member list. This is useful if you're trying to demote or kick a user who is in your clan but doesn't share a server with you.
