@@ -81,6 +81,9 @@ Upgrade costs **1,000,000 scrap and 4x [high\_quality\_metal](/item/high_quality
 - Clan health increased to 300.
 - Daily upkeep costs 50,000 scrap.
 
+[[danger]]
+| If the daily upkeep is not paid, a random item will be lost from the clan storage. This will keep happening every day the upkeep isn't paid until there are no items left in the storage! To pay the upkeep, just deposit the required scrap to the scrap bank and it will automatically be removed each day.
+
 ## Repairing The Clan
 
 When someone uses an explosive on your clan, you may notice the health has dropped. **Clans gain 5 health every 2 hours passively**, but you might want to heal the clan faster than that. This is where the `t-clan repair` command comes in. Depending on your clans level, you can use materials to increase the clans health instantly.
