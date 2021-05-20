@@ -28,9 +28,14 @@
         font-family: $title-family;
     }
 
-    h2, h3, h4, h5 {
+    h2 {
         font-weight: 600;
         color: var(--p-txt-color);
+    }
+
+    h3, h4, h5 {
+        font-weight: 600;
+        color: var(--subtitle-color);
     }
 
     li {
@@ -94,6 +99,8 @@ a.link:hover {
 }
 
 .custom-block {
+    margin-bottom: 15px;
+    margin-top: 5px;
     padding: 10px;
     border-radius: 5px;
 

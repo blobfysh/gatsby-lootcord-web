@@ -21,7 +21,7 @@ If you enable server-side economies, you'll notice some differences from the usu
 - The `convert` command cannot be used.
 - The monthly level wipe does **NOT** affect server-side economies. We feel that server moderators should use the `wipeserver` command instead.
 
-## Enabling server-side economy
+## Enabling Server-Side Economy
 
 If you have the `Manage Server` permission, you can toggle server-side economy using the `toggleservereconomy` command.
 

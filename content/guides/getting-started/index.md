@@ -4,7 +4,7 @@ preview: 'How do you get items? What are boxes?'
 date: '2020-11-19'
 ---
 
-## Opening boxes
+## Opening Boxes
 
 You can open boxes with `t-use <box> <optional amount>` or `t-open <box> <optional amount>`.
 
