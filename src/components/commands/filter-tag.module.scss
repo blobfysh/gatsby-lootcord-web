@@ -1,6 +1,8 @@
 @import '~bulma/sass/utilities/_all.sass';
 
 .tagButton {
+    font-weight: 800;
+    color: var(--bold-txt);
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
@@ -21,16 +23,11 @@
     &:hover {
         background-color: var(--card-hover-bg-color);
     }
+}
 
-    &:focus {
-        background-color: var(--card-hover-bg-color);
-    }
-
-    &.selected {
-        text-decoration: underline;
-        text-decoration-thickness: 2px;
-        color: var(--blurple);
-    }
+.selected {
+    color: var(--rustyred);
+    background-color: var(--card-hover-bg-color);
 }
 
 .emoji {

@@ -1,7 +1,7 @@
 @import '~bulma/sass/utilities/_all.sass';
 
 .commandWrap {
-    margin-bottom: 5px;
+    margin-bottom: 0.75rem;
     display: flex;
     flex-flow: column nowrap;
     overflow: hidden;
@@ -34,13 +34,13 @@
 }
 
 .cmdInfo {
-    padding: 1rem;
+    padding: 0.5rem;
     background-color: var(--card-bg-color);
     border-top: solid rgba(0, 0, 0, 0.3) 1px;
 }
 
 .infoWrap {
-    max-height: 100px;
+    max-height: 250px;
     transition: max-height 0.3s;
     text-align: left;
 }
@@ -65,6 +65,17 @@
     & .fontIcon {
         transform: rotate(180deg);
     }
+}
+
+.cmdInfoHeading {
+    font-weight: 600;
+    color: var(--bold-txt) !important;
+    font-size: 1.1rem;
+}
+
+.cmdTitle {
+    color: var(--rustyred) !important;
+    font-weight: 600;
 }
 
 @include mobile {

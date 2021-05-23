@@ -11,7 +11,7 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    padding: 5px;
+    padding: 1.5rem;
     background-color: var(--nav-bg-color);
     border-radius: 4px;
     height: fit-content;
@@ -27,9 +27,6 @@
 @include touch {
     .filtersWrap {
         margin-bottom: 15px;
-        padding: 5px;
-    }
-    .categoryTags {
-        flex-flow: row wrap;
+        padding: 1.5rem 0.5rem;
     }
 }

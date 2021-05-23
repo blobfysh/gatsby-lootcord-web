@@ -24,14 +24,14 @@ function Command({ name, description, usage, patronOnly }) {
 				onClick={handleClick}
 			>
 				<div className={styles.cmdName}>
-					<span className='blurple has-text-weight-semibold'>
+					<p className={styles.cmdTitle}>
 						{
 							patronOnly &&
 							<FontAwesomeIcon className={styles.patreonIcon} icon={faPatreon} />
 						}
 						{name}
-					</span>
-					<span><span className={styles.dash}> - </span>{description}</span>
+					</p>
+					<p>{description}</p>
 				</div>
 				<FontAwesomeIcon className={styles.fontIcon} icon={faCaretDown} />
 			</button>
@@ -39,18 +39,22 @@ function Command({ name, description, usage, patronOnly }) {
 				<div className={`${styles.cmdInfo}`}>
 					{
 						patronOnly &&
-						<div>
+						<p className='py-2'>
 							<span>Become a <a
 								href='https://www.patreon.com/bePatron?u=14199989'
 								target='_blank'
 								rel='noopener noreferrer'
+								className='link'
 							>
 								patron
 							</a> to get access to this command!
 							</span>
-						</div>
+						</p>
 					}
-					<span className='content'>Usage: <code>{usage}</code></span>
+					<div className='mb-2'>
+						<span className={styles.cmdInfoHeading}>Usage</span>
+						<p><code>{usage}</code></p>
+					</div>
 				</div>
 			</div>
 		</div>

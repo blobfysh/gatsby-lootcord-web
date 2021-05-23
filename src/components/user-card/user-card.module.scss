@@ -21,6 +21,10 @@
     color: var(--p-txt-color);
     margin-left: 4px;
     margin-right: 4px;
+
+    &:hover {
+        filter: brightness(1.7);
+    }
 }
 
 .imageContainer {
@@ -36,7 +40,7 @@
 }
 
 .name {
-    color: var(--blurple) !important;
+    color: var(--rustyred) !important;
     font-size: 1.4rem;
     margin: 10px;
 }
