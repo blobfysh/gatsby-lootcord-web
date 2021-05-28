@@ -5,7 +5,7 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    padding: 4rem 2rem;
+    padding: 6rem 2rem;
     transition: padding .5s;
     position: relative;
 }
@@ -56,7 +56,7 @@
 
 @include mobile {
     .heroStyle {
-        padding: 2rem 1rem;
+        padding: 3rem 1rem;
     }
     .image {
         width: 220px !important;
