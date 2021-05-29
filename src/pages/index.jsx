@@ -7,7 +7,6 @@ import HomePost from '../components/home-post/home-post'
 import SlideIn from '../components/slide-in/slide-in'
 import Hero from '../components/hero/hero'
 import Leaderboard from '../components/leaderboard/leaderboard'
-import Wave from 'react-wavify'
 
 function HeroText() {
 	return <div>A <span className='rustyred'>Rust</span> themed fighting and looting bot for <span className='blurple'>Discord</span></div>
@@ -45,12 +44,11 @@ function Home({ data }) {
 				image={data.file.childImageSharp.fixed}
 				buttons={HeroButtons()}
 			/>
-			<Wave
-				fill={'var(--nav-bg-color)'}
-				style={{
-					transform: 'rotateX(180deg) translateY(20px)'
-				}}
-			/>
+			<svg viewBox='0 0 1219 132' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink'>
+				<path fill='var(--nav-bg-color)' d='M 0 0 C 221 0 221 25 442 25 L 442 75 L 442 0 L 0 0 Z' stroke-width='0'></path>
+				<path fill='var(--nav-bg-color)' d='M 441 25 C 641 25 641 1 841 1 L 841 1 L 841 0 L 441 0 Z' stroke-width='0'></path>
+				<path fill='var(--nav-bg-color)' d='M 840 1 C 1029.5 1 1029.5 25 1219 25 L 1219 75 L 1219 0 L 840 0 Z' stroke-width='0'></path>
+			</svg>
 			<section className='section container'>
 				{data.allMarkdownRemark.nodes.map((node, i) => (
 					<SlideIn slideInRight={!!(i % 2)} key={node.id}>

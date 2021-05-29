@@ -10,7 +10,7 @@ function FilterTag({ setCategory, label, emoji, category, isSelected }) {
 			onClick={() => { setCategory(category) }}
 		>
 			<Twemoji emoji={emoji} className={styles.emoji} />
-			<strong>{label}</strong>
+			{label}
 		</button>
 	)
 }

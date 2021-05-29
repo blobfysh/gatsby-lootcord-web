@@ -16,22 +16,22 @@ function Footer() {
 					<div>
 						<ul className={styles.footerList}>
 							<li>
-								<Link className='link' to={'/appeal'}>
+								<Link to={'/appeal'}>
 									Appeal
 								</Link>
 							</li>
 							<li>
-								<Link className='link' to={'/rules'}>
+								<Link to={'/rules'}>
 									Rules
 								</Link>
 							</li>
 							<li>
-								<Link className='link' to={'/terms'}>
+								<Link to={'/terms'}>
 									Terms
 								</Link>
 							</li>
 							<li>
-								<Link className='link' to={'/privacy'}>
+								<Link to={'/privacy'}>
 									Privacy
 								</Link>
 							</li>

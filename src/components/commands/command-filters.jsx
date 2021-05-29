@@ -6,7 +6,7 @@ import FilterTag from './filter-tag'
 function CommandFilters({ category, setCategory }) {
 	return (
 		<div className={styles.filtersWrap}>
-			<span className='has-text-weight-semibold'>Categories:</span>
+			<h2 className='title is-4 has-text-weight-semibold'>Category</h2>
 			<div className={styles.categoryTags}>
 				<FilterTag
 					setCategory={setCategory}

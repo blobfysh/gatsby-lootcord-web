@@ -24,6 +24,14 @@
         margin: inherit;
     }
 
+    a {
+        text-decoration: underline;
+
+        &:hover {
+            filter: brightness(1.5);
+        }
+    }
+
     h1, h2, h3, h4, h5 {
         font-family: $title-family;
     }
@@ -44,14 +52,6 @@
 
     table {
         color: var(--p-txt-color);
-    }
-
-    code {
-        background-color: var(--code-bg-color);
-        color: var(--code-txt-color);
-        border-radius: 4px;
-        padding: 3px;
-        margin-top: -2px;
     }
 }
 
@@ -91,11 +91,19 @@ p:not(.token) {
 }
 
 code {
-    background-color: transparent;
+    background-color: var(--code-bg-color);
+    color: var(--code-txt-color);
+    border-radius: 4px;
+    padding: 5px;
+    line-height: 2rem;
 }
 
-a.link:hover {
+a.link {
     text-decoration: underline;
+
+    &:hover {
+        filter: brightness(1.5);
+    }
 }
 
 .custom-block {

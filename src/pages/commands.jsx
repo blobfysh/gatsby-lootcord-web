@@ -37,7 +37,7 @@ function Commands({ data }) {
 							placeHolder='Search commands...'
 							onChange={handleInput}
 							icon={faSearch}
-							className='mb-2'
+							className='mb-3'
 						/>
 						{
 							filteredCommands.map(node => (
