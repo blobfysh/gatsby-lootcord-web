@@ -26,14 +26,6 @@ This is known as cooldown dodging, and is automatically reported to moderators o
 
 ## Rule #5
 
-**No handouts.**
-
-Giving another player free items/money whether it be through trading, the black market, clans, or kills is not allowed. Doing so will result in a warning or trade ban.
-
-You can deposit an item into the clan vault and let a member withdraw it but if you are found to be abusing this with alt accounts or inviting temporary members to withdraw items/money, you will be trade banned.
-
-## Rule #6
-
 **Do not report without reason.**
 
 The report command should only be used when you have evidence that someone is breaking these rules. Spamming the report command may result in a temporary or permanent ban.
