@@ -87,7 +87,7 @@ export const query = graphql`
 				}
 			}
 		}
-		file(relativePath: { eq: "lootcord_icon_small.png" }) {
+		file(relativePath: { eq: "lootcord_scarecrow.png" }) {
 			childImageSharp {
 				fixed(height: 300, width: 300) {
 					...GatsbyImageSharpFixed
