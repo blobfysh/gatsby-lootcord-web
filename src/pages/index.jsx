@@ -9,7 +9,7 @@ import Hero from '../components/hero/hero'
 import Leaderboard from '../components/leaderboard/leaderboard'
 
 function HeroText() {
-	return <div>A <span className='rustyred'>Rust</span> themed fighting and looting bot for <span className='blurple'>Discord</span></div>
+	return <div>A <span style={{ color: '#cd412b' }}>Rust</span> themed fighting and looting bot for <span className='blurple'>Discord</span></div>
 }
 
 function HeroButtons() {
