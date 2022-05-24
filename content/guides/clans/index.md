@@ -154,6 +154,7 @@ Using explosives such as `c4`, you can lower the health of another clan. When a 
 Heres an example of successful clan raid:
 
 ![raiding another clan example](./raiding.png)
-
+#### Important - New Feature
+| Due to the new update, you are now able to use other explosives such as f1 grenades, explosive ammo and smoke grenades to raid other clans. To use these types of ammunition, you require the correct weapon for that ammo. i.e. Smoke grenade - Grenade Launcher, (Something that is able to fire rifle ammo) - Explosive ammo. F1 Grenades are the one exeption (I mean what did you expect it's a flippin handheld bomb).
 [[info]]
 | The items stolen from raids are picked at random.
